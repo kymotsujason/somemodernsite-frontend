@@ -1,0 +1,20 @@
+.footer_bar {
+	background-color: gray;
+	color: lightgray;
+}
+
+.spacing {
+	padding: 2em;
+}
+
+.typist {
+	font-size: 2em;
+}
+
+.p-col-3-5 {
+	width: 32%; 
+}
+
+.readmore {
+	text-decoration: underline;
+}
