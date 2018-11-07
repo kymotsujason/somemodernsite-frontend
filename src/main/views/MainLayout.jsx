@@ -20,7 +20,6 @@ import Blog from "./Blog";
 class MainLayout extends Component {
 	state = {  }
 	render() { 
-		console.log("rendered this page: ");
 		return (  
 			<div>
 				<Header />
