@@ -14,8 +14,8 @@ import {
 
 import Home from "./Home";
 import About from "./About";
-import Portfolio from "./Portfolio";
-import Blog from "./Blog";
+import PortfolioLayout from "./PortfolioLayout";
+import BlogLayout from "./BlogLayout";
 
 class MainLayout extends Component {
 	state = {  }
@@ -40,12 +40,12 @@ class MainLayout extends Component {
 						<Route 
 							exact
 							path={portfolio_url}
-							component={Portfolio} 
+							component={PortfolioLayout} 
 						/>
 						<Route 
 							exact
 							path={blog_url}
-							component={Blog} 
+							component={BlogLayout} 
 						/>
 						<Route 
 							component={NotFound}
