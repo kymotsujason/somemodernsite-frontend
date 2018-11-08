@@ -5,7 +5,7 @@ class PortfolioLayout extends Component {
 	state = {  }
 	render() { 
 		return (  
-			<div className="spacing content-section introduction">
+			<div className="spacing main_container">
 				<Portfolio />
 			</div>
 		);

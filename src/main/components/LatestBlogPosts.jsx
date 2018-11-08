@@ -19,7 +19,7 @@ class LatestBlogPosts extends Component {
 		var cardMenu = [];
 		for (var i = 0; i < this.state.limit; i++) {
 			cardMenu.push(
-				<Card style={{background: '#222', color: 'white'}} className="p-col-3-5 center_text">
+				<Card style={{background: '#222', color: 'white'}} className="p-col center_text" key={i}>
 					<h2>Placeholder title</h2>
 					<h4>Placeholder subtitle</h4>
 					<p>Some text description</p>
@@ -34,9 +34,9 @@ class LatestBlogPosts extends Component {
 
 	render() { 
 		return (  
-			<Card style={{background: '#111', color: 'white'}} className="p-col-6 center_text">
+			<Card style={{background: '#111', color: 'white'}} className="center_text">
 				<h2>Blog updates</h2>
-				<div className="p-grid p-justify-around p-nogutter">
+				<div className="p-grid_nowrap p-justify-around">
 					{ this.renderCard() }
 				</div>
 			</Card>

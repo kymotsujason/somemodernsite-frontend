@@ -13,12 +13,11 @@ class Portfolio extends Component {
 
 	renderCard() {
 		var cardMenu = [];
-
 		for (var i = 0; i < 5; i++) {
 			cardMenu.push(
-				<Card style={{background: '#222', color: 'white'}} className="p-col-2 center_text">
+				<Card style={{background: '#222', color: 'white'}} className="p-col-4 center_text"  key={i}>
 					<NavLink to={"/portfolio"}>
-					<img border="0" alt="Placeholder" src={require('../assets/placeholder.png')} width="100%" height="100%"></img>
+						<img border="0" alt="Placeholder" src={require('../assets/placeholder.png')} width="100%" height="100%"></img>
 					</NavLink>
 					<br></br>
 					<br></br>
@@ -34,7 +33,7 @@ class Portfolio extends Component {
 
 	render() { 
 		return (  
-			<div className="p-grid p-justify-around p-nogutter">
+			<div className="p-col-6 p-grid p-justify-center">
 				{ this.renderCard() }
 			</div>
 		);

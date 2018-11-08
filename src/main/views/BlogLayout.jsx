@@ -6,7 +6,7 @@ class BlogLayout extends Component {
 	state = {  }
 	render() { 
 		return (  
-			<div className="spacing content-section introduction">
+			<div className="spacing main_container">
 				<Blog />
 			</div>
 		);

@@ -14,16 +14,19 @@ class Blog extends Component {
 	renderCard() {
 		var cardMenu = [];
 
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 7; i++) {
 			cardMenu.push(
-				<Card style={{background: '#222', color: 'white'}} className="p-col-2 center_text">
-					<h2>Placeholder title</h2>
-					<h4>Placeholder subtitle</h4>
-					<p>Some text description</p>
-					<NavLink to={"/blog"}>
-						<span className="readmore">Read more</span>
-					</NavLink>
-				</Card>
+				<div>
+					<Card style={{background: '#222', color: 'white'}} className="spacing center_text"  key={i}>
+						<h2>Placeholder title</h2>
+						<h4>Placeholder subtitle</h4>
+						<p>Some text description</p>
+						<NavLink to={"/blog"}>
+							<span className="readmore">Read more</span>
+						</NavLink>
+					</Card>
+					<br></br>
+				</div>
 			)
 		}
 
@@ -32,7 +35,7 @@ class Blog extends Component {
 
 	render() { 
 		return (  
-			<div className="p-grid p-justify-around p-nogutter">
+			<div className="p-col-6">
 				{ this.renderCard() }
 			</div>
 		);
