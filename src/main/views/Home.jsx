@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import Typist from 'react-typist';
 
-import FeaturedProjects from '../components/FeaturedProjects'
-import LatestBlogPosts from '../components/LatestBlogPosts'
+import FeaturedProjects from '../components/FeaturedProjects';
+import LatestBlogPosts from '../components/LatestBlogPosts';
+
+import { portfolio_items } from '../assets/portfolio_preview';
 
 class Home extends Component {
-	state = {  }
+	state = {
+	
+	}
+
 	render() { 
 		return (  
 			<div className="spacing main_container">
@@ -21,7 +26,9 @@ class Home extends Component {
 				</Card>
 				<br></br>
 				<div className="p-col-6">
-					<FeaturedProjects />
+					<FeaturedProjects 
+						portfolio_items = {portfolio_items}
+					/>
 				</div>
 				<br></br>
 				<div className="p-col-6">

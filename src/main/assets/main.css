@@ -18,3 +18,8 @@
 .readmore {
 	text-decoration: underline;
 }
+
+.remove_space {
+	margin:0;
+  	padding:0;
+}

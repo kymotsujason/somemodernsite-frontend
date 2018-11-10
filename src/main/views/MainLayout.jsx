@@ -4,6 +4,7 @@ import Footer from '../../generic_components/views/Footer';
 
 import {Route, Switch} from 'react-router-dom';
 import NotFound from '../../generic_components/views/NotFound';
+import PortfolioAPI from './PortfolioAPI';
 
 import {
 	home_url,
@@ -41,6 +42,11 @@ class MainLayout extends Component {
 							exact
 							path={portfolio_url}
 							component={PortfolioLayout} 
+						/>
+						<Route 
+							exact
+							path={portfolio_url + "/:path"}
+							component={PortfolioAPI} 
 						/>
 						<Route 
 							exact

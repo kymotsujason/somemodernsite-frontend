@@ -16,20 +16,35 @@ class FeaturedProjects extends Component {
 	}
 	
 	renderCard() {
+		var counter = 0;
+		var portfolio_items = this.props.portfolio_items;
 		var cardMenu = [];
-		for (var i = 0; i < this.state.limit; i++) {
-			cardMenu.push(
-				<Card style={{background: '#222', color: 'white'}} className="p-col center_text" key={i}>
-					<NavLink to={"/portfolio"}>
-						<img border="0" alt="Placeholder" src={require('../assets/placeholder.png')} width="100%" height="100%"></img>
-					</NavLink>
-					<br></br>
-					<br></br>
-					<h2>Placeholder title</h2>
-					<h4>Placeholder subtitle</h4>
-					<p>Some text description</p>
-				</Card>
-			)
+		for (var key in portfolio_items) {
+			if (counter < this.state.limit) {
+				var title = portfolio_items[key].title;
+				var subtitle = portfolio_items[key].subtitle;
+				var description = portfolio_items[key].description;
+				var url = portfolio_items[key].url;
+				var date = portfolio_items[key].date;
+
+				cardMenu.push(
+					<Card style={{background: '#222', color: 'white'}} className="p-col-4 center_text"  key={key}>
+						<NavLink to={url}>
+							<img border="0" alt="Placeholder" src={require('../assets/placeholder.png')} width="100%" height="100%"></img>
+						</NavLink>
+						<br></br>
+						<br></br>
+						<h2 className="remove_space">{title}</h2>
+						<p className="remove_space"><small>{date}</small></p>
+						<h4>{subtitle}</h4>
+						<p>{description}</p>
+					</Card>
+				)
+			}
+			else {
+				break;
+			}
+			counter ++;
 		}
 		return cardMenu;
 	}

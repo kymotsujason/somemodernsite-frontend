@@ -40,7 +40,7 @@ class Navbar extends Component {
 
 			tabMenuList.push(
 				/* <li key={key} className={"p-tabmenuitem p-highlight " + this.highlightCurrButton(url)}> */
-				<li key={key} className={" pull_right"}>
+				<li key={key} className={"pull_right"}>
 					<NavLink to={url}>
 						<div className={" "}>
 							{/* <span className={icon + " p-menuitem-icon"}></span> */}
