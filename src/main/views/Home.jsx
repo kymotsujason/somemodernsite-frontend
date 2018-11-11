@@ -18,8 +18,8 @@ class Home extends Component {
 				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
 					<Typist
 						className="typist"
-						avgTypingSpeed={40}
-						startDelay={500}
+						avgTypingSpeed={50}
+						startDelay={300}
 					>
 						<span>Welcome to my website!</span>
 					</Typist>

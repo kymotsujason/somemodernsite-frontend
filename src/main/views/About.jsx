@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { Card } from 'primereact/card';
-
+import Typist from 'react-typist';
 
 class About extends Component {
 	state = {  }
 	render() { 
 		return (  
 			<div className="spacing main_container">
+				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+					<Typist
+						className="typist"
+						avgTypingSpeed={50}
+						startDelay={300}
+					>
+						<span>About</span>
+					</Typist>
+				</Card>
+				<br></br>
 				<Card title="About me" style={{background: '#111', color: 'white'}} className="p-col-6 center_text">
 					<div>
 						<p>I'm a recent graduate at Trinity Western University with a Computer Science degree. I enjoy programming, gaming, eating, and modding.</p>

@@ -5,7 +5,7 @@ class ReactTutorial extends Component {
 	render() { 
 		return (  
 			<div>
-				<p>This will be a tutorial</p>
+				<p>This will be content that is made from a tutorial</p>
 			</div>
 		);
 	}
