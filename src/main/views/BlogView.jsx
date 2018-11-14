@@ -12,7 +12,7 @@ class BlogView extends Component {
 	}
 
 	renderPage() {
-		var data = this.props.data;
+		var data = this.props.data.reverse();
 		var limit = this.props.limit;
 		var blog = [];
 		if (limit !== undefined) {
@@ -23,9 +23,18 @@ class BlogView extends Component {
 				<div key={index} className="p-col-4">
 					<NavLink to={"/blog/" + data[index].id}>
 						<Card style={{background: '#222', color: 'white'}} className="spacing center_text">
-							<h2>{data[index].title}</h2>
-							<h4>by: Jason ({data[index].published_date})</h4>
-							<div className="linebreak blog_preview">{data[index].text}</div>
+							<div>
+							<h2 className="remove_space spacing-half">{data[index].title}</h2>
+								<h4 className="remove_space">by: Jason</h4>
+								<small className="remove_space">
+									{new Intl.DateTimeFormat('en-CA', { 
+									year: 'numeric', 
+									month: 'short', 
+									day: '2-digit',
+									}).format(new Date(data[index].published_date))}
+								</small>
+							</div>
+							<div className="spacing-half linebreak blog_preview">{data[index].text}</div>
 							<br></br>
 							<span className="readmore">Read more</span>
 						</Card>

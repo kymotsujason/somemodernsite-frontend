@@ -7,6 +7,10 @@
 	padding: 2em;
 }
 
+.spacing-half {
+	padding: 10px;
+}
+
 .typist {
 	font-size: 2em;
 }
