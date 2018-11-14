@@ -22,7 +22,7 @@ class BlogView extends Component {
 			blog.push(
 				<div key={index} className="p-col-4">
 					<NavLink to={"/blog/" + data[index].id}>
-						<Card style={{background: '#222', color: 'white'}} className="spacing center_text">
+						<Card style={{background: '#222', color: 'white', border: '1px solid grey'}} className="spacing center_text">
 							<div>
 							<h2 className="remove_space spacing-half">{data[index].title}</h2>
 								<h4 className="remove_space">by: Jason</h4>
