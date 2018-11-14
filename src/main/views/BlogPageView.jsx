@@ -14,7 +14,7 @@ class BlogPageView extends Component {
 		var data = this.props.data;
 		var blog = [];
 		blog.push(
-			<div>
+			<div key={data.id} >
 				<Card style={{background: '#222', color: 'white'}} className="spacing center_text">
 					<h2>{data.title}</h2>
 					<h4>by: Jason ({data.published_date})</h4>

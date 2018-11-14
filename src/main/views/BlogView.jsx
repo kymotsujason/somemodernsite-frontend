@@ -25,7 +25,7 @@ class BlogView extends Component {
 						<Card style={{background: '#222', color: 'white'}} className="spacing center_text">
 							<h2>{data[index].title}</h2>
 							<h4>by: Jason ({data[index].published_date})</h4>
-							<div className="linebreak">{data[index].text}</div>
+							<div className="linebreak blog_preview">{data[index].text}</div>
 							<br></br>
 							<span className="readmore">Read more</span>
 						</Card>

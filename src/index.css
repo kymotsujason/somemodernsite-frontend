@@ -180,5 +180,10 @@ html{
 }
 
 .linebreak {
-	white-space: pre;
+	white-space: pre-wrap;
+}
+
+.blog_preview {
+	height: 100px;
+	overflow: hidden;
 }
