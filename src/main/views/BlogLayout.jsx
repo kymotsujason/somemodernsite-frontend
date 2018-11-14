@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import Typist from 'react-typist';
-
-import Blog from './Blog'
+import FetchAPI from '../components/FetchAPI';
+import BlogView from './BlogView'
 
 class BlogLayout extends Component {
 	state = {  }
@@ -18,7 +18,18 @@ class BlogLayout extends Component {
 						<span>Blog</span>
 					</Typist>
 				</Card>
-				<Blog />
+				<div className="p-col-6">
+					<Card style={{background: '#111', color: 'white'}} className="center_text">
+						<FetchAPI
+							endpoint={'/api/blog'}
+							render={data => 
+							<BlogView 
+								data={data}
+							/>} 
+						/>
+					</Card>
+				</div>
+				
 			</div>
 		);
 	}

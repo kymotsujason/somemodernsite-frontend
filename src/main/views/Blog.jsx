@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Card } from 'primereact/card';
+import FetchAPI from '../components/FetchAPI';
+import BlogView from './BlogView';
 
 class Blog extends Component {
 	state = {  }
@@ -36,8 +38,12 @@ class Blog extends Component {
 	render() { 
 		return (  
 			<div className="p-col-6">
-				{ this.renderCard() }
+				<FetchAPI
+				 	endpoint={'/api/blog'}
+                	render={data => <BlogView data={data} />} 
+				/>
 			</div>
+			
 		);
 	}
 }

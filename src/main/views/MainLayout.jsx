@@ -17,6 +17,7 @@ import Home from "./Home";
 import About from "./About";
 import PortfolioLayout from "./PortfolioLayout";
 import BlogLayout from "./BlogLayout";
+import BlogAPI from  "./BlogAPI";
 
 class MainLayout extends Component {
 	state = {  }
@@ -44,7 +45,6 @@ class MainLayout extends Component {
 							component={PortfolioLayout} 
 						/>
 						<Route 
-							exact
 							path={portfolio_url + "/:path"}
 							component={PortfolioAPI} 
 						/>
@@ -52,6 +52,10 @@ class MainLayout extends Component {
 							exact
 							path={blog_url}
 							component={BlogLayout} 
+						/>
+						<Route 
+							path={blog_url + "/:number"}
+							component={BlogAPI} 
 						/>
 						<Route 
 							component={NotFound}
