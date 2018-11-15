@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import NotFound from '../../generic_components/views/NotFound';
 import { portfolio_items } from '../assets/portfolio_preview';
-import ReactTutorial from './portfolio/ReactTutorial';
+import Game from './portfolio/react-tutorial-game/Game';
 
 class PortfolioAPI extends Component {
 	state = {  }
@@ -22,7 +22,7 @@ class PortfolioAPI extends Component {
 		var path = this.props.match.params.path;
 
 		if(!this.isEmpty(portfolio_items[path])) {
-			return <ReactTutorial />
+			return <Game />
 		} 
 		else {
 			return <NotFound />

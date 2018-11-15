@@ -1,9 +1,9 @@
 import reacttutorial_img from '../assets/placeholder.png'
-export const reacttutorial_url = "/portfolio/reacttutorial";
+export const reacttutorial_url = "/portfolio/react-tutorial-game";
 
 export const portfolio_items = {
-	reacttutorial: {
-		title: 'React Tutorial',
+	'react-tutorial-game': {
+		title: 'React Tutorial Game',
 		date: 'November 9, 2018',
 		subtitle: 'The beginning',
 		description: 'A simple interactive tic-tac-toe game',
