@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import NotFound from '../../generic_components/views/NotFound';
 import { portfolio_items } from '../assets/portfolio_preview';
-import Game from './portfolio/react-tutorial-game/Game';
+import Game from './portfolio/tic-tac-toe/Game';
 
 class PortfolioAPI extends Component {
 	state = {  }

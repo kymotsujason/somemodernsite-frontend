@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import Board from './Board';
 import './css/game.css'
+import {Button} from 'primereact/button';
+import Typist from 'react-typist';
 
 /*	TO IMPLEMENT
 	1. Display the location for each move in the format (col, row) in the move history list.
@@ -84,8 +86,8 @@ class Game extends Component {
 				'Go to move #' + move :
 				'Go to game start';
 			return (
-				<li key={move}>
-					<button onClick={() => this.jumpTo(move)}>{desc}</button>
+				<li key={move} className="spacing-quarter">
+					<Button label={desc} className="p-button-raised p-button-rounded" onClick={() => this.jumpTo(move)} />
 				</li>
 			)
 		})
@@ -98,6 +100,16 @@ class Game extends Component {
 		}
 		return (  
 			<div className="spacing main_container">
+				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+					<Typist
+						className="typist"
+						avgTypingSpeed={50}
+						startDelay={300}
+					>
+						<span>Tic Tac Toe</span>
+					</Typist>
+				</Card>
+				<br></br>
 				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
 					<div className="game">
 						<div className="game-board">
