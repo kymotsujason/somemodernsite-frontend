@@ -24,7 +24,7 @@ class BlogView extends Component {
 					<NavLink to={"/blog/" + data[index].id}>
 						<Card style={{background: '#222', color: 'white', border: '1px solid grey'}} className="spacing center_text">
 							<div>
-							<h2 className="remove_space spacing-half">{data[index].title}</h2>
+								<h2 className="remove_space spacing-half">{data[index].title}</h2>
 								<h4 className="remove_space">by: Jason</h4>
 								<small className="remove_space">
 									{new Intl.DateTimeFormat('en-CA', { 

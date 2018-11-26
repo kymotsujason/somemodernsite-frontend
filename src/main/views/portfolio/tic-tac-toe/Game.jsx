@@ -8,10 +8,8 @@ import Typist from 'react-typist';
 /*	TO IMPLEMENT
 	1. Display the location for each move in the format (col, row) in the move history list.
 	2. Bold the currently selected item in the move list.
-	3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-	4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-	5. When someone wins, highlight the three squares that caused the win.
-	6. When no one wins, display a message about the result being a draw.
+	3. Add a toggle button that lets you sort the moves in either ascending or descending order.
+	4. When someone wins, highlight the three squares that caused the win.
 */
 class Game extends Component {
 	state = {  }
@@ -86,7 +84,7 @@ class Game extends Component {
 				'Go to move #' + move :
 				'Go to game start';
 			return (
-				<li key={move} className="spacing-quarter">
+				<li key={move} className="spacing-quarter remove-numbers">
 					<Button label={desc} className="p-button-raised p-button-rounded" onClick={() => this.jumpTo(move)} />
 				</li>
 			)
@@ -94,6 +92,9 @@ class Game extends Component {
 
 		if (winner) {
 			status = 'Winner: ' + winner;
+		}
+		else if (this.state.stepNumber === 9) {
+			status = 'Draw';
 		}
 		else {
 			status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');

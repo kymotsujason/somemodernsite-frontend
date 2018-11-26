@@ -1,6 +1,6 @@
-/* ol, ul {
-	padding-left: 30px;
-} */
+.remove-numbers {
+	list-style-type: none;
+}
   
 .board-row:after {
 	clear: both;
@@ -28,7 +28,7 @@
 }
   
 .square:focus {
-	outline: none;
+	border: 4px solid blue;
 }
   
 .kbd-navigation .square:focus {
