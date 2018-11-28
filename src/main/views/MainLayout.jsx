@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+
 import Header from '../../generic_components/views/Header';
 import Footer from '../../generic_components/views/Footer';
+import Cookiebar from '../../generic_components/components/Cookiebar';
 
 import {Route, Switch} from 'react-router-dom';
 import NotFound from '../../generic_components/views/NotFound';
@@ -18,16 +20,17 @@ import About from "./About";
 import PortfolioLayout from "./PortfolioLayout";
 import BlogLayout from "./BlogLayout";
 import BlogAPI from  "./BlogAPI";
+import Privacy from './Privacy';
 
 class MainLayout extends Component {
 	state = {  }
+
 	render() { 
 		return (  
 			<div>
 				<Header />
 				
 				<div className="main_content">
-
 					<Switch>
 						<Route 
 							exact
@@ -58,10 +61,17 @@ class MainLayout extends Component {
 							component={BlogAPI} 
 						/>
 						<Route 
+							path={'/privacy'}
+							component={Privacy} 
+						/>
+						<Route 
 							component={NotFound}
 						/>
 					</Switch>
 				</div>
+
+				<Cookiebar />
+
 				<Footer />
 			</div>
 		);
