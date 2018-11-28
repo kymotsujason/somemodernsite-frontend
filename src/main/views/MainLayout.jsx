@@ -62,7 +62,6 @@ class MainLayout extends Component {
 						/>
 					</Switch>
 				</div>
-		
 				<Footer />
 			</div>
 		);

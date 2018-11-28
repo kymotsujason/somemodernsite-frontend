@@ -12,6 +12,9 @@ import 'primeicons/primeicons.css';
 import RouterView from './RouterView';
 import * as serviceWorker from './serviceWorker';
 
+// react-typist fancy blinking
+import 'react-typist/dist/standalone/Typist.css'
+
 //font awesome
 //import all font awesome free icon library
 import { library } from '@fortawesome/fontawesome-svg-core'
