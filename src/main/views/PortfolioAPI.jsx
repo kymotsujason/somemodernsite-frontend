@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import NotFound from '../../generic_components/views/NotFound';
 import { portfolio_items } from '../assets/portfolio_preview';
+import Home from './portfolio/chat/Home';
 import Game from './portfolio/tic-tac-toe/Game';
 
 class PortfolioAPI extends Component {
@@ -19,10 +20,18 @@ class PortfolioAPI extends Component {
 	}
 
 	verifyLink() {
-		var path = this.props.match.params.path;
+		var path = this.props.match.params.path.toLowerCase();
 
 		if(!this.isEmpty(portfolio_items[path])) {
-			return <Game />
+			if (path === 'tic-tac-toe') {
+				return <Game />
+			}
+			else if (path === 'chat') {
+				return <Home />
+			}
+			else {
+				return <NotFound />
+			}
 		} 
 		else {
 			return <NotFound />

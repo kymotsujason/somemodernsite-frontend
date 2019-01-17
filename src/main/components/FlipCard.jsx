@@ -65,7 +65,7 @@ class FlipCard extends Component {
 		}
 		else {
 			return (  
-				<div className="p-grid_nowrap p-justify-around">
+				<div className="p-grid_nowrap p-justify-center">
 					{this.renderCard()}
 				</div>
 				

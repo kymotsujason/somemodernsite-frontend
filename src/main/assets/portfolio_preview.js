@@ -1,7 +1,18 @@
-import tictactoe_img from '../assets/tictactoe.png'
+import tictactoe_img from '../assets/tictactoe.png';
+import chat_img from '../assets/placeholder.png';
+
 export const tictactoe_url = "/portfolio/tic-tac-toe";
+export const chat_url = '/portfolio/chat'
 
 export const portfolio_items = {
+	'chat': {
+		title: 'Realtime Chat',
+		date: 'November 29, 2018',
+		subtitle: 'A Realtime chat room',
+		description: 'A simple realtime chat room, similar to an IRC. Only 1 global room, since it is a prototype',
+		image: chat_img,
+		url: chat_url,
+	},
 	'tic-tac-toe': {
 		title: 'Tic-Tac-Toe',
 		date: 'November 9, 2018',
