@@ -2,7 +2,7 @@ export const home_url = "/";
 
 export const about_url = "/about";
 
-export const portfolio_url = "/portfolio";
+export const projects_url = "/projects";
 
 export const blog_url = "/blog";
 
@@ -14,9 +14,9 @@ export const navbar_items = [
 		url: blog_url,
 	},	
 	{
-		label: 'Portfolio', 
+		label: 'Projects', 
 		icon: 'pi pi-fw pi-th-large',
-		url: portfolio_url,
+		url: projects_url,
 	},
 	{
 		label: 'About', 

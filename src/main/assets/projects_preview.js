@@ -1,10 +1,10 @@
 import tictactoe_img from '../assets/tictactoe.png';
-import chat_img from '../assets/placeholder.png';
+import chat_img from '../assets/chat.png';
 
-export const tictactoe_url = "/portfolio/tic-tac-toe";
-export const chat_url = '/portfolio/chat'
+export const tictactoe_url = "/projects/tic-tac-toe";
+export const chat_url = '/projects/chat'
 
-export const portfolio_items = {
+export const projects_items = {
 	'chat': {
 		title: 'Realtime Chat',
 		date: 'November 29, 2018',

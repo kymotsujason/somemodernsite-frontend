@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Card } from 'primereact/card';
 import Typist from 'react-typist';
-import Portfolio from './Portfolio';
+import Projects from './Projects';
 
-import { portfolio_items } from '../assets/portfolio_preview';
+import { projects_items } from '../assets/projects_preview';
 
-class PortfolioLayout extends Component {
+class ProjectsLayout extends Component {
 	state = {  }
 	render() { 
 		return (  
@@ -16,16 +16,16 @@ class PortfolioLayout extends Component {
 						avgTypingSpeed={50}
 						startDelay={300}
 					>
-						<span>Portfolio</span>
+						<span>Projects</span>
 					</Typist>
 				</Card>
 				<br></br>
-				<Portfolio 
-					portfolio_items = {portfolio_items}
+				<Projects 
+					projects_items = {projects_items}
 				/>
 			</div>
 		);
 	}
 }
  
-export default PortfolioLayout;
+export default ProjectsLayout;

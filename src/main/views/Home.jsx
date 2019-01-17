@@ -5,7 +5,7 @@ import Typist from 'react-typist';
 import FeaturedProjects from '../components/FeaturedProjects';
 import LatestBlogPosts from '../components/LatestBlogPosts';
 
-import { portfolio_items } from '../assets/portfolio_preview';
+import { projects_items } from '../assets/projects_preview';
 
 class Home extends Component {
 	state = {
@@ -27,7 +27,7 @@ class Home extends Component {
 				<br></br>
 				<div className="p-col-6">
 					<FeaturedProjects 
-						portfolio_items = {portfolio_items}
+						projects_items = {projects_items}
 					/>
 				</div>
 				<br></br>

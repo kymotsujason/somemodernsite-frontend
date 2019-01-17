@@ -6,18 +6,18 @@ import Cookiebar from '../../generic_components/components/Cookiebar';
 
 import {Route, Switch} from 'react-router-dom';
 import NotFound from '../../generic_components/views/NotFound';
-import PortfolioAPI from './PortfolioAPI';
+import ProjectsAPI from './ProjectsAPI';
 
 import {
 	home_url,
 	about_url,
-	portfolio_url,
+	projects_url,
 	blog_url,
 } from "../../assets/static_routes";
 
 import Home from "./Home";
 import About from "./About";
-import PortfolioLayout from "./PortfolioLayout";
+import ProjectsLayout from "./ProjectsLayout";
 import BlogLayout from "./BlogLayout";
 import BlogAPI from  "./BlogAPI";
 import Privacy from './Privacy';
@@ -44,12 +44,12 @@ class MainLayout extends Component {
 						/>
 						<Route 
 							exact
-							path={portfolio_url}
-							component={PortfolioLayout} 
+							path={projects_url}
+							component={ProjectsLayout} 
 						/>
 						<Route 
-							path={portfolio_url + "/:path"}
-							component={PortfolioAPI} 
+							path={projects_url + "/:path"}
+							component={ProjectsAPI} 
 						/>
 						<Route 
 							exact

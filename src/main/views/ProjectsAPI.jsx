@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 import NotFound from '../../generic_components/views/NotFound';
-import { portfolio_items } from '../assets/portfolio_preview';
-import Home from './portfolio/chat/Home';
-import Game from './portfolio/tic-tac-toe/Game';
+import { projects_items } from '../assets/projects_preview';
+import Home from './projects/chat/Home';
+import Game from './projects/tic-tac-toe/Game';
 
-class PortfolioAPI extends Component {
+class ProjectsAPI extends Component {
 	state = {  }
 
 	constructor(props) {
@@ -22,7 +22,7 @@ class PortfolioAPI extends Component {
 	verifyLink() {
 		var path = this.props.match.params.path.toLowerCase();
 
-		if(!this.isEmpty(portfolio_items[path])) {
+		if(!this.isEmpty(projects_items[path])) {
 			if (path === 'tic-tac-toe') {
 				return <Game />
 			}
@@ -47,4 +47,4 @@ class PortfolioAPI extends Component {
 	}
 }
  
-export default PortfolioAPI;
+export default ProjectsAPI;

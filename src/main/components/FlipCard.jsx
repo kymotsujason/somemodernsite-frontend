@@ -15,15 +15,15 @@ class FlipCard extends Component {
 	renderCard() {
 		var limit = this.props.limit;
 		var counter = 1;
-		var portfolio_items = this.props.portfolio_items;
+		var projects_items = this.props.projects_items;
 		var cardMenu = [];
-		for (var key in portfolio_items) {
-			var title = portfolio_items[key].title;
-			var subtitle = portfolio_items[key].subtitle;
-			var description = portfolio_items[key].description;
-			var image = portfolio_items[key].image;
-			var url = portfolio_items[key].url;
-			var date = portfolio_items[key].date;
+		for (var key in projects_items) {
+			var title = projects_items[key].title;
+			var subtitle = projects_items[key].subtitle;
+			var description = projects_items[key].description;
+			var image = projects_items[key].image;
+			var url = projects_items[key].url;
+			var date = projects_items[key].date;
 
 			cardMenu.push(
 				<div className='p-col-4 card-container' key={key}>
