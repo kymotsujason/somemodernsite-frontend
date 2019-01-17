@@ -70,7 +70,6 @@ class WebSocketService {
 	
 	sendMessage(data) {
 	  	try {
-			console.log(data);
 			this.socketRef.send(JSON.stringify({ ...data }));
 	  	}
 	  	catch(err) {

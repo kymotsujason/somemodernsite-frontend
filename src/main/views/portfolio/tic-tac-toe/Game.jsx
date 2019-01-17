@@ -111,7 +111,7 @@ class Game extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+				<Card style={{background: '#111', color: 'white'}}  className="center_text">
 					<div className="game">
 						<div className="game-board">
 							<Board 

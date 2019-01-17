@@ -19,7 +19,8 @@
 	font-weight: 300;
 	line-height: 19px;
 	padding: 5px;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 	display: inline-block;
 	width: 80%;
 	float: left;
@@ -67,7 +68,7 @@
 	text-align: left;
 }
 .chat .him p {
-	background: #eee;
+	background: grey;
 }
 .chat .me {
 	float: right;

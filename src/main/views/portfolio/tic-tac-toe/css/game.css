@@ -42,7 +42,13 @@
 	font: 20px "Century Gothic", Futura, sans-serif;
 	margin: 20px;
 }
-  
+
+.game-board
+{
+	width: 600px;
+	height: 600px;
+}
+
 .game-info {
 	margin-left: 20px;
 }
