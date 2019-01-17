@@ -32,7 +32,7 @@ class Chat extends Component {
 
 	componentWillUnmount() {
 		WebSocketInstance.disconnect();
-		console.log("Should close now");
+		//console.log("Should close now");
 	}
 	
 	scrollToBottom = () => {
@@ -74,11 +74,11 @@ class Chat extends Component {
 		  function () {
 			// Check if websocket state is OPEN
 			if (WebSocketInstance.state() === 1) {
-			  console.log("Connection is made")
+			  //console.log("Connection is made")
 			  callback();
 			  return;
 			} else {
-			  console.log("wait for connection...")
+			  //console.log("wait for connection...")
 			  component.waitForSocketConnection(callback);
 			}
 		}, 100); // wait 100 milisecond for the connection...
