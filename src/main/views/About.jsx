@@ -7,7 +7,7 @@ class About extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
 					<Typist
 						className="typist"
 						avgTypingSpeed={50}
@@ -17,7 +17,7 @@ class About extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<Card title="About me" style={{background: '#111', color: 'white'}} className="p-col-6 center_text">
+				<Card title="About me" style={{background: '#111', color: 'white'}} className="g-col-6 center_text">
 					<div>
 						<p>
 							I'm a recent graduate at Trinity Western University with a Computer Science degree. I enjoy programming, gaming, and eating.
@@ -44,7 +44,7 @@ class About extends Component {
 					</div>
 				</Card>
 				<br></br>
-				<Card title="About the site" style={{background: '#111', color: 'white'}} className="p-col-6 center_text">
+				<Card title="About the site" style={{background: '#111', color: 'white'}} className="g-col-6 center_text">
 					<div>
 						<p>Interested in the site design?</p>
 						<p>

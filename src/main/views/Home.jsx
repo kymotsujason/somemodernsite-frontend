@@ -15,7 +15,7 @@ class Home extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
 					<Typist
 						className="typist"
 						avgTypingSpeed={50}
@@ -25,13 +25,13 @@ class Home extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<div className="p-col-6">
+				<div className="g-col-6">
 					<FeaturedProjects 
 						projects_items = {projects_items}
 					/>
 				</div>
 				<br></br>
-				<div className="p-col-6">
+				<div className="g-col-6">
 					<LatestBlogPosts />
 				</div>
 			</div>

@@ -7,7 +7,7 @@ class Privacy extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
 					<Typist
 						className="typist"
 						avgTypingSpeed={50}
@@ -17,7 +17,7 @@ class Privacy extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<Card style={{background: '#111', color: 'white'}} className="p-col-6">
+				<Card style={{background: '#111', color: 'white'}} className="g-col-6">
 					<div>
 						<h2 className="center_text">Analytics</h2>
 						<p className="center_text">
@@ -51,7 +51,7 @@ class Privacy extends Component {
 					</div>
 				</Card>
 				<br></br>
-				<Card style={{background: '#111', color: 'white'}} className="p-col-6">
+				<Card style={{background: '#111', color: 'white'}} className="g-col-6">
 					<div>
 						<h2 className="center_text">Cookies</h2>
 						<p className="center_text">

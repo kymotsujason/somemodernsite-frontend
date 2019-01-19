@@ -27,7 +27,7 @@ class Home extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="p-col-6 center_text">
+				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
 				{
 					this.state.loggedIn ?
 					<Chat 

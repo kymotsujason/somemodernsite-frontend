@@ -202,3 +202,25 @@ html{
 	height: 100px;
 	overflow: hidden;
 }
+
+@media screen and (max-width: 1000px) {
+	.g-col-6 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		padding: 0.5em;
+		transition: 0.4s;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.g-col-6 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		padding: 0.5em;
+		transition: 0.4s;
+		width: 50%;
+	}
+}

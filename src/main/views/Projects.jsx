@@ -7,7 +7,7 @@ class Projects extends Component {
 
 	render() { 
 		return (  
-			<Card style={{background: '#111', color: 'white'}} className="p-col-6 center_text">
+			<Card style={{background: '#111', color: 'white'}} className="g-col-6 center_text">
 				<FlipCard 
 					projects_items = {this.props.projects_items}
 					limit = {-1}

@@ -37,7 +37,7 @@ class Blog extends Component {
 
 	render() { 
 		return (  
-			<div className="p-col-6">
+			<div className="g-col-6">
 				<FetchAPI
 				 	endpoint={'/api/blog'}
                 	render={data => <BlogView data={data} />} 

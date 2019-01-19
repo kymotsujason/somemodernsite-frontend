@@ -9,7 +9,7 @@ class BlogAPI extends Component {
 		var url = "/api/blog/" + this.props.match.params.number;
 		return (  
 			<div className="spacing main_container">
-				<div className="p-col-6">
+				<div className="g-col-6">
 					<FetchAPI
 						endpoint={url}
 						render={data => <BlogPageView data={data} />} 
