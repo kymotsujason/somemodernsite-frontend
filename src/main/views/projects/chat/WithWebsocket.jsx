@@ -14,7 +14,7 @@ class WebSocketService {
 	}
   
 	connect() {
-	  	const path = 'ws://localhost:8001/ws/chat';
+	  	const path = 'ws://35.182.127.195/ws/chat';
 	  	this.socketRef = new WebSocket(path);
 	  	this.socketRef.onopen = () => {
 			//console.log('WebSocket open');
