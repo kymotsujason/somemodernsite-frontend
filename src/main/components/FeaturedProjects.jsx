@@ -11,7 +11,7 @@ class FeaturedProjects extends Component {
 	render() { 
 		return (  
 			<Card style={{background: '#111', color: 'white'}} className="center_text">
-				<h2>Featured projects</h2>
+				<h2>Featured Projects</h2>
 
 				<FlipCard 
 					projects_items = {this.props.projects_items}

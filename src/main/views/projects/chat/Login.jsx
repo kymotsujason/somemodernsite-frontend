@@ -22,7 +22,7 @@ class Login extends Component {
 	render() { 
 		return (  
 			<div>
-				<h3>Enter your username</h3>
+				<h3>Choose a username!</h3>
 				<span>
 					<InputText 
 						value={this.state.value}
