@@ -51,14 +51,6 @@ class WebSocketService {
 	  	}
 	}
   
-	// initChatUser(username) {
-	//   	this.sendMessage({ command: 'init_chat', username: username });
-	// }
-  
-	// fetchMessages(username) {
-	//   	this.sendMessage({ command: 'fetch_messages', username: username });
-	// }
-  
 	newChatMessage(message) {
 	  	this.sendMessage({ command: 'new_message', from: message.from, text: message.text }); 
 	}
@@ -87,17 +79,17 @@ class WebSocketService {
 	  	setTimeout(
 			function () {
 		  		if (socket.readyState === 1) {
-					//console.log("Connection is made")
+					console.log("Connection is made")
 					if(callback != null){
 						callback();
 					}
 					return;
 	
 				} else {
-					//console.log("wait for connection...")
+					console.log("connecting...")
 					recursion(callback);
 				}
-		}, 1); // wait 5 milisecond for the connection...
+		}, 100); // wait 100 milisecond for the connection...
 	}
   }
   

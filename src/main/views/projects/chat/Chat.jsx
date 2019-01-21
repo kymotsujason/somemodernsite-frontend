@@ -17,9 +17,7 @@ class Chat extends Component {
 
 		WebSocketInstance.connect();
 		this.waitForSocketConnection(() => {
-			//WebSocketInstance.initChatUser(this.props.currentUser);
 			WebSocketInstance.addCallbacks(this.setMessages.bind(this), this.addMessage.bind(this))
-			//WebSocketInstance.fetchMessages(this.props.currentUser);
 		});
 	}
 
@@ -33,7 +31,7 @@ class Chat extends Component {
 
 	componentWillUnmount() {
 		WebSocketInstance.disconnect();
-		//console.log("Should close now");
+		console.log("Disconnected");
 	}
 	
 	scrollToBottom() {
@@ -75,15 +73,15 @@ class Chat extends Component {
 		  function () {
 			// Check if websocket state is OPEN
 			if (WebSocketInstance.state() === 1) {
-			  console.log("Connection is made")
-			  callback();
-			  return;
+			  	console.log("Connection is made")
+			  	callback();
+			  	return;
 			} else {
-			  console.log("wait for connection...")
-			  component.waitForSocketConnection(callback);
+			  	console.log("Connecting...")
+			  	component.waitForSocketConnection(callback);
 			}
 		}, 100); // wait 100 milisecond for the connection...
-	  }
+	}
 
 	render() { 
 		const messages = this.state.messages;
