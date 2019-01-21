@@ -17,17 +17,17 @@ class WebSocketService {
 	  	const path = 'wss://jasonyue.ca/ws/chat';
 	  	this.socketRef = new WebSocket(path);
 	  	this.socketRef.onopen = () => {
-			//console.log('WebSocket open');
+			console.log('WebSocket open');
 	  	};
 	  	this.socketRef.onmessage = e => {
 			this.socketNewMessage(e.data);
 	  	};
   
 	  	this.socketRef.onerror = e => {
-			//console.log(e.message);
+			console.log(e.message);
 	  	};
 	  	this.socketRef.onclose = () => {
-			//console.log("WebSocket closed let's reopen");
+			console.log("WebSocket closed let's reopen");
 			this.connect();
 	  	};
 	}
@@ -51,13 +51,13 @@ class WebSocketService {
 	  	}
 	}
   
-	initChatUser(username) {
-	  	this.sendMessage({ command: 'init_chat', username: username });
-	}
+	// initChatUser(username) {
+	//   	this.sendMessage({ command: 'init_chat', username: username });
+	// }
   
-	fetchMessages(username) {
-	  	this.sendMessage({ command: 'fetch_messages', username: username });
-	}
+	// fetchMessages(username) {
+	//   	this.sendMessage({ command: 'fetch_messages', username: username });
+	// }
   
 	newChatMessage(message) {
 	  	this.sendMessage({ command: 'new_message', from: message.from, text: message.text }); 
