@@ -11,7 +11,8 @@ class Chat extends Component {
 		super(props);
 
 		this.state = {
-			message: ''
+			message: '',
+			messages: '',
 		}
 
 		WebSocketInstance.connect();
@@ -35,7 +36,7 @@ class Chat extends Component {
 		//console.log("Should close now");
 	}
 	
-	scrollToBottom = () => {
+	scrollToBottom() {
 		const chat = this.messagesEnd;
 		const scrollHeight = chat.scrollHeight;
 		const height = chat.clientHeight;
@@ -51,21 +52,21 @@ class Chat extends Component {
 		this.setState({ messages: messages.reverse()});
 	}
 	
-	sendMessageHandler = (e, message) => {
+	sendMessageHandler(e, message) {
 		const messageObject = {
-		  from: this.props.currentUser,
-		  text: message
+		  	from: this.props.currentUser,
+		  	text: message
 		};
 		WebSocketInstance.newChatMessage(messageObject);
 		this.setState({
-		  message: ''
+		  	message: ''
 		})
 		e.preventDefault();
 	}
 	
-	renderMessages = (messages) => {
+	renderMessages(messages) {
 		const currentUser = this.props.currentUser;
-		return messages.map((message, i) => <li key={message.id} className={message.author === currentUser ? 'me' : 'him'}> <h4 className='author'>{ message.author } </h4><p>{ message.content }</p></li>);
+		return messages.map((message, i) => <li key={message.content} className={message.author === currentUser ? 'me' : 'him'}> <h4 className='author'>{ message.author } </h4><p>{ message.content }</p></li>);
 	}
 
 	waitForSocketConnection(callback) {
