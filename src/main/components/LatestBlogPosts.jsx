@@ -21,7 +21,7 @@ class LatestBlogPosts extends Component {
 						limit={3}
 					/>} 
 				/>
-				
+				<br></br>
 				<div className="center_text">
 					<NavLink to="/blog">
 						<Button label="View more" className="p-button-raised p-button-rounded" />
