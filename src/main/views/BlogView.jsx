@@ -39,10 +39,11 @@ class BlogView extends Component {
 		var data = this.props.data;
 		var limit = this.props.limit;
 		var blog = [];
-		if (limit !== undefined) {
-			data = data.slice(0, limit);
-		}
 		var size = Object.keys(data).length - 1;
+		if (limit !== undefined) {
+			data = data.slice(size - limit + 1, size + 1);
+			size = Object.keys(data).length - 1;
+		}
 		Object.keys(data).map((index) => (
 			blog.push(
 				<div id='card' key={index} className="p-col-4" style={{height: this.state.height, overflow: 'hidden'}}>
