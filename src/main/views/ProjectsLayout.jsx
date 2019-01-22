@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
+import Card from '../../generic_components//components/Card';
 import Typist from 'react-typist';
 import Projects from './Projects';
 
@@ -10,7 +10,7 @@ class ProjectsLayout extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
+				<Card className="g-col-6 center_text">
 					<Typist
 						className="typist"
 						avgTypingSpeed={50}

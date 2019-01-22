@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
+import Card from '../../generic_components//components/Card';
 import { Button } from 'primereact/button';
 import { NavLink } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ class FeaturedProjects extends Component {
 
 	render() { 
 		return (  
-			<Card style={{background: '#111', color: 'white'}} className="center_text">
+			<Card className="center_text">
 				<h2>Featured Projects</h2>
 
 				<FlipCard 

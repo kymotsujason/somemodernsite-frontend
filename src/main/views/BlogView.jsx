@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Card } from 'primereact/card';
+import CardMini from '../../generic_components//components/CardMini';
 
 class BlogView extends Component {
 	state = {  }
@@ -8,7 +8,31 @@ class BlogView extends Component {
 	constructor(props){
 		super(props)
 
-		this.renderPage = this.renderPage(this);
+		this.state = {
+			height: 0,
+		}
+
+		this.renderPage = this.renderPage.bind(this);
+		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+	}
+
+	componentDidMount() {
+		this.updateWindowDimensions();
+  		window.addEventListener('resize', this.updateWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions() {
+		let height = document.getElementById('card').clientWidth;
+		if (height > 230) {
+			height = 230 + (0.6 * (height - 230));
+		}
+		this.setState({ 
+			height: height,
+		});
 	}
 
 	renderPage() {
@@ -20,9 +44,9 @@ class BlogView extends Component {
 		}
 		Object.keys(data).map((index) => (
 			blog.push(
-				<div key={index} className="p-col-4">
+				<div id='card' key={index} className="p-col-4" style={{height: this.state.height, overflow: 'hidden'}}>
 					<NavLink to={"/blog/" + data[index].id}>
-						<Card style={{background: '#222', color: 'white', border: '1px solid grey'}} className="spacing center_text">
+						<CardMini  className="spacing" >
 							<div>
 								<h2 className="remove_space spacing-half">{data[index].title}</h2>
 								<h4 className="remove_space">by: Jason</h4>
@@ -34,10 +58,10 @@ class BlogView extends Component {
 									}).format(new Date(data[index].published_date))}
 								</small>
 							</div>
-							<div className="spacing-half linebreak blog_preview">{data[index].text}</div>
+							<div className="spacing-half linebreak">{data[index].text}</div>
 							<br></br>
 							<span className="readmore">Read more</span>
-						</Card>
+						</CardMini>
 					</NavLink>
 				</div>
 			)
@@ -49,7 +73,7 @@ class BlogView extends Component {
 	render() { 
 		return (  
 			<div className="p-grid p-justify-center">
-				{this.renderPage}
+				{this.renderPage()}
 			</div>
 		);
 	}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
+import Card from '../../../../generic_components//components/Card';
 import WebSocketInstance from './services/WebSocket';
 import Chat from './components/Chat';
 import InitChat from './components/InitChat';
@@ -30,7 +30,7 @@ class Auth extends Component {
 		
 		return (
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
+				<Card className="g-col-6 center_text">
 					{ 
 					loggedIn ?
 					<Chat

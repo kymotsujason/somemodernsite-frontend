@@ -1,0 +1,36 @@
+.c-card {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: white;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12); 
+}
+
+.c-component, .c-component * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.c-card-header img {
+    width: 100%;
+}
+
+.c-card-body {
+    padding: 1em;
+}
+
+.c-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: .5em;
+}
+
+.c-card-subtitle {
+    opacity: .7;
+    margin-bottom: .5em;
+    margin-top: -.25em;
+    font-weight: bold;
+}
+
+.c-card-footer {
+    padding-top: 1em;
+}

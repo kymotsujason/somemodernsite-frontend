@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
+import Card from '../../../../generic_components//components/Card';
 import Board from './Board';
 import './css/game.css'
 import {Button} from 'primereact/button';
@@ -101,7 +101,7 @@ class Game extends Component {
 		}
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
+				<Card className="g-col-6 center_text">
 					<Typist
 						className="typist"
 						avgTypingSpeed={50}
@@ -111,7 +111,7 @@ class Game extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<Card style={{background: '#111', color: 'white'}}  className="center_text">
+				<Card className="center_text">
 					<div className="game">
 						<div className="game-board">
 							<Board 

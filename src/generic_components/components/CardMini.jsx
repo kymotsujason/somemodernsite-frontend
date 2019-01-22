@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import '../assets/card.css';
+import '../assets/cardmini.css';
 
-class Card extends Component {
+class CardMini extends Component {
 	static defaultProps = {
         id: null,
         header: null,
@@ -25,7 +25,7 @@ class Card extends Component {
     };
 
     renderHeader(){
-        return <div className="c-card-header">
+        return <div className="cm-card-header">
                     {this.props.header}
                 </div>;
     }
@@ -34,19 +34,19 @@ class Card extends Component {
         let title, subTitle, footer, children;
 
         if(this.props.title) {
-            title = <div className="c-card-title">{this.props.title}</div>;
+            title = <div className="cm-card-title">{this.props.title}</div>;
         }
         if(this.props.subTitle) {
-            subTitle = <div className="c-card-subtitle">{this.props.subTitle}</div>;
+            subTitle = <div className="cm-card-subtitle">{this.props.subTitle}</div>;
         }
         if(this.props.footer) {
-            footer = <div className="c-card-footer"> {this.props.footer}</div>;
+            footer = <div className="cm-card-footer"> {this.props.footer}</div>;
         }
         if(this.props.children) {
-            children = <div className="c-card-content"> {this.props.children} </div>;
+            children = <div className="cm-card-content"> {this.props.children} </div>;
         }
         return (
-            <div className="c-card-body">
+            <div className="cm-card-body">
                 {title}
                 {subTitle}
                 {children}
@@ -58,7 +58,7 @@ class Card extends Component {
     render(){
 
         let header, body;
-        let className = classNames('c-card c-component',this.props.className);
+        let className = classNames('cm-card cm-component',this.props.className);
 
         if(this.props.header) {
             header = this.renderHeader();
@@ -74,4 +74,4 @@ class Card extends Component {
     }
 }
  
-export default Card;
+export default CardMini;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FetchAPI from './FetchAPI';
 import BlogView from '../views/BlogView';
-import { Card } from 'primereact/card';
+import Card from '../../generic_components//components/Card';
 import { Button } from 'primereact/button';
 import { NavLink } from 'react-router-dom';
 
@@ -10,8 +10,8 @@ class LatestBlogPosts extends Component {
 
 	render() { 
 		return (  
-			<Card style={{background: '#111', color: 'white'}} className="center_text">
-				<h2>Latest Blog Posts</h2>
+			<Card>
+				<h2 className="center_text">Latest Blog Posts</h2>
 				
 				<FetchAPI
 					endpoint={'/api/blog'}
@@ -22,9 +22,11 @@ class LatestBlogPosts extends Component {
 					/>} 
 				/>
 				
-				<NavLink to="/blog">
-					<Button label="View more" className="p-button-raised p-button-rounded" />
-				</NavLink>
+				<div className="center_text">
+					<NavLink to="/blog">
+						<Button label="View more" className="p-button-raised p-button-rounded" />
+					</NavLink>
+				</div>
 			</Card>
 			
 		);

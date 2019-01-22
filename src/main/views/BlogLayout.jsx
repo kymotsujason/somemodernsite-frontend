@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
+import Card from '../../generic_components//components/Card';
 import Typist from 'react-typist';
 import FetchAPI from '../components/FetchAPI';
 import BlogView from './BlogView'
@@ -9,7 +9,7 @@ class BlogLayout extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
-				<Card style={{background: '#111', color: 'white'}}  className="g-col-6 center_text">
+				<Card className="g-col-6 center_text">
 					<Typist
 						className="typist"
 						avgTypingSpeed={50}
@@ -18,8 +18,9 @@ class BlogLayout extends Component {
 						<span>Blog</span>
 					</Typist>
 				</Card>
+				<br></br>
 				<div className="g-col-6">
-					<Card style={{background: '#111', color: 'white'}} className="center_text">
+					<Card className="">
 						<FetchAPI
 							endpoint={'/api/blog'}
 							render={data => 

@@ -14,14 +14,14 @@
 
 .chat h1, .chat h3 {
 	margin-top: 0;
-	color: #0084ff;
+	color: white;
 }
 
 .chat input {
 	color: #7e99a0;
 	font-size: 1em;
 	font-weight: 300;
-	line-height: 31px;
+	line-height: 38px;
 	padding: 5px;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;

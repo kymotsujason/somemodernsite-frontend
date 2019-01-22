@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'primereact/card';
+import Card from '../../generic_components//components/Card';
 
 class BlogPageView extends Component {
 	state = {  }
@@ -15,7 +15,7 @@ class BlogPageView extends Component {
 		var blog = [];
 		blog.push(
 			<div key={data.id} >
-				<Card style={{background: '#222', color: 'white'}} className="spacing center_text">
+				<Card className="spacing">
 					<div>
 						<h2 className="remove_space spacing-half">{data.title}</h2>
 						<h4 className="remove_space">by: Jason</h4>

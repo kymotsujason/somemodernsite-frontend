@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { css } from '@emotion/core';
+import { ClimbingBoxLoader } from 'react-spinners';
+
+const override = css`
+    margin: 0 auto;
+`;
 
 class FetchAPI extends Component {
 	state = {
 		data: [],
 		loaded: false,
-		placeholder: "Loading..."
 	};
 
 	componentDidMount() {
@@ -20,8 +25,15 @@ class FetchAPI extends Component {
 	}
 	
 	render() {
-		const { data, loaded, placeholder } = this.state;
-		return loaded ? this.props.render(data) : <p>{placeholder}</p>;
+		const { data, loaded } = this.state;
+		return loaded ? 
+		this.props.render(data) 
+		: 
+		<ClimbingBoxLoader 
+			css={override}
+			color={'#ffffff'}
+			loading={!this.state.loaded}
+		/>;
 	}
 }
  

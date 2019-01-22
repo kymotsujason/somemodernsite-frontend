@@ -9,7 +9,31 @@ class FlipCard extends Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			height: 0,
+		}
+
 		this.renderCard = this.renderCard.bind(this);
+		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+	}
+
+	componentDidMount() {
+		this.updateWindowDimensions();
+  		window.addEventListener('resize', this.updateWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions() {
+		let height = document.getElementById('flipcard').clientWidth;
+		if (height > 230) {
+			height = 230 + (0.6 * (height - 230));
+		}
+		this.setState({ 
+			height: height,
+		});
 	}
 	
 	renderCard() {
@@ -26,7 +50,7 @@ class FlipCard extends Component {
 			var date = projects_items[key].date;
 
 			cardMenu.push(
-				<div className='p-col-4 card-container' key={key}>
+				<div id='flipcard' className='p-col-4 card-container' key={key} style={{height: this.state.height}}>
 					<div className='card-body'>
 						<NavLink to={url}>
 							<CardBack 
