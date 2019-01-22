@@ -36,29 +36,30 @@ class BlogView extends Component {
 	}
 
 	renderPage() {
-		var data = this.props.data.reverse();
+		var data = this.props.data;
 		var limit = this.props.limit;
 		var blog = [];
 		if (limit !== undefined) {
 			data = data.slice(0, limit);
 		}
+		var size = Object.keys(data).length - 1;
 		Object.keys(data).map((index) => (
 			blog.push(
 				<div id='card' key={index} className="p-col-4" style={{height: this.state.height, overflow: 'hidden'}}>
-					<NavLink to={"/blog/" + data[index].id}>
+					<NavLink to={"/blog/" + data[size - index].id}>
 						<CardMini  className="spacing" >
 							<div>
-								<h2 className="remove_space spacing-half">{data[index].title}</h2>
+								<h2 className="remove_space spacing-half">{data[size - index].title}</h2>
 								<h4 className="remove_space">by: Jason</h4>
 								<small className="remove_space">
 									{new Intl.DateTimeFormat('en-CA', { 
 									year: 'numeric', 
 									month: 'short', 
 									day: '2-digit',
-									}).format(new Date(data[index].published_date))}
+									}).format(new Date(data[size - index].published_date))}
 								</small>
 							</div>
-							<div className="spacing-half linebreak">{data[index].text}</div>
+							<div className="spacing-half linebreak">{data[size - index].text}</div>
 							<br></br>
 							<span className="readmore">Read more</span>
 						</CardMini>
