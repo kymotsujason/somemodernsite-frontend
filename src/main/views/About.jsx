@@ -50,12 +50,12 @@ class About extends Component {
 						<p>
 							I'm using React as my frontend to make everything look sleek and appealing to the eye (hopefully). 
 							Django is the backend server, serving the React files and doing all your usual backend activities.
-							The site is hosted on AWS with dynamic data (Blog posts) being served from Amazon RDS (PostgreSQL).
-							Memcache will be implemented with Amazon Redis, though since this is a small site, I might just skip it.
+							The site is hosted on AWS with content being served from Amazon RDBMS (PostgreSQL).
+							AWS Redis is used for fast communication between internal services.
 						</p>
 						<p>
-							Currently, I'm using a gradiant as a temporary background as I experiment with different UI designs.
-							It might be better if I went straight with a Dark mode theme instead, or with a glass-like blur theme.
+							The site used to use a simple gradient as a temporary background. However, now it is using something called Trianglify, which generates polygon triangles.
+							The current color theme is bright and colorful with glass-like cards (or windows).
 						</p>
 					</div>
 				</Card>
