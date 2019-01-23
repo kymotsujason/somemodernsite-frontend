@@ -46,7 +46,7 @@ class BlogView extends Component {
 		}
 		Object.keys(data).map((index) => (
 			blog.push(
-				<div id='card' key={index} className="p-col-4" style={{height: this.state.height, overflow: 'hidden'}}>
+				<div id='card' key={index} className="g-col-flex" style={{height: this.state.height, overflow: 'hidden'}}>
 					<NavLink to={"/blog/" + data[size - index].id}>
 						<CardMini  className="spacing" >
 							<div>

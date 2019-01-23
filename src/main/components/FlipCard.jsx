@@ -50,7 +50,7 @@ class FlipCard extends Component {
 			var date = projects_items[key].date;
 
 			cardMenu.push(
-				<div id='flipcard' className='p-col-4 card-container' key={key} style={{height: this.state.height}}>
+				<div id='flipcard' className='g-col-flex card-container' key={key} style={{height: this.state.height}}>
 					<div className='card-body'>
 						<NavLink to={url}>
 							<CardBack 
@@ -80,21 +80,12 @@ class FlipCard extends Component {
 	}
 
 	render() { 
-		if (this.props.limit < 0) {
-			return (  
-				<div className="p-grid p-justify-center">
-					{this.renderCard()}
-				</div>
-			);
-		}
-		else {
-			return (  
-				<div className="p-grid_nowrap p-justify-center">
-					{this.renderCard()}
-				</div>
-				
-			);
-		}
+		return (  
+			<div className="p-grid p-justify-center">
+				{this.renderCard()}
+			</div>
+			
+		);
 	}
 }
  

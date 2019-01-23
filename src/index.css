@@ -213,6 +213,15 @@ html{
 		transition: 0.4s;
 		width: 100%;
 	}
+	.g-col-flex {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		padding: 0.5em;
+		-webkit-transition: 0.4s;
+		transition: 0.4s;
+		width: 100%;
+	}
 }
 
 @media only screen and (min-width: 992px) {
@@ -224,5 +233,14 @@ html{
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
 		width: 50%;
+	}
+	.g-col-flex {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		padding: 0.5em;
+		-webkit-transition: 0.4s;
+		transition: 0.4s;
+		width: 33.3333%;
 	}
 }
