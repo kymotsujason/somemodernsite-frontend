@@ -10,14 +10,13 @@ class FeaturedProjects extends Component {
 
 	render() { 
 		return (  
-			<Card className="center_text">
+			<Card className="g-col-6 center_text">
 				<h2>Featured Projects</h2>
-
 				<FlipCard 
 					projects_items = {this.props.projects_items}
 					limit = {3}
 				/>
-
+				<br></br>
 				<NavLink to="/projects">
 					<Button label="View more" className="p-button-raised p-button-rounded" />
 				</NavLink>

@@ -19,18 +19,15 @@ class BlogLayout extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<div className="g-col-6">
-					<Card className="">
-						<FetchAPI
-							endpoint={'/api/blog'}
-							render={data => 
-							<BlogView 
-								data={data}
-							/>} 
-						/>
-					</Card>
-				</div>
-				
+				<Card className="g-col-6">
+					<FetchAPI
+						endpoint={'/api/blog'}
+						render={data => 
+						<BlogView 
+							data={data}
+						/>} 
+					/>
+				</Card>
 			</div>
 		);
 	}

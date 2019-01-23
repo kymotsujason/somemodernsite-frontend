@@ -48,7 +48,7 @@ class BlogView extends Component {
 			blog.push(
 				<div id='card' key={index} className="g-col-flex" style={{height: this.state.height, overflow: 'hidden'}}>
 					<NavLink to={"/blog/" + data[size - index].id}>
-						<CardMini  className="spacing" >
+						<CardMini className="spacing">
 							<div>
 								<h2 className="remove_space spacing-half">{data[size - index].title}</h2>
 								<h4 className="remove_space">by: Jason</h4>

@@ -19,19 +19,15 @@ class Home extends Component {
 						avgTypingSpeed={50}
 						startDelay={300}
 					>
-						<span>Welcome to my website!</span>
+						<span>Welcome!</span>
 					</Typist>
 				</Card>
 				<br></br>
-				<div className="g-col-6">
-					<FeaturedProjects 
-						projects_items = {projects_items}
-					/>
-				</div>
+				<FeaturedProjects 
+					projects_items = {projects_items}
+				/>
 				<br></br>
-				<div className="g-col-6">
-					<LatestBlogPosts />
-				</div>
+				<LatestBlogPosts />
 			</div>
 		);
 	}

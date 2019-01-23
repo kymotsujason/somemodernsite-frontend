@@ -10,7 +10,7 @@ class LatestBlogPosts extends Component {
 
 	render() { 
 		return (  
-			<Card>
+			<Card className="g-col-6">
 				<h2 className="center_text">Latest Blog Posts</h2>
 				
 				<FetchAPI
