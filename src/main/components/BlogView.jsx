@@ -53,7 +53,7 @@ class BlogView extends Component {
 								<h2 className="remove_space spacing-half">{data[size - index].title}</h2>
 								<h4 className="remove_space">by: Jason</h4>
 								<small className="remove_space">
-									{new Intl.DateTimeFormat('en-CA', { 
+									{new Intl.DateTimeFormat('en-CA', {
 									year: 'numeric', 
 									month: 'short', 
 									day: '2-digit',

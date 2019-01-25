@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-
-//redirect with javascript to a link
 import { NavLink } from 'react-router-dom';
+import logo from '../../main/assets/logo.png';
 
 class Navbar extends Component {
 
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			height: 0,
+		}
+
 		this.renderMenuTab = this.renderMenuTab.bind(this);
+		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 		// this.highlightCurrButton = this.highlightCurrButton.bind(this);
 	}
 
@@ -28,6 +32,23 @@ class Navbar extends Component {
 		this.props.history.push(url);
 		withRouter(component)
 	*/
+
+	componentDidMount() {
+		this.updateWindowDimensions();
+  		window.addEventListener('resize', this.updateWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions() {
+		let height = document.getElementById('nav').clientHeight;
+		this.setState({ 
+			height: height,
+		});
+	}
+	
 	renderMenuTab() {
 
 		var tabMenuList = [];
@@ -40,15 +61,12 @@ class Navbar extends Component {
 
 			tabMenuList.push(
 				/* <li key={key} className={"p-tabmenuitem p-highlight " + this.highlightCurrButton(url)}> */
-				<li key={key} className={"pull_right"}>
+				<li id="nav" key={key} className={"pull_right"}>
 					<NavLink to={url}>
-						<div className={" "}>
-							{/* <span className={icon + " p-menuitem-icon"}></span> */}
-							<span className="p-menuitem-text navbar_menu">{label}</span>
-						</div>
+						{/* <span className={icon + " p-menuitem-icon"}></span> */}
+						<span className="p-menuitem-text navbar_menu">{label}</span>
 					</NavLink>
 				</li>
-			
 			)
 		}
 
@@ -58,9 +76,9 @@ class Navbar extends Component {
 	render() { 
 		return (  
             <div>
-				<ul className="navbar " >
+				<ul className="navbar" >
 					<NavLink to={"/"}>
-						<span className="p-menuitem-text navbar_menu">Logo</span>
+						<img className="p-menuitem-text navbar_logo" alt="logo" src={logo} height={this.state.height}/>
 					</NavLink>
 					{this.renderMenuTab()}
 				</ul>

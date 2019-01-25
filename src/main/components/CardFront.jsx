@@ -5,7 +5,7 @@ class CardFront extends Component {
 	render() { 
 		return (  
 			<div className='card-side side-front'>
-				<img border="0" alt="Placeholder" src={this.props.image} width="100%"></img>
+				<img alt={this.props.title} src={this.props.image} width="100%" />
 				<div className='side-front-content remove_space'>
 					<h2 className="remove_space">{this.props.title}</h2>
 					<p className="remove_space"><small>{this.props.date}</small></p>

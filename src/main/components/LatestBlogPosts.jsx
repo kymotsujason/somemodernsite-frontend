@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FetchAPI from './FetchAPI';
-import BlogView from '../views/BlogView';
+import BlogView from './BlogView';
 import Card from '../../generic_components//components/Card';
 import { Button } from 'primereact/button';
 import { NavLink } from 'react-router-dom';
