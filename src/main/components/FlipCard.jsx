@@ -15,15 +15,25 @@ class FlipCard extends Component {
 
 		this.renderCard = this.renderCard.bind(this);
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+		this.checkWindowDimensions = this.checkWindowDimensions.bind(this);
 	}
 
 	componentDidMount() {
 		this.updateWindowDimensions();
-  		window.addEventListener('resize', this.updateWindowDimensions);
+		window.addEventListener('resize', this.updateWindowDimensions);
+		window.addEventListener('scroll', this.checkWindowDimensions);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateWindowDimensions);
+		window.removeEventListener('scroll', this.checkWindowDimensions);
+	}
+
+	checkWindowDimensions() {
+		let height = document.getElementById('flipcard').clientWidth;
+		if (this.state.height !== height || this.state.height !== (230 + (0.6 * (height - 230)))) {
+			this.updateWindowDimensions();
+		}
 	}
 
 	updateWindowDimensions() {

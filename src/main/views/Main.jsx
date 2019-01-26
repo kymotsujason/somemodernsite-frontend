@@ -14,22 +14,34 @@ class Main extends Component {
 
 		this.state = {
 			pngBackground: '',
+			height: 0,
 		}
 
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+		this.checkWindowDimensions = this.checkWindowDimensions.bind(this);
 	}
 
 	componentDidMount() {
 		this.updateWindowDimensions();
-  		window.addEventListener('resize', this.updateWindowDimensions);
+		window.addEventListener('resize', this.updateWindowDimensions);
+		window.addEventListener('scrolling', this.checkWindowDimensions);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateWindowDimensions);
+		window.removeEventListener('scroll', this.checkWindowDimensions);
+	}
+
+	checkWindowDimensions() {
+		let height = window.document.body.offsetHeight;
+		if (this.state.height !== height) {
+			this.updateWindowDimensions();
+		}
 	}
 
 	updateWindowDimensions() {
 		this.setState({ 
+			height: window.document.body.offsetHeight,
 			pngBackground: Trianglify({
 				width: window.document.body.offsetWidth,
 				height: window.document.body.offsetHeight,

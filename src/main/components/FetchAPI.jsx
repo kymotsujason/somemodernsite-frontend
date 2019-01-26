@@ -17,7 +17,7 @@ class FetchAPI extends Component {
 		axios.get(this.props.endpoint)
 		.then(response => {
 			if (response.status !== 200) {
-				return this.setState({ placeholder: "Something went wrong" });
+				return console.log("Something went wrong");
 			}
 			return response.data;
 		})
