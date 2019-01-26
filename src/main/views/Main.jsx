@@ -24,7 +24,7 @@ class Main extends Component {
 	componentDidMount() {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
-		window.addEventListener('scrolling', this.checkWindowDimensions);
+		window.addEventListener('scroll', this.checkWindowDimensions);
 	}
 
 	componentWillUnmount() {
