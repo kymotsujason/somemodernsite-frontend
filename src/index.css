@@ -162,6 +162,7 @@ html{
 
 /*- Flipping the card -*/
 .card-container:hover .card-body {
+	border: 1px solid cyan;
 	-webkit-transform: rotateY(180deg);
 	        transform: rotateY(180deg);
 }
@@ -191,6 +192,10 @@ html{
 /*- Frontside -*/
 .side-front [class^=col-xs]:first-of-type {
 	padding-left: 0;
+}
+
+.side-front:hover {
+	border: 1px solid cyan;
 }
    
 .side-front-content {
