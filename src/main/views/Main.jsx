@@ -17,19 +17,27 @@ class Main extends Component {
 			height: 0,
 		}
 
+		this.resizeId = null;
+
+		this.eventHandler = this.eventHandler.bind(this);
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 		this.checkWindowDimensions = this.checkWindowDimensions.bind(this);
 	}
 
 	componentDidMount() {
 		this.updateWindowDimensions();
-		window.addEventListener('resize', this.updateWindowDimensions);
-		window.addEventListener('scroll', this.checkWindowDimensions);
+		window.addEventListener('resize', this.eventHandler);
+		window.addEventListener('scroll', this.eventHandler);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateWindowDimensions);
-		window.removeEventListener('scroll', this.checkWindowDimensions);
+		window.removeEventListener('resize', this.eventHandler);
+		window.removeEventListener('scroll', this.eventHandler);
+	}
+
+	eventHandler() {
+		clearTimeout(this.resizeId);
+		this.resizeId = setTimeout(this.checkWindowDimensions, 100);
 	}
 
 	checkWindowDimensions() {

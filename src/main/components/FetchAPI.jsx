@@ -14,14 +14,28 @@ class FetchAPI extends Component {
 	};
 
 	componentDidMount() {
-		axios.get(this.props.endpoint)
-		.then(response => {
+		if(this.props.endpoint2) {
+			axios.all([
+				axios.get(this.props.endpoint),
+				axios.get(this.props.endpoint2)
+			])
+			.then(axios.spread((endRes, end2Res) => {
+				let res = endRes.data.items;
+				let res2 = end2Res.data;
+				let data = [...res2, ...res];
+				this.setState({ data: data, loaded: true });
+			}))
+		}
+		else {
+			axios.get(this.props.endpoint)
+			.then(response => {
 			if (response.status !== 200) {
 				return console.log("Something went wrong");
 			}
 			return response.data;
 		})
 		.then(data => this.setState({ data: data, loaded: true }));
+		}
 	}
 	
 	render() {
@@ -32,7 +46,7 @@ class FetchAPI extends Component {
 		<ClimbingBoxLoader 
 			css={override}
 			color={'#ffffff'}
-			loading={!this.state.loaded}
+			loading={this.props.anim}
 		/>;
 	}
 }

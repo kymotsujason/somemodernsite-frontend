@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../../generic_components//components/Card';
+import Parser from 'html-react-parser';
 
 class BlogPageView extends Component {
 	state = {  }
@@ -7,7 +8,7 @@ class BlogPageView extends Component {
 	constructor(props){
 		super(props)
 
-		this.renderPage = this.renderPage(this);
+		this.renderPage = this.renderPage.bind(this);
 	}
 
 	renderPage() {
@@ -17,7 +18,7 @@ class BlogPageView extends Component {
 			<div key={data.id} >
 				<Card className="spacing">
 					<div>
-						<h2 className="remove_space spacing-half">{data.title}</h2>
+						<h3 className="remove_space spacing-half">{data.title}</h3>
 						<h4 className="remove_space">by: Jason</h4>
 						<small className="remove_space">
 							{new Intl.DateTimeFormat('en-CA', { 
@@ -27,7 +28,7 @@ class BlogPageView extends Component {
 							}).format(new Date(data.published_date))}
 						</small>
 					</div>
-					<div className="spacing-half linebreak">{data.text}</div>
+					<div className="spacing-half linebreak" >{Parser(data.text)}</div>
 				</Card>
 			</div>
 		)
@@ -37,7 +38,7 @@ class BlogPageView extends Component {
 	render() { 
 		return (  
 			<div>
-				{this.renderPage}
+				{this.renderPage()}
 			</div>
 		);
 	}

@@ -222,7 +222,7 @@ html{
 	overflow: hidden;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1366px) {
 	.g-col-6 {
 		-webkit-box-flex: 0;
 		-ms-flex: 0 0 auto;
@@ -243,7 +243,7 @@ html{
 	}
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1366px) {
 	.g-col-6 {
 		-webkit-box-flex: 0;
 		-ms-flex: 0 0 auto;

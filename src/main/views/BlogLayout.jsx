@@ -21,9 +21,11 @@ class BlogLayout extends Component {
 				<br></br>
 				<Card className="g-col-6">
 					<FetchAPI
-						endpoint={'/api/blog'}
+						endpoint={'/api/blog/v2/pages/?type=blog2.BlogPage&fields=text,published_date'}
+						endpoint2={'/api/blog'}
+						anim={true}
 						render={data => 
-						<BlogView 
+						<BlogView
 							data={data}
 						/>} 
 					/>

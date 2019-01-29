@@ -14,7 +14,8 @@ class LatestBlogPosts extends Component {
 				<h2 className="center_text">Latest Blog Posts</h2>
 				
 				<FetchAPI
-					endpoint={'/api/blog'}
+					endpoint={'/api/blog/v2/pages/?type=blog2.BlogPage&fields=text,published_date'}
+					endpoint2={'/api/blog'}
 					render={data => 
 					<BlogView 
 						data={data}
