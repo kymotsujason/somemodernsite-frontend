@@ -66,7 +66,7 @@ class CardMini extends Component {
         body = this.renderBody();
 
         return(
-            <div className={className} style={this.props.style}>
+            <div id="cardmini" className={className} style={this.props.style}>
                 {header}
                 {body}
             </div>

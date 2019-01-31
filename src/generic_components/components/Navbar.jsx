@@ -75,7 +75,7 @@ class Navbar extends Component {
 
 	render() { 
 		return (  
-            <div>
+            <div id="navbar">
 				<ul className="navbar" >
 					<NavLink to={"/"}>
 						<img className="p-menuitem-text navbar_logo" alt="logo" src={logo} height={this.state.height}/>

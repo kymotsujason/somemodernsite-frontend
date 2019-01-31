@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import WebSocketInstance from './WithWebsocket';
 import {InputText} from 'primereact/inputtext';
-import {Button} from 'primereact/button';
+import CustomButton from '../../../../generic_components/components/CustomButton';
 import './css/chat.css';
 
 class Chat extends Component {
@@ -103,7 +103,11 @@ class Chat extends Component {
 							value={this.state.message}
 							onChange={(e) => this.setState({message: e.target.value})} 
 						/>
-						<Button label="Submit" onClick={(e) => this.sendMessageHandler(e, this.state.message)}/>
+						<CustomButton 
+							icon="paper-plane" 
+							iconLocation="center" 
+							onClick={(e) => this.sendMessageHandler(e, this.state.message)}
+						/>
 					</span>
 				</div>
 			</div>

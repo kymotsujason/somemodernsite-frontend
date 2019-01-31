@@ -27,7 +27,6 @@
 	        box-sizing: border-box;
 	display: inline-block;
 	width: 80%;
-	float: left;
 }
 
 .chat button {
@@ -38,7 +37,6 @@
 	font-size: 1em;
 	padding: 5px;
 	width: 20%;
-	float: left;
 }
 
 .chat ul {

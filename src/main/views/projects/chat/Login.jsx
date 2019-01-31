@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {InputText} from 'primereact/inputtext';
-import {Button} from 'primereact/button';
+import CustomButton from '../../../../generic_components/components/CustomButton';
 
 class Login extends Component {
 	state = {  }
@@ -28,7 +28,11 @@ class Login extends Component {
 						value={this.state.value}
 						onChange={(e) => this.setState({value: e.target.value})} 
 					/>
-					<Button label="Submit" onClick={() => this.handleClick(this.state.value)}/>
+					<CustomButton 
+						icon="paper-plane" 
+						iconLocation="center" 
+						onClick={() => this.handleClick(this.state.value)}
+					/>
 				</span>
 			</div>
 		);
