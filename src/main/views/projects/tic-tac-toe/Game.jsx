@@ -111,8 +111,8 @@ class Game extends Component {
 					</Typist>
 				</Card>
 				<br></br>
-				<Card className="center_text">
-					<div className="game">
+				<Card className="g-col-6 center_text">
+					<div className="game p-grid">
 						<div className="game-board">
 							<Board 
 								squares={current.squares}

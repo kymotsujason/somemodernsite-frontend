@@ -1,13 +1,13 @@
 .remove-numbers {
 	list-style-type: none;
 }
-  
+
 .board-row:after {
 	clear: both;
 	content: "";
 	display: table;
 }
-  
+
 .status {
 	margin-bottom: 10px;
 }
@@ -17,39 +17,67 @@
 	color: #fff;
 	border: 1px solid #fff;
 	float: left;
-	font-size: 72px;
+	font-size: 24px;
+	font-weight: bold;
 	line-height: 34px;
-	height: 175px;
+	height: 9vw;
 	margin-right: -1px;
 	margin-top: -1px;
 	padding: 0;
 	text-align: center;
-	width: 175px;
+	width: 9vw;
 }
-  
+
 .square:focus {
 	border: 4px solid blue;
 }
-  
+
 .kbd-navigation .square:focus {
 	background: #ddd;
 }
-  
+
 .game {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	font: 20px "Century Gothic", Futura, sans-serif;
-	margin: 20px;
-}
-
-.game-board
-{
-	width: 600px;
-	height: 600px;
 }
 
 .game-info {
 	margin-left: 20px;
 }
-  
+
+@media only screen and (max-width: 1366px) {
+	.square {
+		background: #222;
+		color: #fff;
+		border: 1px solid #fff;
+		float: left;
+		font-size: 13vw;
+		font-weight: bold;
+		line-height: 34px;
+		height: 20vw;
+		margin-right: -1px;
+		margin-top: -1px;
+		padding: 0;
+		text-align: center;
+		width: 20vw;
+	}
+}
+
+@media only screen and (min-width: 1366px) {
+	.square {
+		background: #222;
+		color: #fff;
+		border: 1px solid #fff;
+		float: left;
+		font-size: 6vw;
+		font-weight: bold;
+		line-height: 34px;
+		height: 9vw;
+		margin-right: -1px;
+		margin-top: -1px;
+		padding: 0;
+		text-align: center;
+		width: 9vw;
+	}
+}
