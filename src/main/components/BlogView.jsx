@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import {Sidebar} from 'primereact/sidebar';
 import {Button} from 'primereact/button';
-import BlogPageView from '../views/BlogPageView';
+import Card from '../../generic_components//components/Card';
 import CardMini from '../../generic_components//components/CardMini';
 
 class BlogView extends Component {
@@ -123,9 +123,17 @@ class BlogView extends Component {
 				>
 				<div className="p-grid-nowrap">
 					<div style={{overflow: 'auto'}}>
-						<BlogPageView
-							data={this.state.data}
-						/>
+						<Card className="spacing">
+							<div className="remove_space spacing-half" style={{fontSize: ((height - 300) / 27), fontWeight: 'bold'}}>{this.state.data.title}</div>
+							<div className="remove_space" style={{fontSize: ((height - 300) / 35)}}>
+								by: Jason - {new Intl.DateTimeFormat('en-CA', {
+								year: 'numeric', 
+								month: 'short', 
+								day: '2-digit',
+								}).format(new Date(this.state.data.published_date))}
+							</div>
+							<div className="spacing-half linebreak"  style={{height: (height - 300), overflow: 'auto', fontSize: ((height - 300) / 32)}} >{Parser(this.state.data.text)}</div>
+						</Card>
 					</div>
 					<div className="p-justify-center">
 						<NavLink to={"blog/" + this.state.data.id} >
