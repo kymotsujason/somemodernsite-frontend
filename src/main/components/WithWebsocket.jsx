@@ -13,8 +13,8 @@ class WebSocketService {
 	  	this.socketRef = null;
 	}
   
-	connect() {
-	  	const path = 'wss://jasonyue.ca/ws/chat';
+	connect(url) {
+	  	const path = url;
 	  	this.socketRef = new WebSocket(path);
 	  	this.socketRef.onopen = () => {
 			console.log('WebSocket open');
@@ -39,25 +39,24 @@ class WebSocketService {
   
 	socketNewMessage(data) {
 	  	const parsedData = JSON.parse(data);
-	  	const command = parsedData.command;
+		const command = parsedData.command;
 	  	if (Object.keys(this.callbacks).length === 0) {
 			return;
 	  	}
-	  	if (command === 'messages') {
-			this.callbacks[command](parsedData.messages);
-	  	}
-	  	if (command === 'new_message') {
+	  	if (command === 'chat-new_message') {
 			this.callbacks[command](parsedData.message);
-	  	}
+		}
+		if (command === 'tictactoe-AI') {
+			this.callbacks[command](parsedData.message);
+		}
 	}
   
 	newChatMessage(message) {
-	  	this.sendMessage({ command: 'new_message', from: message.from, text: message.text }); 
+	  	this.sendMessage({ command: 'chat-new_message', from: message.from, text: message.text }); 
 	}
   
-	addCallbacks(messagesCallback, newMessageCallback) {
-	  	this.callbacks['messages'] = messagesCallback;
-	  	this.callbacks['new_message'] = newMessageCallback;
+	addCallbacks(newMessageCallback) {
+	  	this.callbacks['chat-new_message'] = newMessageCallback;
 	}
 	
 	sendMessage(data) {

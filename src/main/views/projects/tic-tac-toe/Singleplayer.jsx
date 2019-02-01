@@ -12,8 +12,6 @@ import Typist from 'react-typist';
 	4. When someone wins, highlight the three squares that caused the win.
 */
 class Game extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 
@@ -107,7 +105,7 @@ class Game extends Component {
 						avgTypingSpeed={50}
 						startDelay={300}
 					>
-						<span>Tic Tac Toe</span>
+						<span>Tic Tac Toe Singleplayer</span>
 					</Typist>
 				</Card>
 				<br></br>

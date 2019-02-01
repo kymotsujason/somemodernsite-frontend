@@ -3,7 +3,7 @@ import Card from '../../../../generic_components//components/Card';
 import Login from './Login';
 import Chat from './Chat';
 
-class Home extends Component {
+class ChatHome extends Component {
 	state = {  }
 
 	constructor(props) {
@@ -43,4 +43,4 @@ class Home extends Component {
 		);
 	}
 }
-export default Home;
+export default ChatHome;

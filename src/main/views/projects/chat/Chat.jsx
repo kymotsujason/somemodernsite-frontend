@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import WebSocketInstance from './WithWebsocket';
+import WebSocketInstance from './../../../components/WithWebsocket';
 import {InputText} from 'primereact/inputtext';
 import CustomButton from '../../../../generic_components/components/CustomButton';
+import {socket_url} from '../../../components/static_socket';
 import './css/chat.css';
 
 class Chat extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 
@@ -15,9 +14,9 @@ class Chat extends Component {
 			messages: '',
 		}
 
-		WebSocketInstance.connect();
+		WebSocketInstance.connect(socket_url + "chat");
 		this.waitForSocketConnection(() => {
-			WebSocketInstance.addCallbacks(this.setMessages.bind(this), this.addMessage.bind(this))
+			WebSocketInstance.addCallbacks( this.addMessage.bind(this))
 		});
 	}
 
@@ -44,10 +43,6 @@ class Chat extends Component {
 	
 	addMessage(message) {
 		this.setState({ messages: [...this.state.messages, message]});
-	}
-	
-	setMessages(messages) {
-		this.setState({ messages: messages.reverse()});
 	}
 	
 	sendMessageHandler(e, message) {
