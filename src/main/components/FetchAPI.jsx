@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
 
@@ -11,6 +12,7 @@ class FetchAPI extends Component {
 	state = {
 		data: [],
 		loaded: false,
+		error: false,
 	};
 
 	componentDidMount() {
@@ -20,27 +22,46 @@ class FetchAPI extends Component {
 				axios.get(this.props.endpoint2)
 			])
 			.then(axios.spread((endRes, end2Res) => {
+				if(endRes.status !== 200 || end2Res.status !== 200) {
+					return console.log("Something went wrong");
+				}
 				let res = endRes.data.items;
 				let res2 = end2Res.data;
 				let data = [...res2, ...res];
 				this.setState({ data: data, loaded: true });
 			}))
+			.catch((error) => {
+				if(error) {
+					this.setState({ error: true })
+				}
+			})
 		}
 		else {
 			axios.get(this.props.endpoint)
 			.then(response => {
-			if (response.status !== 200) {
-				return console.log("Something went wrong");
-			}
-			return response.data;
-		})
-		.then(data => this.setState({ data: data, loaded: true }));
+				if (response.status !== 200) {
+					return console.log("Something went wrong");
+				}
+				return response.data;
+			})
+			.catch((error) => {
+				if(error) {
+					this.setState({ error: true })
+				}
+			})
+			.then(data => this.setState({ data: data, loaded: true }));
 		}
 	}
 	
 	render() {
 		const { data, loaded } = this.state;
-		return loaded ? 
+		if (this.state.error) {
+			return(
+				<Redirect to="/404" />
+			)
+		}
+		else {
+			return loaded ? 
 		this.props.render(data) 
 		: 
 		<ClimbingBoxLoader 
@@ -48,6 +69,7 @@ class FetchAPI extends Component {
 			color={'#ffffff'}
 			loading={this.props.anim}
 		/>;
+		}
 	}
 }
  

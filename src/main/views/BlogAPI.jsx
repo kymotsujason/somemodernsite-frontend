@@ -3,8 +3,6 @@ import FetchAPI from '../components/FetchAPI';
 import BlogPageView from './BlogPageView';
 
 class BlogAPI extends Component {
-	state = {  }
-
 	render() { 
 		var url = "/api/blog/" + this.props.match.params.number;
 		if (this.props.match.params.number >= 6) {

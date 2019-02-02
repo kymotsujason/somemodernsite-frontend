@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../assets/button.css';
 
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
