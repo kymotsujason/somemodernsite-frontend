@@ -4,6 +4,7 @@ import Card from '../../../../generic_components//components/Card';
 import Board from './Board';
 import './css/game.css'
 import Typist from 'react-typist';
+import {Button} from 'primereact/button';
 import {socket_url} from '../../../components/static_socket';
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
@@ -18,19 +19,19 @@ class VsAI extends Component {
 		super(props);
 
 		this.state = {
-			message: '',
-			messages: '',
 			history: [{
 				squares: Array(9).fill(null),
 			}],
 			xIsNext: true,
 			stepNumber: 0,
 			connected: false,
+			reset: false,
+			cpuMove: false,
 		}
 		this.calculateWinner = this.calculateWinner.bind(this);
 		this.handleClick = this.handleClick.bind(this);
-		this.jumpTo = this.jumpTo.bind(this);
 		this.sendMove = this.sendMove.bind(this);
+		this.resetBoard = this.resetBoard.bind(this);
 
 		WebSocketInstance.connect(socket_url + "tictactoe/ai");
 		this.waitForSocketConnection(() => {
@@ -60,12 +61,34 @@ class VsAI extends Component {
 		}, 100); // wait 100 milisecond for the connection...
 	}
 	
-	receiveMove(message) {
-
+	receiveMove(board) {
+		const history = this.state.history.slice(0, this.state.stepNumber + 1);
+		let newHistory = history.concat([{
+			squares: board,
+		}]);
+		this.setState({
+			history: newHistory,
+			xIsNext: !this.state.xIsNext,
+			stepNumber: history.length,
+			cpuMove: false,
+		});
 	}
 
 	sendMove(board) {
-		console.log(board);
+		this.setState({ cpuMove: true })
+		WebSocketInstance.newTicTacToeAI(board.squares);
+	}
+
+	resetBoard() {
+		this.setState({
+			history: [{
+				squares: Array(9).fill(null),
+			}],
+			xIsNext: true,
+			stepNumber: 0,
+			reset: false,
+			cpuMove: false,
+		})
 	}
 
 	calculateWinner(squares) {
@@ -87,30 +110,28 @@ class VsAI extends Component {
 		}
 	}
 
-	jumpTo(step) {
-		this.setState({
-			stepNumber: step,
-			xIsNext: (step % 2) === 0,
-		})
-	}
-
 	handleClick(i) {
-		const history = this.state.history.slice(0, this.state.stepNumber + 1);
-		const current = history[history.length - 1];
-		const squares = current.squares.slice();
-		if (this.calculateWinner(squares) || squares[i]) {
-			return;
+		if(!this.state.cpuMove) {
+			const history = this.state.history.slice(0, this.state.stepNumber + 1);
+			const current = history[history.length - 1];
+			const squares = current.squares.slice();
+			if (this.calculateWinner(squares) || squares[i]) {
+				return;
+			}
+			squares[i] = this.state.xIsNext ? 'X' : 'O';
+			let newHistory = history.concat([{
+				squares: squares,
+			}]);
+			this.setState({
+				history: newHistory,
+				xIsNext: !this.state.xIsNext,
+				stepNumber: history.length,
+			});
+			if (this.calculateWinner(newHistory[history.length].squares) || this.state.stepNumber === 8) {
+				return;
+			}
+			this.sendMove(newHistory[history.length]);
 		}
-		squares[i] = this.state.xIsNext ? 'X' : 'O';
-		let newHistory = history.concat([{
-			squares: squares,
-		}]);
-		this.setState({
-			history: newHistory,
-			xIsNext: !this.state.xIsNext,
-			stepNumber: history.length,
-		});
-		this.sendMove(newHistory[history.length]);
 	}
 
 	render() { 
@@ -122,9 +143,15 @@ class VsAI extends Component {
 
 			if (winner) {
 				status = 'Winner: ' + winner;
+				if (!this.state.reset) {
+					this.setState({ reset: true })
+				}
 			}
 			else if (this.state.stepNumber === 9) {
 				status = 'Draw';
+				if (!this.state.reset) {
+					this.setState({ reset: true })
+				}
 			}
 			else {
 				status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
@@ -151,6 +178,16 @@ class VsAI extends Component {
 							</div>
 							<div className="game-info">
 								<div>{status}</div>
+								<div>
+									{this.state.reset ?
+									<Button
+										label="Reset"
+										onClick={() => this.resetBoard()}
+									/>
+									:
+									null
+									}
+								</div>
 							</div>
 						</div>
 					</Card>

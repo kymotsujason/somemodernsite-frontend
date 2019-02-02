@@ -20,7 +20,7 @@ class WebSocketService {
 			console.log('WebSocket open');
 	  	};
 	  	this.socketRef.onmessage = e => {
-			this.socketNewMessage(e.data);
+			this.socketResponse(e.data);
 	  	};
   
 	  	this.socketRef.onerror = e => {
@@ -37,8 +37,8 @@ class WebSocketService {
 		this.socketRef.close();
 	}
   
-	socketNewMessage(data) {
-	  	const parsedData = JSON.parse(data);
+	socketResponse(data) {
+		const parsedData = JSON.parse(data);
 		const command = parsedData.command;
 	  	if (Object.keys(this.callbacks).length === 0) {
 			return;
@@ -47,16 +47,21 @@ class WebSocketService {
 			this.callbacks[command](parsedData.message);
 		}
 		if (command === 'tictactoe-AI') {
-			this.callbacks[command](parsedData.message);
+			this.callbacks[command](parsedData.board);
 		}
 	}
   
 	newChatMessage(message) {
 	  	this.sendMessage({ command: 'chat-new_message', from: message.from, text: message.text }); 
 	}
+
+	newTicTacToeAI(board) {
+		this.sendMessage({ command: 'tictactoe-AI', board: board });
+	}
   
 	addCallbacks(newMessageCallback) {
-	  	this.callbacks['chat-new_message'] = newMessageCallback;
+		this.callbacks['chat-new_message'] = newMessageCallback;
+		this.callbacks['tictactoe-AI'] = newMessageCallback;
 	}
 	
 	sendMessage(data) {

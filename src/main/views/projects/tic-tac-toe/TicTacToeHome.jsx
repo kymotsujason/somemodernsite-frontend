@@ -5,6 +5,7 @@ import Singleplayer from './Singleplayer';
 import VsAI from './VsAI';
 import Typist from 'react-typist';
 import Multiplayer from './Multiplayer';
+import {Growl} from 'primereact/growl';
 
 class TicTacToeHome extends Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class TicTacToeHome extends Component {
 			single: false,
 			vsAI: false,
 			multi: false,
+			multimenu: false,
 		}
 
 		this.renderMenu = this.renderMenu.bind(this);
@@ -27,37 +29,68 @@ class TicTacToeHome extends Component {
 			return <VsAI />
 		}
 		else if (this.state.multi) {
-			return <Multiplayer />;
+			//return <Multiplayer />
+			this.growl.show({severity: 'error', summary: 'Error Message', detail: 'Multiplayer is not yet implemented!'})
+			this.setState({ multi: false })
+		}
+		else if (this.state.multimenu) {
+			return (
+				<div className="spacing main_container">
+					<Card className="g-col-6 center_text">
+						<Typist
+							className="typist"
+							avgTypingSpeed={50}
+							startDelay={300}
+						>
+							<span>Tic Tac Toe</span>
+						</Typist>
+					</Card>
+					<br></br>
+					<Card className="g-col-6 center_text">
+						<div className="p-grid p-justify-center">
+							<Button 
+								label="Host game"
+								onClick={() => this.setState({multi:true})}
+							/>
+							<Button 
+								label="Join game"
+								onClick={() => this.setState({multi:true})}
+							/>
+							<Button 
+								label="Back"
+								onClick={() => this.setState({multimenu:false})}
+							/>
+						</div>
+					</Card>
+				</div>
+			);
 		}
 		else{
 			return (
 				<div className="spacing main_container">
 					<Card className="g-col-6 center_text">
-							<Typist
-								className="typist"
-								avgTypingSpeed={50}
-								startDelay={300}
-							>
-								<span>Tic Tac Toe</span>
-							</Typist>
+						<Typist
+							className="typist"
+							avgTypingSpeed={50}
+							startDelay={300}
+						>
+							<span>Tic Tac Toe</span>
+						</Typist>
 					</Card>
 					<br></br>
 					<Card className="g-col-6 center_text">
 						<div className="p-grid p-justify-center">
 							<Button 
 								label="Singleplayer"
-								className="p-button-raised p-button-rounded"
 								onClick={() => this.setState({single:true})}
 							/>
 							<Button 
 								label="vs AI"
-								className="p-button-raised p-button-rounded"
 								onClick={() => this.setState({vsAI:true})}
 							/>
 							<Button 
 								label="Multiplayer"
-								className="p-button-raised p-button-rounded"
-								onClick={() => this.setState({multi:true})}
+								onClick={() => this.setState({multimenu:true})}
 							/>
 						</div>
 					</Card>
@@ -68,7 +101,10 @@ class TicTacToeHome extends Component {
 
 	render() { 
 		return (
-			this.renderMenu()
+			<div>
+				<Growl ref={(el) => this.growl = el}></Growl>
+				{this.renderMenu()}
+			</div>
 		);
 	}
 }
