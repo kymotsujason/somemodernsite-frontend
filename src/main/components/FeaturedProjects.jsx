@@ -16,7 +16,7 @@ class FeaturedProjects extends Component {
 					projects_items = {this.props.projects_items}
 					limit = {3}
 				/>
-				<br></br>
+				<br />
 				<NavLink to="/projects">
 					<Button label="View more" className="p-button-raised p-button-rounded" />
 				</NavLink>

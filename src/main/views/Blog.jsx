@@ -27,7 +27,7 @@ class Blog extends Component {
 							<span className="readmore">Read more</span>
 						</NavLink>
 					</Card>
-					<br></br>
+					<br />
 				</div>
 			)
 		}

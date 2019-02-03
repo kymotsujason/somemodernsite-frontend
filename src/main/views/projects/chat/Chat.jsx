@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import WebSocketInstance from './../../../components/WithWebsocket';
+import WebSocketInstance from './../../../components/Websocket';
 import {InputText} from 'primereact/inputtext';
 import CustomButton from '../../../../generic_components/components/CustomButton';
 import {socket_url} from '../../../components/static_socket';
+import { css } from '@emotion/core';
+import { ClimbingBoxLoader } from 'react-spinners';
 import './css/chat.css';
+
+const override = css`
+    margin: 0 auto;
+`;
 
 class Chat extends Component {
 	constructor(props) {
@@ -12,20 +18,26 @@ class Chat extends Component {
 		this.state = {
 			message: '',
 			messages: '',
+			connected: false,
 		}
 
 		WebSocketInstance.connect(socket_url + "chat");
 		this.waitForSocketConnection(() => {
+			this.setState({connected: true});
 			WebSocketInstance.addCallbacks( this.addMessage.bind(this))
 		});
 	}
 
 	componentDidMount() {
-		this.scrollToBottom();
+		if(this.state.connected) {
+			this.scrollToBottom();
+		}
 	}
 	
 	componentDidUpdate() {
-		this.scrollToBottom();
+		if(this.state.connected) {
+			this.scrollToBottom();
+		}
 	}
 
 	componentWillUnmount() {
@@ -79,34 +91,47 @@ class Chat extends Component {
 	}
 
 	render() { 
-		const messages = this.state.messages;
-    	const currentUser = this.props.currentUser;
-		return (  
-			<div className='chat'>
-				<div className='container'>
-					<h1>Chatting as {currentUser} </h1>
-					<ul ref={(el) => { this.messagesEnd = el; }}>
-					{ 
-						messages && 
-						this.renderMessages(messages) 
-					}
-					</ul>
+		if(this.state.connected) {
+			const messages = this.state.messages;
+			const currentUser = this.props.currentUser;
+			return (  
+				<div className='chat'>
+					<div className='container'>
+						<h1>Chatting as {currentUser} </h1>
+						<ul ref={(el) => { this.messagesEnd = el; }}>
+						{ 
+							messages && 
+							this.renderMessages(messages) 
+						}
+						</ul>
+					</div>
+					<div className='container message-form'>
+						<span>
+							<InputText 
+								value={this.state.message}
+								onChange={(e) => this.setState({message: e.target.value})} 
+							/>
+							<CustomButton 
+								icon="paper-plane" 
+								iconLocation="center" 
+								onClick={(e) => this.sendMessageHandler(e, this.state.message)}
+							/>
+						</span>
+					</div>
 				</div>
-				<div className='container message-form'>
-					<span>
-						<InputText 
-							value={this.state.message}
-							onChange={(e) => this.setState({message: e.target.value})} 
-						/>
-						<CustomButton 
-							icon="paper-plane" 
-							iconLocation="center" 
-							onClick={(e) => this.sendMessageHandler(e, this.state.message)}
-						/>
-					</span>
+			);
+		}
+		else {
+			return (
+				<div>
+					<ClimbingBoxLoader 
+						css={override}
+						color={'#ffffff'}
+					/>
+					Connecting...
 				</div>
-			</div>
-		);
+			)
+		}
 	}
 }
  

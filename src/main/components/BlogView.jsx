@@ -94,7 +94,7 @@ class BlogView extends Component {
 							}).format(new Date(data[size - index].published_date))}
 						</div>
 						<div className="spacing-half linebreak" style={{height: this.state.actualHeight, overflow: 'hidden', fontSize: (this.state.height / 22)}} >{Parser(data[size - index].text)}</div>
-						<br></br>
+						<br />
 						<span className="readmore">Show more</span>
 					</CardMini>
 				</div>

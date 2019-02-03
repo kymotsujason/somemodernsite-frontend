@@ -17,7 +17,6 @@ class WebSocketService {
 	  	const path = url;
 	  	this.socketRef = new WebSocket(path);
 	  	this.socketRef.onopen = () => {
-			console.log('WebSocket open');
 	  	};
 	  	this.socketRef.onmessage = e => {
 			this.socketResponse(e.data);
@@ -27,7 +26,6 @@ class WebSocketService {
 			console.log(e.message);
 	  	};
 	  	this.socketRef.onclose = () => {
-			console.log("WebSocket closed let's reopen");
 			this.connect();
 	  	};
 	}
@@ -49,19 +47,38 @@ class WebSocketService {
 		if (command === 'tictactoe-AI') {
 			this.callbacks[command](parsedData.board);
 		}
+		if (command === 'tictactoe-multi') {
+			this.callbacks[command](parsedData.board, parsedData.player);
+		}
+		if (command === 'tictactoe-multimessage') {
+			this.callbacks[command](parsedData.message, parsedData.playerId);
+		}
 	}
   
 	newChatMessage(message) {
 	  	this.sendMessage({ command: 'chat-new_message', from: message.from, text: message.text }); 
 	}
 
-	newTicTacToeAI(board) {
-		this.sendMessage({ command: 'tictactoe-AI', board: board });
+	newTicTacToeAI(board, player) {
+		this.sendMessage({ command: 'tictactoe-AI', board: board, player: player });
+	}
+
+	newTicTacToeMulti(board, player) {
+		this.sendMessage({ command: 'tictactoe-multi', board: board, player: player });
+	}
+
+	newTicTacToeMultiMessage(message, playerId) {
+		this.sendMessage({ command: 'tictactoe-multimessage', message: message, playerId: playerId });
 	}
   
 	addCallbacks(newMessageCallback) {
 		this.callbacks['chat-new_message'] = newMessageCallback;
 		this.callbacks['tictactoe-AI'] = newMessageCallback;
+	}
+
+	addCallbacksMulti(sendMove, sendMessage) {
+		this.callbacks['tictactoe-multi'] = sendMove;
+		this.callbacks['tictactoe-multimessage'] = sendMessage;
 	}
 	
 	sendMessage(data) {

@@ -22,11 +22,11 @@ class Home extends Component {
 						<span>Welcome!</span>
 					</Typist>
 				</Card>
-				<br></br>
+				<br />
 				<FeaturedProjects 
 					projects_items = {projects_items}
 				/>
-				<br></br>
+				<br />
 				<LatestBlogPosts />
 			</div>
 		);

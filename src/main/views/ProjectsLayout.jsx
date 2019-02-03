@@ -19,7 +19,7 @@ class ProjectsLayout extends Component {
 						<span>Projects</span>
 					</Typist>
 				</Card>
-				<br></br>
+				<br />
 				<Projects 
 					projects_items = {projects_items}
 				/>

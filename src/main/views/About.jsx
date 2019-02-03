@@ -16,7 +16,7 @@ class About extends Component {
 						<span>About</span>
 					</Typist>
 				</Card>
-				<br></br>
+				<br />
 				<Card title="About me" className="g-col-6">
 					<div>
 						<p>
@@ -43,7 +43,7 @@ class About extends Component {
 						</p>
 					</div>
 				</Card>
-				<br></br>
+				<br />
 				<Card title="About the site" className="g-col-6">
 					<div>
 						<p>Interested in the site design?</p>

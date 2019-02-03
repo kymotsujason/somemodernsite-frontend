@@ -2,68 +2,127 @@ import React, { Component } from 'react';
 import Card from '../../../../generic_components//components/Card';
 import {Button} from 'primereact/button';
 import Singleplayer from './Singleplayer';
+import randomstring from 'randomstring';
 import VsAI from './VsAI';
 import Typist from 'react-typist';
+import {InputText} from 'primereact/inputtext';
 import Multiplayer from './Multiplayer';
-import {Growl} from 'primereact/growl';
+import {withRouter} from 'react-router-dom';
 
 class TicTacToeHome extends Component {
 	constructor(props) {
 		super(props);
-		
-		this.state={
-			single: false,
-			vsAI: false,
+
+		this.state = {
 			multi: false,
-			multimenu: false,
+			value: '',
 		}
 
 		this.renderMenu = this.renderMenu.bind(this);
 	}
 
 	renderMenu() {
-		if(this.state.single){
+		let path = this.props.location.pathname;
+		const splitArr = path.split('/')
+		const cleanArr = splitArr.filter((el) => {
+			return el !== ""
+		});
+		let id = "";
+		if(cleanArr.length >= 3) {
+			id = cleanArr[2].toString().toLowerCase();
+		}
+		if(id  === "singleplayer"){
 			return <Singleplayer />
 		}
-		else if (this.state.vsAI) {
+		else if (id  === "ai") {
 			return <VsAI />
 		}
-		else if (this.state.multi) {
-			//return <Multiplayer />
-			this.growl.show({severity: 'error', summary: 'Error Message', detail: 'Multiplayer is not yet implemented!'})
-			this.setState({ multi: false })
-		}
-		else if (this.state.multimenu) {
+		else if (cleanArr.length === 4) {
 			return (
-				<div className="spacing main_container">
-					<Card className="g-col-6 center_text">
-						<Typist
-							className="typist"
-							avgTypingSpeed={50}
-							startDelay={300}
-						>
-							<span>Tic Tac Toe</span>
-						</Typist>
-					</Card>
-					<br></br>
-					<Card className="g-col-6 center_text">
-						<div className="p-grid p-justify-center">
-							<Button 
-								label="Host game"
-								onClick={() => this.setState({multi:true})}
-							/>
-							<Button 
-								label="Join game"
-								onClick={() => this.setState({multi:true})}
-							/>
-							<Button 
-								label="Back"
-								onClick={() => this.setState({multimenu:false})}
-							/>
-						</div>
-					</Card>
-				</div>
-			);
+				<Multiplayer 
+					id={cleanArr[3]}
+				/>
+			)
+		}
+		else if (id  === "multiplayer") {
+			if(this.state.multi) {
+				return(
+					<div className="spacing main_container">
+						<Card className="g-col-6 center_text">
+							<Typist
+								className="typist"
+								avgTypingSpeed={50}
+								startDelay={300}
+							>
+								<span>Tic Tac Toe</span>
+							</Typist>
+						</Card>
+						<br />
+						<Card className="g-col-6 center_text">
+							<div className="p-grid p-justify-center">
+								<InputText 
+									value={this.state.value}
+									onChange={(e) => this.setState({value: e.target.value})} 
+								/>
+								<Button 
+									label="Join game"
+									onClick={() => {
+										if(splitArr.length === 4) {
+											this.props.history.push(path + "/" + this.state.value)
+										}
+										else {
+											this.props.history.push(path + this.state.value)
+										}
+									}}
+								/>
+								<Button 
+									label="Back"
+									onClick={() => this.setState({multi:false})}
+								/>
+							</div>
+						</Card>
+					</div>
+				)
+			}
+			else {
+				return (
+					<div className="spacing main_container">
+						<Card className="g-col-6 center_text">
+							<Typist
+								className="typist"
+								avgTypingSpeed={50}
+								startDelay={300}
+							>
+								<span>Tic Tac Toe</span>
+							</Typist>
+						</Card>
+						<br />
+						<Card className="g-col-6 center_text">
+							<div className="p-grid p-justify-center">
+								<Button 
+									label="Host game"
+									onClick={() => {
+										if(splitArr.length === 4) {
+											this.props.history.push(path + "/" + randomstring.generate(5))
+										}
+										else {
+											this.props.history.push(path +  + randomstring.generate(5))
+										}
+									}}
+								/>
+								<Button 
+									label="Join game"
+									onClick={() => this.setState({multi:true})}
+								/>
+								<Button 
+									label="Back"
+									onClick={() => this.props.history.push("/projects/tic-tac-toe/")}
+								/>
+							</div>
+						</Card>
+					</div>
+				);
+			}
 		}
 		else{
 			return (
@@ -77,20 +136,41 @@ class TicTacToeHome extends Component {
 							<span>Tic Tac Toe</span>
 						</Typist>
 					</Card>
-					<br></br>
+					<br />
 					<Card className="g-col-6 center_text">
 						<div className="p-grid p-justify-center">
 							<Button 
 								label="Singleplayer"
-								onClick={() => this.setState({single:true})}
+								onClick={() => {
+									if(splitArr.length === 3) {
+										this.props.history.push(path + "/singleplayer")
+									}
+									else {
+										this.props.history.push(path + "singleplayer")
+									}
+								}}
 							/>
 							<Button 
 								label="vs AI"
-								onClick={() => this.setState({vsAI:true})}
+								onClick={() => {
+									if(splitArr.length === 3) {
+										this.props.history.push(path + "/ai")
+									}
+									else {
+										this.props.history.push(path + "ai")
+									}
+								}}
 							/>
 							<Button 
 								label="Multiplayer"
-								onClick={() => this.setState({multimenu:true})}
+								onClick={() => {
+									if(splitArr.length === 3) {
+										this.props.history.push(path + "/multiplayer")
+									}
+									else {
+										this.props.history.push(path + "multiplayer")
+									}
+								}}
 							/>
 						</div>
 					</Card>
@@ -102,11 +182,10 @@ class TicTacToeHome extends Component {
 	render() { 
 		return (
 			<div>
-				<Growl ref={(el) => this.growl = el}></Growl>
 				{this.renderMenu()}
 			</div>
 		);
 	}
 }
  
-export default TicTacToeHome;
+export default withRouter(TicTacToeHome);

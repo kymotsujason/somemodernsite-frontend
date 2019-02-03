@@ -6,8 +6,6 @@ import ChatHome from './projects/chat/ChatHome';
 import TicTacToeHome from './projects/tic-tac-toe/TicTacToeHome';
 
 class ProjectsAPI extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 

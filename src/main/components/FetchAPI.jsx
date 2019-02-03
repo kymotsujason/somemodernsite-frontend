@@ -64,11 +64,14 @@ class FetchAPI extends Component {
 			return loaded ? 
 		this.props.render(data) 
 		: 
-		<ClimbingBoxLoader 
-			css={override}
-			color={'#ffffff'}
-			loading={this.props.anim}
-		/>;
+		<div className="center_text">
+			<ClimbingBoxLoader 
+				css={override}
+				color={'#ffffff'}
+				loading={this.props.anim}
+			/>
+			Fetching...
+		</div>
 		}
 	}
 }

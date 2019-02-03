@@ -108,7 +108,7 @@ class Game extends Component {
 						<span>Tic Tac Toe Singleplayer</span>
 					</Typist>
 				</Card>
-				<br></br>
+				<br />
 				<Card className="g-col-6 center_text">
 					<div className="game p-grid">
 						<div className="game-board">

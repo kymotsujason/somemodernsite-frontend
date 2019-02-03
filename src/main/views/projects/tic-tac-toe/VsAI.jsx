@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WebSocketInstance from './../../../components/WithWebsocket';
+import WebSocketInstance from './../../../components/Websocket';
 import Card from '../../../../generic_components//components/Card';
 import Board from './Board';
 import './css/game.css'
@@ -27,6 +27,7 @@ class VsAI extends Component {
 			connected: false,
 			reset: false,
 			cpuMove: false,
+			player: '',
 		}
 		this.calculateWinner = this.calculateWinner.bind(this);
 		this.handleClick = this.handleClick.bind(this);
@@ -74,9 +75,9 @@ class VsAI extends Component {
 		});
 	}
 
-	sendMove(board) {
+	sendMove(board, player) {
 		this.setState({ cpuMove: true })
-		WebSocketInstance.newTicTacToeAI(board.squares);
+		WebSocketInstance.newTicTacToeAI(board.squares, player);
 	}
 
 	resetBoard() {
@@ -111,7 +112,7 @@ class VsAI extends Component {
 	}
 
 	handleClick(i) {
-		if(!this.state.cpuMove) {
+		if(!this.state.cpuMove && this.state.player !== "") {
 			const history = this.state.history.slice(0, this.state.stepNumber + 1);
 			const current = history[history.length - 1];
 			const squares = current.squares.slice();
@@ -130,7 +131,7 @@ class VsAI extends Component {
 			if (this.calculateWinner(newHistory[history.length].squares) || this.state.stepNumber === 8) {
 				return;
 			}
-			this.sendMove(newHistory[history.length]);
+			this.sendMove(newHistory[history.length], this.state.player);
 		}
 	}
 
@@ -144,13 +145,19 @@ class VsAI extends Component {
 			if (winner) {
 				status = 'Winner: ' + winner;
 				if (!this.state.reset) {
-					this.setState({ reset: true })
+					this.setState({ 
+						reset: true,
+						player: '',
+					})
 				}
 			}
 			else if (this.state.stepNumber === 9) {
 				status = 'Draw';
 				if (!this.state.reset) {
-					this.setState({ reset: true })
+					this.setState({ 
+						reset: true,
+						player: '',
+					})
 				}
 			}
 			else {
@@ -167,7 +174,7 @@ class VsAI extends Component {
 							<span>Tic Tac Toe vs AI</span>
 						</Typist>
 					</Card>
-					<br></br>
+					<br />
 					<Card className="g-col-6 center_text">
 						<div className="game p-grid">
 							<div className="game-board">
@@ -177,6 +184,7 @@ class VsAI extends Component {
 								/>
 							</div>
 							<div className="game-info">
+								<div>You are playing as: {this.state.player}</div>
 								<div>{status}</div>
 								<div>
 									{this.state.reset ?
@@ -184,6 +192,28 @@ class VsAI extends Component {
 										label="Reset"
 										onClick={() => this.resetBoard()}
 									/>
+									:
+									this.state.player === "" ?
+									<div>
+										<Button
+											label="X"
+											onClick={() => {
+												this.setState({
+													player: 'X',
+													cpuMove: false,
+												});
+											}}
+										/>
+										<Button
+											label="O"
+											onClick={() => {
+												this.setState({
+													player: 'O',
+												});
+												this.sendMove(current, "O");
+											}}
+										/>
+									</div>
 									:
 									null
 									}
@@ -206,12 +236,14 @@ class VsAI extends Component {
 							<span>Tic Tac Toe vs AI</span>
 						</Typist>
 					</Card>
-					<br></br>
+					<br />
 					<Card className="g-col-6 center_text">
 						<ClimbingBoxLoader 
 							css={override}
 							color={'#ffffff'}
 						/>
+						<br />
+						Connecting...
 					</Card>
 				</div>
 			)

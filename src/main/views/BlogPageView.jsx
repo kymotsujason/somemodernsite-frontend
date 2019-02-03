@@ -114,7 +114,7 @@ class BlogPageView extends Component {
 			return (
 				<div>
 					{this.renderPage()}
-					<br></br>
+					<br />
 					<Growl ref={(el) => this.growl = el}></Growl>
 					<div className="p-grid_nowrap p-justify-center">
 					<Card>

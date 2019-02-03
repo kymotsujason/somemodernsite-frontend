@@ -16,7 +16,7 @@ class Privacy extends Component {
 						<span>Privacy</span>
 					</Typist>
 				</Card>
-				<br></br>
+				<br />
 				<Card className="g-col-6">
 					<div>
 						<h2 className="center_text">Analytics</h2>
@@ -50,7 +50,7 @@ class Privacy extends Component {
 						</p>
 					</div>
 				</Card>
-				<br></br>
+				<br />
 				<Card className="g-col-6">
 					<div>
 						<h2 className="center_text">Cookies</h2>

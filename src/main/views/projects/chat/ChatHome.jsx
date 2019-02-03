@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from '../../../../generic_components//components/Card';
 import Login from './Login';
 import Chat from './Chat';
+import Typist from 'react-typist';
 
 class ChatHome extends Component {
 	state = {  }
@@ -27,6 +28,16 @@ class ChatHome extends Component {
 	render() { 
 		return (  
 			<div className="spacing main_container">
+				<Card className="g-col-6 center_text">
+					<Typist
+						className="typist"
+						avgTypingSpeed={50}
+						startDelay={300}
+					>
+						<span>Chat</span>
+					</Typist>
+				</Card>
+				<br/>
 				<Card className="g-col-6 center_text">
 				{
 					this.state.loggedIn ?

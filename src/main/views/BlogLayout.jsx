@@ -18,7 +18,7 @@ class BlogLayout extends Component {
 						<span>Blog</span>
 					</Typist>
 				</Card>
-				<br></br>
+				<br />
 				<Card className="g-col-6">
 					<FetchAPI
 						endpoint={'/api/blog/v2/pages/?type=blog2.BlogPage&fields=text,published_date'}
