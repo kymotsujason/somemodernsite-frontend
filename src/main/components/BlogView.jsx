@@ -130,7 +130,7 @@ class BlogView extends Component {
 								day: '2-digit',
 								}).format(new Date(this.state.data.published_date))}
 							</div>
-							<div className="spacing-half linebreak"  style={{height: (height - 300), overflow: 'auto', fontSize: ((height - 300) / 32)}} >{Parser(this.state.data.text)}</div>
+							<div className="spacing-half linebreak"  style={{height: (height/1.35), overflow: 'auto', fontSize: ((height - 300) / 32)}} >{Parser(this.state.data.text)}</div>
 						</Card>
 					</div>
 					<div className="p-justify-center">
