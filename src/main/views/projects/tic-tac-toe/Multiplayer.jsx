@@ -111,22 +111,45 @@ class Multiplayer extends Component {
 			})
 		}
 		else if (message === "X" && this.state.player !== "X") {
-			this.setState({
-				player: 'O',
-				opponentMove: true,
-			})
+			if (this.state.xIsNext) {
+				this.setState({
+					player: 'O',
+					opponentMove: true,
+				})
+			}
+			else {
+				this.setState({
+					player: 'O',
+					opponentMove: false,
+				})
+			}
 		}
 		else if (message === "O" && this.state.player !== "O") {
-			this.setState({
-				player: 'X',
-				opponentMove: false,
-			})
+			if (this.state.xIsNext) {
+				this.setState({
+					player: 'X',
+					opponentMove: false,
+				})
+			}
+			else {
+				this.setState({
+					player: 'X',
+					opponentMove: true,
+				})
+			}
 		}
 		else if (message === "connected" && playerId !== this.state.playerId) {
 			this.setState({
 				playerCount: this.state.playerCount + 1,
 			})
-			this.sendMessage("awk", this.state.playerId)
+			this.sendMessage("awk", this.state.playerId);
+			this.sendMove(this.state.history[this.state.history.length - 1], this.state.player);
+			if (this.state.player === "X") {
+				this.sendMessage("X", this.state.playerId);
+			}
+			else if (this.state.player === "O") {
+				this.sendMessage("O", this.state.playerId);
+			}
 		}
 		else if (message === "disconnected") {
 			this.setState({

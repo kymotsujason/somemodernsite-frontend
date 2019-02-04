@@ -9,7 +9,7 @@ export const projects_items = {
 		title: 'Realtime Chat',
 		date: 'November 29, 2018',
 		subtitle: 'A Realtime chat room',
-		description: 'A simple realtime chat room, similar to an IRC.',
+		description: 'A simple realtime chat room, similar to an IRC. 1 room, shows connected users.',
 		image: chat_img,
 		url: chat_url,
 	},
