@@ -63,14 +63,16 @@ class Chat extends Component {
 	}
 	
 	sendMessageHandler(e, message) {
-		const messageObject = {
-		  	from: this.props.currentUser,
-		  	text: message
-		};
-		WebSocketInstance.newChatMessage(messageObject);
-		this.setState({
-		  	message: ''
-		})
+		if (message.trim() !== "") {
+			const messageObject = {
+				from: this.props.currentUser,
+				text: message
+		  };
+		  WebSocketInstance.newChatMessage(messageObject);
+		  this.setState({
+				message: ''
+		  })
+		}
 		e.preventDefault();
 	}
 
@@ -153,6 +155,11 @@ class Chat extends Component {
 									<InputText
 										value={this.state.message}
 										onChange={(e) => this.setState({message: e.target.value})} 
+										onKeyPress={(e) => {
+											if (e.key === "Enter") {
+												this.sendMessageHandler(e, this.state.message)
+											}
+										}}
 									/>
 									<CustomButton 
 										icon="paper-plane" 

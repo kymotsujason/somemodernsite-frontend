@@ -1,10 +1,20 @@
 import tictactoe_img from '../assets/tictactoe.png';
 import chat_img from '../assets/chat.png';
+import twozerofoureight_img from '../assets/placeholder.png';
 
 export const tictactoe_url = "/projects/tic-tac-toe";
 export const chat_url = '/projects/chat'
+export const twozerofoureight_url = '/projects/2048'
 
 export const projects_items = {
+	'2048': {
+		title: '2048',
+		date: 'February 4, 2019',
+		subtitle: 'Get to 2048!',
+		description: 'A ReactJS implementation of 2048.',
+		image: twozerofoureight_img,
+		url: twozerofoureight_url,
+	},
 	'chat': {
 		title: 'Realtime Chat',
 		date: 'November 29, 2018',

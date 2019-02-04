@@ -13,7 +13,7 @@ class Login extends Component {
 	}
 	
 	handleClick(currentUser) {
-		if (currentUser !== '') {
+		if (currentUser.trim() !== '') {
 			this.props.onLogin(currentUser);
 		}
 	}
@@ -27,6 +27,11 @@ class Login extends Component {
 						tooltip="Enter a username"
 						tooltipOptions={{position: 'left'}}
 						value={this.state.value}
+						onKeyPress={(e) => {
+							if (e.key === "Enter") {
+								this.handleClick(this.state.value)
+							}
+						}}
 						onChange={(e) => this.setState({value: e.target.value})} 
 					/>
 					<CustomButton 

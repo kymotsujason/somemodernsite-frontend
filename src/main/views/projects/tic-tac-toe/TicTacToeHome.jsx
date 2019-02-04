@@ -64,8 +64,19 @@ class TicTacToeHome extends Component {
 									<InputText 
 										tooltip="Enter the id of the room (random characters after 'multiplayer')"
 										tooltipOptions={{position: 'left'}}
+										keyfilter="alphanum"
 										value={this.state.value}
-										onChange={(e) => this.setState({value: e.target.value})} 
+										onKeyPress={(e) => {
+											if (e.key === "Enter") {
+												if(splitArr.length === 4 && this.state.value.trim() !== '') {
+													this.props.history.push(path + "/" + this.state.value)
+												}
+												else if (this.state.value.trim() !== '') {
+													this.props.history.push(path + this.state.value)
+												}
+											}
+										}}
+										onChange={(e) => {this.setState({value: e.target.value})}} 
 									/>
 									<Button 
 										label="Join game"
@@ -191,9 +202,7 @@ class TicTacToeHome extends Component {
 
 	render() { 
 		return (
-			<div>
-				{this.renderMenu()}
-			</div>
+			this.renderMenu()
 		);
 	}
 }
