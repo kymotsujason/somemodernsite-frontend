@@ -6,7 +6,6 @@ import Projects from './Projects';
 import { projects_items } from '../assets/projects_preview';
 
 class ProjectsLayout extends Component {
-	state = {  }
 	render() { 
 		return (  
 			<div className="spacing main_container">

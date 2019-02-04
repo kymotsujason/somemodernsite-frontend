@@ -23,8 +23,6 @@ import BlogAPI from  "./BlogAPI";
 import Privacy from './Privacy';
 
 class MainLayout extends Component {
-	state = {  }
-
 	render() { 
 		return (  
 			<div>

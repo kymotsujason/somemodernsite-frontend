@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card from '../components/Card';
 
 class NotFound extends Component {
-	state = {  }
 	render() { 
 		return (  
 			<div className="spacing main_container">

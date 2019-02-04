@@ -6,8 +6,6 @@ import { NavLink } from 'react-router-dom';
 import FlipCard from './FlipCard';
 
 class FeaturedProjects extends Component {
-	state = {  }
-
 	render() { 
 		return (  
 			<Card className="g-col-6 center_text">

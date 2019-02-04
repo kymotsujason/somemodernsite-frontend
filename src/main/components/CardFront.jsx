@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class CardFront extends Component {
-	state = {  }
 	render() { 
 		return (  
 			<div className='card-side side-front'>

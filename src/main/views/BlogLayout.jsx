@@ -5,7 +5,6 @@ import FetchAPI from '../components/FetchAPI';
 import BlogView from '../components/BlogView'
 
 class BlogLayout extends Component {
-	state = {  }
 	render() { 
 		return (  
 			<div className="spacing main_container">

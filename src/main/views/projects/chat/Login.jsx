@@ -4,8 +4,6 @@ import Card from '../../../../generic_components//components/Card';
 import CustomButton from '../../../../generic_components/components/CustomButton';
 
 class Login extends Component {
-	state = {  }
-
 	constructor() {
         super();
         this.state = {

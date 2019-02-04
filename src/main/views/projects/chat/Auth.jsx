@@ -5,8 +5,6 @@ import Chat from './components/Chat';
 import InitChat from './components/InitChat';
 
 class Auth extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 		this.state = { 

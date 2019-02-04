@@ -3,7 +3,6 @@ import Card from '../../generic_components//components/Card';
 import Typist from 'react-typist';
 
 class Privacy extends Component {
-	state = {  }
 	render() { 
 		return (  
 			<div className="spacing main_container">

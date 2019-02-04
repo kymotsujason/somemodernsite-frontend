@@ -4,13 +4,8 @@ import {InputText} from 'primereact/inputtext';
 import CustomButton from '../../../../generic_components/components/CustomButton';
 import {socket_url} from '../../../components/static_socket';
 import Card from '../../../../generic_components/components/Card';
-import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
 import './css/chat.css';
-
-const override = css`
-    margin: 0 auto;
-`;
 
 class Chat extends Component {
 	constructor(props) {
@@ -185,7 +180,7 @@ class Chat extends Component {
 				<Card className="g-col-6 center_text">
 					<div>
 						<ClimbingBoxLoader 
-							css={override}
+							css={{margin: '0 auto'}}
 							color={'#ffffff'}
 						/>
 						Connecting...

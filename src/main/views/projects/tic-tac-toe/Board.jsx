@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Square from './Square';
 
 class Board extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 

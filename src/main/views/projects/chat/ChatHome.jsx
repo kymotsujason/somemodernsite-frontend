@@ -5,8 +5,6 @@ import Chat from './Chat';
 import Typist from 'react-typist';
 
 class ChatHome extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 

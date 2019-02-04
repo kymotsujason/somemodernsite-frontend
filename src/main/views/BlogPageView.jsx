@@ -5,12 +5,7 @@ import axios from 'axios';
 import CustomButton from '../../generic_components/components/CustomButton';
 import {withRouter} from 'react-router-dom';
 import {Growl} from 'primereact/growl';
-import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
-
-const override = css`
-    margin: 0 auto;
-`;
 
 class BlogPageView extends Component {
 	constructor(props){
@@ -138,7 +133,7 @@ class BlogPageView extends Component {
 		else {
 			return(
 				<ClimbingBoxLoader 
-					css={override}
+					css={{margin: '0 auto'}}
 					color={'#ffffff'}
 					loading={this.props.anim}
 				/>

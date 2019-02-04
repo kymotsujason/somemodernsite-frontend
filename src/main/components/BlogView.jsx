@@ -7,8 +7,6 @@ import Card from '../../generic_components//components/Card';
 import CardMini from '../../generic_components//components/CardMini';
 
 class BlogView extends Component {
-	state = {  }
-
 	constructor(props){
 		super(props)
 

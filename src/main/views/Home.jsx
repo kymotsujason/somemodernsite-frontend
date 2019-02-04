@@ -8,8 +8,6 @@ import LatestBlogPosts from '../components/LatestBlogPosts';
 import { projects_items } from '../assets/projects_preview';
 
 class Home extends Component {
-	state = { }
-
 	render() { 
 		return (  
 			<div className="spacing main_container">

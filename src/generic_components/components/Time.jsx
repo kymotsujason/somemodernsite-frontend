@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 class Time extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 		this.state = {date: new Date()};

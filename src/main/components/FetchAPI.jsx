@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
-import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
-
-const override = css`
-    margin: 0 auto;
-`;
 
 class FetchAPI extends Component {
 	state = {
@@ -66,7 +61,7 @@ class FetchAPI extends Component {
 		: 
 		<div className="center_text">
 			<ClimbingBoxLoader 
-				css={override}
+				css={{margin: '0 auto'}}
 				color={'#ffffff'}
 				loading={this.props.anim}
 			/>

@@ -6,12 +6,7 @@ import './css/game.css'
 import Typist from 'react-typist';
 import {Button} from 'primereact/button';
 import {socket_url} from '../../../components/static_socket';
-import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
-
-const override = css`
-    margin: 0 auto;
-`;
 
 class VsAI extends Component {
 	
@@ -246,7 +241,7 @@ class VsAI extends Component {
 					<br />
 					<Card className="g-col-6 center_text">
 						<ClimbingBoxLoader 
-							css={override}
+							css={{margin: '0 auto'}}
 							color={'#ffffff'}
 						/>
 						<br />

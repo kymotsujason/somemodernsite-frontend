@@ -5,8 +5,6 @@ import FetchAPI from '../components/FetchAPI';
 import BlogView from './BlogView';
 
 class Blog extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 

@@ -6,8 +6,6 @@ import { Button } from 'primereact/button';
 import { NavLink } from 'react-router-dom';
 
 class LatestBlogPosts extends Component {
-	state = {  }
-
 	render() { 
 		return (  
 			<Card className="g-col-6">

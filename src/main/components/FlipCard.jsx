@@ -4,8 +4,6 @@ import CardFront from './CardFront';
 import { NavLink } from 'react-router-dom';
 
 class FlipCard extends Component {
-	state = {  }
-
 	constructor(props) {
 		super(props);
 

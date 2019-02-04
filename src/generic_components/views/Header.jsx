@@ -5,11 +5,6 @@ import Navbar from "../../generic_components/components/Navbar";
 import { navbar_items }  from "../../assets/static_routes";
 
 class Header extends Component {
-
-	state = {
-
-	};
-
 	render() {
         return (
             <div>

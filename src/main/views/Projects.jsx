@@ -3,8 +3,6 @@ import Card from '../../generic_components//components/Card';
 import FlipCard from '../components/FlipCard';
 
 class Projects extends Component {
-	state = {  }
-
 	render() { 
 		return (  
 			<Card className="g-col-6 center_text">
