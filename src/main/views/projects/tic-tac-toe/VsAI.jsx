@@ -89,6 +89,7 @@ class VsAI extends Component {
 			stepNumber: 0,
 			reset: false,
 			cpuMove: false,
+			player: '',
 		})
 	}
 
@@ -147,7 +148,6 @@ class VsAI extends Component {
 				if (!this.state.reset) {
 					this.setState({ 
 						reset: true,
-						player: '',
 					})
 				}
 			}
@@ -156,7 +156,6 @@ class VsAI extends Component {
 				if (!this.state.reset) {
 					this.setState({ 
 						reset: true,
-						player: '',
 					})
 				}
 			}
@@ -184,38 +183,46 @@ class VsAI extends Component {
 								/>
 							</div>
 							<div className="game-info">
-								<div>You are playing as: {this.state.player}</div>
 								<div>{status}</div>
 								<div>
-									{this.state.reset ?
-									<Button
-										label="Reset"
-										onClick={() => this.resetBoard()}
-									/>
-									:
-									this.state.player === "" ?
-									<div>
+									{
+										this.state.player === "" ?
+										<div>Please choose your character</div>
+										:
+										<div>You are playing as: {this.state.player}</div>
+									}
+								</div>
+								<div>
+									{
+										this.state.reset ?
 										<Button
-											label="X"
-											onClick={() => {
-												this.setState({
-													player: 'X',
-													cpuMove: false,
-												});
-											}}
+											label="Reset"
+											onClick={() => this.resetBoard()}
 										/>
-										<Button
-											label="O"
-											onClick={() => {
-												this.setState({
-													player: 'O',
-												});
-												this.sendMove(current, "O");
-											}}
-										/>
-									</div>
-									:
-									null
+										:
+										this.state.player === "" ?
+										<div>
+											<Button
+												label="X"
+												onClick={() => {
+													this.setState({
+														player: 'X',
+														cpuMove: false,
+													});
+												}}
+											/>
+											<Button
+												label="O"
+												onClick={() => {
+													this.setState({
+														player: 'O',
+													});
+													this.sendMove(current, "O");
+												}}
+											/>
+										</div>
+										:
+										null
 									}
 								</div>
 							</div>

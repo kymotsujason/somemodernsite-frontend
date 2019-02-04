@@ -3,6 +3,7 @@ import WebSocketInstance from './../../../components/Websocket';
 import {InputText} from 'primereact/inputtext';
 import CustomButton from '../../../../generic_components/components/CustomButton';
 import {socket_url} from '../../../components/static_socket';
+import Card from '../../../../generic_components/components/Card';
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader } from 'react-spinners';
 import './css/chat.css';
@@ -18,20 +19,24 @@ class Chat extends Component {
 		this.state = {
 			message: '',
 			messages: '',
+			users: [],
 			connected: false,
 		}
 
 		WebSocketInstance.connect(socket_url + "chat");
 		this.waitForSocketConnection(() => {
 			this.setState({connected: true});
-			WebSocketInstance.addCallbacks( this.addMessage.bind(this))
+			this.sendEvent("connected")
+			WebSocketInstance.addCallbacksMulti(this.addMessage.bind(this), this.receiveEvent.bind(this))
 		});
 	}
 
 	componentDidMount() {
-		if(this.state.connected) {
-			this.scrollToBottom();
-		}
+		window.addEventListener("beforeunload", (ev) => {
+            ev.preventDefault();
+            return this.sendEvent("disconnected");
+        });
+		
 	}
 	
 	componentDidUpdate() {
@@ -41,6 +46,11 @@ class Chat extends Component {
 	}
 
 	componentWillUnmount() {
+		this.sendEvent("disconnected");
+		window.removeEventListener("beforeunload", (ev) => {
+            ev.preventDefault();
+            return this.sendEvent("disconnected");
+        });
 		WebSocketInstance.disconnect();
 		console.log("Disconnected");
 	}
@@ -67,6 +77,42 @@ class Chat extends Component {
 		  	message: ''
 		})
 		e.preventDefault();
+	}
+
+	receiveEvent(message) {
+		if (message.content === "connected") {
+			if (message.author !== this.props.currentUser && !this.state.users.includes(message.author)) {
+				this.sendEvent("ack")
+			}
+			const userList = [...this.state.users];
+			userList.push(message.author)
+			this.setState({
+				users: userList
+			})
+		}
+		else if (message.content === "disconnected") {
+			const userList = [...this.state.users];
+			var index = userList.indexOf(message.author)
+			userList.splice(index, 1);
+			this.setState({
+				users: userList
+			})
+		}
+		else if (message.content === "ack" && message.author !== this.props.currentUser) {
+			const userList = [...this.state.users];
+			userList.push(message.author)
+			this.setState({
+				users: userList
+			})
+		}
+	}
+
+	sendEvent(message) {
+		const messageObject = {
+			from: this.props.currentUser,
+			text: message
+	  	};
+		WebSocketInstance.newChatEvent(messageObject);
 	}
 	
 	renderMessages(messages) {
@@ -95,41 +141,56 @@ class Chat extends Component {
 			const messages = this.state.messages;
 			const currentUser = this.props.currentUser;
 			return (  
-				<div className='chat'>
-					<div className='container'>
-						<h1>Chatting as {currentUser} </h1>
-						<ul ref={(el) => { this.messagesEnd = el; }}>
-						{ 
-							messages && 
-							this.renderMessages(messages) 
-						}
-						</ul>
+				<Card className="g-col-6 center_text">
+					<div className="p-grid">
+						<div className='chat p-col'>
+							<div className='container'>
+								<h1>Chatting as {currentUser} </h1>
+								<ul ref={(el) => { this.messagesEnd = el; }}>
+								{ 
+									messages && 
+									this.renderMessages(messages) 
+								}
+								</ul>
+							</div>
+							<div className='container message-form'>
+								<span>
+									<InputText
+										value={this.state.message}
+										onChange={(e) => this.setState({message: e.target.value})} 
+									/>
+									<CustomButton 
+										icon="paper-plane" 
+										iconLocation="center" 
+										onClick={(e) => this.sendMessageHandler(e, this.state.message)}
+									/>
+								</span>
+							</div>
+						</div>
+						<div className="g-col-flex">
+							<Card className="center_text" style={{background: 'rgba(0, 0, 0, 0.4)'}}>
+								<p>Currently connected: </p>
+								<ul>
+									{this.state.users.map((users) => <p key={users} style={{color: '#a3ff91'}}>{users}</p>)}
+								</ul>
+							</Card>
+						</div>
 					</div>
-					<div className='container message-form'>
-						<span>
-							<InputText 
-								value={this.state.message}
-								onChange={(e) => this.setState({message: e.target.value})} 
-							/>
-							<CustomButton 
-								icon="paper-plane" 
-								iconLocation="center" 
-								onClick={(e) => this.sendMessageHandler(e, this.state.message)}
-							/>
-						</span>
-					</div>
-				</div>
+					
+				</Card>
 			);
 		}
 		else {
 			return (
-				<div>
-					<ClimbingBoxLoader 
-						css={override}
-						color={'#ffffff'}
-					/>
-					Connecting...
-				</div>
+				<Card className="g-col-6 center_text">
+					<div>
+						<ClimbingBoxLoader 
+							css={override}
+							color={'#ffffff'}
+						/>
+						Connecting...
+					</div>
+				</Card>
 			)
 		}
 	}

@@ -31,100 +31,107 @@ class TicTacToeHome extends Component {
 		if(cleanArr.length >= 3) {
 			id = cleanArr[2].toString().toLowerCase();
 		}
-		if(id  === "singleplayer"){
+		if(id  === "singleplayer" && cleanArr.length === 3){
 			return <Singleplayer />
 		}
-		else if (id  === "ai") {
+		else if (id  === "ai" && cleanArr.length === 3) {
 			return <VsAI />
 		}
-		else if (cleanArr.length === 4) {
-			return (
-				<Multiplayer 
-					id={cleanArr[3]}
-				/>
-			)
-		}
 		else if (id  === "multiplayer") {
-			if(this.state.multi) {
-				return(
-					<div className="spacing main_container">
-						<Card className="g-col-6 center_text">
-							<Typist
-								className="typist"
-								avgTypingSpeed={50}
-								startDelay={300}
-							>
-								<span>Tic Tac Toe</span>
-							</Typist>
-						</Card>
-						<br />
-						<Card className="g-col-6 center_text">
-							<div className="p-grid p-justify-center">
-								<InputText 
-									value={this.state.value}
-									onChange={(e) => this.setState({value: e.target.value})} 
-								/>
-								<Button 
-									label="Join game"
-									onClick={() => {
-										if(splitArr.length === 4) {
-											this.props.history.push(path + "/" + this.state.value)
-										}
-										else {
-											this.props.history.push(path + this.state.value)
-										}
-									}}
-								/>
-								<Button 
-									label="Back"
-									onClick={() => this.setState({multi:false})}
-								/>
-							</div>
-						</Card>
-					</div>
+			if (cleanArr.length === 4) {
+				return (
+					<Multiplayer 
+						id={cleanArr[3]}
+					/>
 				)
 			}
+			else if (cleanArr.length === 3) {
+				if(this.state.multi) {
+					return(
+						<div className="spacing main_container">
+							<Card className="g-col-6 center_text">
+								<Typist
+									className="typist"
+									avgTypingSpeed={50}
+									startDelay={300}
+								>
+									<span>Tic Tac Toe</span>
+								</Typist>
+							</Card>
+							<br />
+							<Card className="g-col-6 center_text">
+								<div className="p-grid p-justify-center">
+									<InputText 
+										tooltip="Enter the id of the room (random characters after 'multiplayer')"
+										tooltipOptions={{position: 'left'}}
+										value={this.state.value}
+										onChange={(e) => this.setState({value: e.target.value})} 
+									/>
+									<Button 
+										label="Join game"
+										onClick={() => {
+											if(splitArr.length === 4 && this.state.value !== '') {
+												this.props.history.push(path + "/" + this.state.value)
+											}
+											else if (this.state.value !== '') {
+												this.props.history.push(path + this.state.value)
+											}
+										}}
+									/>
+									<Button 
+										label="Back"
+										onClick={() => this.setState({multi:false})}
+									/>
+								</div>
+							</Card>
+						</div>
+					)
+				}
+				else {
+					return (
+						<div className="spacing main_container">
+							<Card className="g-col-6 center_text">
+								<Typist
+									className="typist"
+									avgTypingSpeed={50}
+									startDelay={300}
+								>
+									<span>Tic Tac Toe</span>
+								</Typist>
+							</Card>
+							<br />
+							<Card className="g-col-6 center_text">
+								<div className="p-grid p-justify-center">
+									<Button 
+										label="Host game"
+										onClick={() => {
+											if(splitArr.length === 4) {
+												this.props.history.push(path + "/" + randomstring.generate(5))
+											}
+											else {
+												this.props.history.push(path +  + randomstring.generate(5))
+											}
+										}}
+									/>
+									<Button 
+										label="Join game"
+										onClick={() => this.setState({multi:true})}
+									/>
+									<Button 
+										label="Back"
+										onClick={() => this.props.history.push("/projects/tic-tac-toe/")}
+									/>
+								</div>
+							</Card>
+						</div>
+					);
+				}
+			}
 			else {
-				return (
-					<div className="spacing main_container">
-						<Card className="g-col-6 center_text">
-							<Typist
-								className="typist"
-								avgTypingSpeed={50}
-								startDelay={300}
-							>
-								<span>Tic Tac Toe</span>
-							</Typist>
-						</Card>
-						<br />
-						<Card className="g-col-6 center_text">
-							<div className="p-grid p-justify-center">
-								<Button 
-									label="Host game"
-									onClick={() => {
-										if(splitArr.length === 4) {
-											this.props.history.push(path + "/" + randomstring.generate(5))
-										}
-										else {
-											this.props.history.push(path +  + randomstring.generate(5))
-										}
-									}}
-								/>
-								<Button 
-									label="Join game"
-									onClick={() => this.setState({multi:true})}
-								/>
-								<Button 
-									label="Back"
-									onClick={() => this.props.history.push("/projects/tic-tac-toe/")}
-								/>
-							</div>
-						</Card>
-					</div>
-				);
+				this.props.history.replace("/404")
 			}
 		}
-		else{
+		else if (cleanArr.length === 2) {
 			return (
 				<div className="spacing main_container">
 					<Card className="g-col-6 center_text">
@@ -176,6 +183,9 @@ class TicTacToeHome extends Component {
 					</Card>
 				</div>
 			)
+		}
+		else {
+			this.props.history.replace("/404")
 		}
 	}
 

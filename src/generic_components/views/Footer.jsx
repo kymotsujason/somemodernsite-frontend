@@ -12,7 +12,7 @@ class Footer extends Component {
 				<div className="center_text footer_bar">
 					<div className="p-col-1">
 					</div>
-					<p><FontAwesomeIcon icon={faCopyright} /> 2019 Jason Yue - Powered by <a style={{color: '#5b63ff'}} href="https://github.com/kymotsujason/somemodernsite-backend">Django</a> and <a style={{color: '#5b63ff'}} href="https://github.com/kymotsujason/somemodernsite-frontend">React</a> - <NavLink style={{color: '#5b63ff'}} to={'/privacy'}>Privacy</NavLink></p>
+					<p><FontAwesomeIcon icon={faCopyright} /> 2018 - 2019 Jason Yue - Powered by <a style={{color: '#5b63ff'}} href="https://github.com/kymotsujason/somemodernsite-backend">Django</a> and <a style={{color: '#5b63ff'}} href="https://github.com/kymotsujason/somemodernsite-frontend">React</a> - <NavLink style={{color: '#5b63ff'}} to={'/privacy'}>Privacy</NavLink></p>
 					<Time />
 					<div className="p-col-1">
 					</div>

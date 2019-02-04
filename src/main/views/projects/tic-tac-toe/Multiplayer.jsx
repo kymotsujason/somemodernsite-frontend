@@ -3,6 +3,7 @@ import WebSocketInstance from './../../../components/Websocket';
 import Card from '../../../../generic_components//components/Card';
 import Board from './Board';
 import './css/game.css'
+import {withRouter} from 'react-router-dom';
 import randomstring from 'randomstring';
 import Typist from 'react-typist';
 import {Button} from 'primereact/button';
@@ -45,11 +46,22 @@ class Multiplayer extends Component {
 		});
 	}
 
+	componentDidMount() {
+		window.addEventListener("beforeunload", (ev) => {
+            ev.preventDefault();
+            return this.sendMessage("disconnected", this.state.playerId);
+        });
+	}
+
 	componentWillUnmount() {
 		this.setState({
 			playerCount: this.state.playerCount  - 1,
 		})
 		this.sendMessage("disconnected", this.state.playerId)
+		window.removeEventListener("beforeunload", (ev) => {
+            ev.preventDefault();
+            return this.sendMessage("disconnected", this.state.playerId);
+        });
 		WebSocketInstance.disconnect();
 		console.log("Disconnected");
 	}
@@ -100,6 +112,7 @@ class Multiplayer extends Component {
 				stepNumber: 0,
 				reset: false,
 				opponentMove: false,
+				player: '',
 			})
 		}
 		else if (message === "X" && this.state.player !== "X") {
@@ -114,15 +127,20 @@ class Multiplayer extends Component {
 				opponentMove: false,
 			})
 		}
-		else if (message === "connected" && playerId !== this.state.playerId && this.state.playerCount < 2) {
+		else if (message === "connected" && playerId !== this.state.playerId) {
 			this.setState({
 				playerCount: this.state.playerCount + 1,
 			})
-			this.sendMessage("connected", this.state.playerId)
+			this.sendMessage("awk", this.state.playerId)
 		}
 		else if (message === "disconnected") {
 			this.setState({
 				playerCount: this.state.playerCount - 1,
+			})
+		}
+		else if (message === "awk" && playerId !== this.state.playerId) {
+			this.setState({
+				playerCount: this.state.playerCount + 1,
 			})
 		}
 	}
@@ -185,7 +203,6 @@ class Multiplayer extends Component {
 					if (!this.state.reset) {
 						this.setState({ 
 							reset: true,
-							player: '',
 						})
 					}
 				}
@@ -194,7 +211,6 @@ class Multiplayer extends Component {
 					if (!this.state.reset) {
 						this.setState({ 
 							reset: true,
-							player: '',
 						})
 					}
 				}
@@ -222,28 +238,35 @@ class Multiplayer extends Component {
 									/>
 								</div>
 								<div className="game-info">
-									<div>You are: {this.playerId}</div>
-									<div>You are playing as: {this.state.player}</div>
 									<div>{status}</div>
 									<div>
-										{this.state.reset ?
-										<Button
-											label="Reset"
-											onClick={() => this.sendMessage("reset", this.state.playerId)}
-										/>
-										:
-										this.state.player === "" ?
-										<div>
+										{
+											this.state.player === "" ?
+											<div>Please choose your character</div>
+											:
+											<div>You are playing as: {this.state.player}</div>
+										}
+									</div>
+									<div>
+										{
+											this.state.reset ?
 											<Button
-												label="X"
-												onClick={() => {
-													this.setState({
-														player: 'X',
-														opponentMove: false,
-													});
-													this.sendMessage("X", this.state.playerId)
-												}}
+												label="Reset"
+												onClick={() => this.sendMessage("reset", this.state.playerId)}
 											/>
+											:
+											this.state.player === "" ?
+											<div>
+												<Button
+													label="X"
+													onClick={() => {
+														this.setState({
+															player: 'X',
+															opponentMove: false,
+														});
+														this.sendMessage("X", this.state.playerId)
+													}}
+												/>
 											<Button
 												label="O"
 												onClick={() => {
@@ -254,9 +277,9 @@ class Multiplayer extends Component {
 													this.sendMessage("O", this.state.playerId)
 												}}
 											/>
-										</div>
-										:
-										null
+											</div>
+											:
+											null
 										}
 									</div>
 								</div>
@@ -285,6 +308,13 @@ class Multiplayer extends Component {
 							/>
 							<br />
 							Waiting for an opponent...
+						</Card>
+						<br />
+						<Card className="g-col-6 center_text">
+							<p>Have your opponent join using this id: <a href="true" style={{color: '#bfc9ff'}}>{this.props.id}</a></p>
+							<p>or</p>
+							<p>Give them this link: <a href="true" style={{color: '#bfc9ff'}}>https://jasonyue.ca{this.props.location.pathname}</a></p>
+							
 						</Card>
 					</div>
 				)
@@ -317,4 +347,4 @@ class Multiplayer extends Component {
 	}
 }
  
-export default Multiplayer;
+export default withRouter(Multiplayer);

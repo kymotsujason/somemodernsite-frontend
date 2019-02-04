@@ -44,6 +44,9 @@ class WebSocketService {
 	  	if (command === 'chat-new_message') {
 			this.callbacks[command](parsedData.message);
 		}
+		if (command === 'chat-event') {
+			this.callbacks[command](parsedData.message);
+		}
 		if (command === 'tictactoe-AI') {
 			this.callbacks[command](parsedData.board);
 		}
@@ -59,6 +62,10 @@ class WebSocketService {
 	  	this.sendMessage({ command: 'chat-new_message', from: message.from, text: message.text }); 
 	}
 
+	newChatEvent(message) {
+		this.sendMessage({ command: 'chat-event', from: message.from, text: message.text }); 
+  	}
+
 	newTicTacToeAI(board, player) {
 		this.sendMessage({ command: 'tictactoe-AI', board: board, player: player });
 	}
@@ -72,13 +79,14 @@ class WebSocketService {
 	}
   
 	addCallbacks(newMessageCallback) {
-		this.callbacks['chat-new_message'] = newMessageCallback;
 		this.callbacks['tictactoe-AI'] = newMessageCallback;
 	}
 
-	addCallbacksMulti(sendMove, sendMessage) {
-		this.callbacks['tictactoe-multi'] = sendMove;
-		this.callbacks['tictactoe-multimessage'] = sendMessage;
+	addCallbacksMulti(callback1, callback2) {
+		this.callbacks['chat-new_message'] = callback1;
+		this.callbacks['chat-event'] = callback2;
+		this.callbacks['tictactoe-multi'] = callback1;
+		this.callbacks['tictactoe-multimessage'] = callback2;
 	}
 	
 	sendMessage(data) {

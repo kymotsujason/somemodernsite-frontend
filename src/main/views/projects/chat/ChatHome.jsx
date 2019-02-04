@@ -38,7 +38,6 @@ class ChatHome extends Component {
 					</Typist>
 				</Card>
 				<br/>
-				<Card className="g-col-6 center_text">
 				{
 					this.state.loggedIn ?
 					<Chat 
@@ -49,7 +48,6 @@ class ChatHome extends Component {
 						onLogin={this.handleLogin}
 					/>
 				}
-				</Card>
 			</div>
 		);
 	}
