@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
-import TwoZeroFourEight from './TwoZeroFourEight';
+import Snake from './Snake';
 
-class TwoZeroFourEightHome extends Component {
+class GameOfLifeHome extends Component {
 	constructor(props) {
 		super(props);
 
@@ -16,7 +16,7 @@ class TwoZeroFourEightHome extends Component {
 			return el !== ""
 		});
 		if (cleanArr.length === 2) {
-			return <TwoZeroFourEight />
+			return <Snake />
 		}
 		else {
 			this.props.history.replace("/404")
@@ -30,4 +30,4 @@ class TwoZeroFourEightHome extends Component {
 	}
 }
  
-export default withRouter(TwoZeroFourEightHome);
+export default withRouter(GameOfLifeHome);
