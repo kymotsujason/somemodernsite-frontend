@@ -3,8 +3,6 @@ import Cell from './Cell';
 import './css/game.css';
 
 const CELL_SIZE = 20;
-const WIDTH = 800;
-const HEIGHT = 600;
 
 class Game extends Component {
 	constructor(props) {
@@ -12,13 +10,14 @@ class Game extends Component {
 
 		this.state = {
 			cells: [],
+			height: 0,
+			width: 0,
+			rows: 0,
+			cols: 0,
+			board: [],
 			interval: 100,
 			isRunning: false,
 		}
-
-		this.rows =  HEIGHT / CELL_SIZE;
-		this.cols = WIDTH / CELL_SIZE;
-		this.board = this.makeEmptyBoard();
 
 		this.makeEmptyBoard = this.makeEmptyBoard.bind(this);
 		this.makeCells = this.makeCells.bind(this);
@@ -31,6 +30,40 @@ class Game extends Component {
 		this.calculateNeighbors = this.calculateNeighbors.bind(this);
 		this.handleRandom = this.handleRandom.bind(this);
 		this.handleClear = this.handleClear.bind(this);
+		this.checkWindowDimensions = this.checkWindowDimensions.bind(this);
+	}
+
+	componentDidMount() {
+		this.checkWindowDimensions();
+		window.addEventListener('resize', this.checkWindowDimensions);
+		window.addEventListener('scroll', this.checkWindowDimensions);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.checkWindowDimensions);
+		window.removeEventListener('scroll', this.checkWindowDimensions);
+	}
+
+	checkWindowDimensions() {
+		let width = document.getElementById('game').clientWidth;
+		width = width - parseInt(width.toString().split('').pop());
+		if ((width % 20) !== 0)  {
+			width =  width - 10;
+		}
+		let height = window.innerHeight / 1.4;
+		if (this.state.height !== height || this.state.width !== width) {
+			this.setState({
+				height: height,
+				width: width,
+				rows: height / CELL_SIZE,
+				cols: width / CELL_SIZE,
+			})
+		}
+		if (!(this.state.board.length > 0)) {
+			this.setState({
+				board: this.makeEmptyBoard(height / CELL_SIZE),
+			})
+		}
 	}
 
 	runGame() {
@@ -51,14 +84,20 @@ class Game extends Component {
 	}
 
 	handleClear() {
-        this.board = this.makeEmptyBoard();
-        this.setState({ cells: this.makeCells() });
+        this.setState({ 
+			cells: this.makeCells(),
+			board: this.makeEmptyBoard(this.state.rows)
+		});
     }
 
     handleRandom() {
-        for (let y = 0; y < this.rows; y++) {
-            for (let x = 0; x < this.cols; x++) {
-                this.board[y][x] = (Math.random() >= 0.5);
+        for (let y = 0; y < this.state.rows; y++) {
+            for (let x = 0; x < this.state.cols; x++) {
+				let board = this.state.board;
+				board[y][x] = (Math.random() >= 0.5);
+                this.setState({
+					board: board,
+				})
             }
         }
 
@@ -66,25 +105,27 @@ class Game extends Component {
     }
 
 	runIteration() {
-		let newBoard = this.makeEmptyBoard();
-		for (let y = 0; y < this.rows; y++) {
-            for (let x = 0; x < this.cols; x++) {
-                let neighbors = this.calculateNeighbors(this.board, x, y);
-                if (this.board[y][x]) {
+		let newBoard = this.makeEmptyBoard(this.state.rows);
+		for (let y = 0; y < this.state.rows; y++) {
+            for (let x = 0; x < this.state.cols; x++) {
+                let neighbors = this.calculateNeighbors(this.state.board, x, y);
+                if (this.state.board[y][x]) {
                     if (neighbors === 2 || neighbors === 3) {
                         newBoard[y][x] = true;
                     } else {
                         newBoard[y][x] = false;
                     }
                 } else {
-                    if (!this.board[y][x] && neighbors === 3) {
+                    if (!this.state.board[y][x] && neighbors === 3) {
                         newBoard[y][x] = true;
                     }
                 }
             }
         }
-		this.board = newBoard;
-		this.setState({ cells: this.makeCells() });
+		this.setState({ 
+			cells: this.makeCells(),
+			board: newBoard,
+		});
 		this.timeoutHandler = window.setTimeout(() => {
 			this.runIteration();
 		}, this.state.interval);
@@ -103,8 +144,7 @@ class Game extends Component {
             const dir = dirs[i];
             let y1 = y + dir[0];
             let x1 = x + dir[1];
-
-            if (x1 >= 0 && x1 < this.cols && y1 >= 0 && y1 < this.rows && board[y1][x1]) {
+            if (x1 >= 0 && x1 < this.state.cols && y1 >= 0 && y1 < this.state.rows && board[y1][x1]) {
                 neighbors++;
             }
         }
@@ -112,9 +152,9 @@ class Game extends Component {
         return neighbors;
     }
 
-	makeEmptyBoard() {
+	makeEmptyBoard(rows) {
 		let board = [];
-		for (let y = 0; y < this.rows; y++) {
+		for (let y = 0; y < rows; y++) {
 			board[y] = [];
 			for (let x = 0; x < this.size; x++) {
 				board[y][x] = false;
@@ -125,9 +165,9 @@ class Game extends Component {
 
 	makeCells() {
 		let cells = [];
-		for (let y = 0; y < this.rows; y++) {
-			for (let x = 0; x < this.cols; x++) {
-				if (this.board[y][x]) {
+		for (let y = 0; y < this.state.rows; y++) {
+			for (let x = 0; x < this.state.cols; x++) {
+				if (this.state.board[y][x]) {
 				cells.push({ x, y });
 				}
 			}
@@ -151,8 +191,12 @@ class Game extends Component {
 		
 		const x = Math.floor(offsetX / CELL_SIZE);
 		const y = Math.floor(offsetY / CELL_SIZE);
-		if (x >= 0 && x <= this.cols && y >= 0 && y <= this.rows) {
-		  	this.board[y][x] = !this.board[y][x];
+		if (x >= 0 && x <= this.state.cols && y >= 0 && y <= this.state.rows) {
+			let board = this.state.board;
+			board[y][x] = !board[y][x];
+			this.setState({
+				board: board,
+			})
 		}
 		this.setState({ cells: this.makeCells() });
 	}
@@ -160,13 +204,13 @@ class Game extends Component {
 	render() { 
 		const { cells } = this.state;
 		return (  
-			<div>
+			<div id="game">
 				<div 
 					className="board" 
 					style={{
 						backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`,
-						width: WIDTH,
-						height: HEIGHT,
+						width: this.state.width,
+						height: this.state.height,
 					}}
 					onClick={this.handleClick}
 					ref={(n) => {this.boardRef = n;}}

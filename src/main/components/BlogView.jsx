@@ -44,12 +44,12 @@ class BlogView extends Component {
 	checkWindowDimensions() {
 		let height = document.getElementById('blog').clientWidth;
 		if (this.state.height !== height || this.state.height !== height - 30) {
-			this.updateWindowDimensions();
+			this.updateWindowDimensions(height);
 		}
 	}
 
-	updateWindowDimensions() {
-		let height = document.getElementById('blog').clientWidth - 30;
+	updateWindowDimensions(height) {
+		height = height - 30;
 		this.setState({ 
 			height: height,
 			actualHeight: height / 2,
