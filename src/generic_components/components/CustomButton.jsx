@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import '../assets/button.css';
+import React, { Component } from "react";
+import "../assets/button.css";
 
 //font awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class CustomButton extends Component {
-
     /*
         parameters:
             type => "submit" or "button", by default button
@@ -28,32 +27,61 @@ class CustomButton extends Component {
         //rendering ui components
         this.renderLeftIcon = this.renderLeftIcon.bind(this);
         this.renderRightIcon = this.renderRightIcon.bind(this);
-        this.renderButtonPrimeReactClass = this.renderButtonPrimeReactClass.bind(this);
+        this.renderButtonPrimeReactClass = this.renderButtonPrimeReactClass.bind(
+            this
+        );
         this.renderStaticBtn = this.renderStaticBtn.bind(this);
         this.renderRaisedBtn = this.renderRaisedBtn.bind(this);
-		this.renderRoundedBtn = this.renderRoundedBtn.bind(this);
+        this.renderRoundedBtn = this.renderRoundedBtn.bind(this);
 
         //action handlers
         this.handleOnClick = this.handleOnClick.bind(this);
     }
 
     isEmpty(data) {
-        return (data === undefined || data === "" || data === null);
+        return data === undefined || data === "" || data === null;
     }
 
     renderRightIcon() {
-        if (!this.isEmpty(this.props.icon)
-            && this.props.iconLocation === "right") {
-            return <FontAwesomeIcon icon={!this.isEmpty(this.props.icon) ? this.props.icon : undefined} size={!this.isEmpty(this.props.iconSize) ? this.props.iconSize : undefined} className={"pi p-c p-button-icon p-button-icon-right"} />;
+        if (
+            !this.isEmpty(this.props.icon) &&
+            this.props.iconLocation === "right"
+        ) {
+            return (
+                <FontAwesomeIcon
+                    icon={
+                        !this.isEmpty(this.props.icon)
+                            ? this.props.icon
+                            : undefined
+                    }
+                    size={
+                        !this.isEmpty(this.props.iconSize)
+                            ? this.props.iconSize
+                            : undefined
+                    }
+                    className={"pi p-c p-button-icon p-button-icon-right"}
+                />
+            );
         }
     }
 
     renderLeftIcon() {
-        if (this.props.icon !== undefined && this.props.iconLocation !== "right") {
+        if (
+            this.props.icon !== undefined &&
+            this.props.iconLocation !== "right"
+        ) {
             return (
                 <FontAwesomeIcon
-                    icon={(!this.isEmpty(this.props.icon) ? this.props.icon : undefined)}
-                    size={(!this.isEmpty(this.props.iconSize) ? this.props.iconSize : undefined)}
+                    icon={
+                        !this.isEmpty(this.props.icon)
+                            ? this.props.icon
+                            : undefined
+                    }
+                    size={
+                        !this.isEmpty(this.props.iconSize)
+                            ? this.props.iconSize
+                            : undefined
+                    }
                     className={"pi p-c p-button-icon p-button-icon-left"}
                 />
             );
@@ -64,8 +92,7 @@ class CustomButton extends Component {
     renderStaticBtn() {
         if (this.props.staticBtn) {
             return "p-button_static";
-        }
-        else {
+        } else {
             return "";
         }
     }
@@ -74,8 +101,7 @@ class CustomButton extends Component {
     renderRaisedBtn() {
         if (!this.props.btnRaised) {
             return "";
-        }
-        else {
+        } else {
             return "p-button-raised";
         }
     }
@@ -84,8 +110,7 @@ class CustomButton extends Component {
     renderRoundedBtn() {
         if (this.props.btnRound) {
             return "p-button-rounded";
-        }
-        else {
+        } else {
             return "";
         }
     }
@@ -93,17 +118,23 @@ class CustomButton extends Component {
     renderButtonPrimeReactClass() {
         if (this.isEmpty(this.props.label) && !this.isEmpty(this.props.icon)) {
             return "p-button-icon-only";
-        }
-        else if (this.isEmpty(this.props.icon) && !this.isEmpty(this.props.label) && (!this.isEmpty(this.props.textOnly) ? this.props.textOnly : false)) {
+        } else if (
+            this.isEmpty(this.props.icon) &&
+            !this.isEmpty(this.props.label) &&
+            (!this.isEmpty(this.props.textOnly) ? this.props.textOnly : false)
+        ) {
             return "p-button-text-only";
-        }
-        else if (!this.isEmpty(this.props.icon) && this.props.iconLocation === "right") {
+        } else if (
+            !this.isEmpty(this.props.icon) &&
+            this.props.iconLocation === "right"
+        ) {
             return "p-button-text-icon-right";
-        }
-        else if (!this.isEmpty(this.props.icon) && this.props.iconLocation !== "right") {
+        } else if (
+            !this.isEmpty(this.props.icon) &&
+            this.props.iconLocation !== "right"
+        ) {
             return "p-button-text-icon-left";
-        }
-        else {
+        } else {
             return "";
         }
     }
@@ -121,31 +152,49 @@ class CustomButton extends Component {
         return (
             <React.Fragment>
                 <button
-                    type={(!this.isEmpty(this.props.type) ? this.props.type : "button")}
+                    type={
+                        !this.isEmpty(this.props.type)
+                            ? this.props.type
+                            : "button"
+                    }
                     className={
                         "p-button p-component " +
-                        this.renderButtonPrimeReactClass() + " " + this.renderRaisedBtn() + " " +
-                        this.renderRoundedBtn() + " " +
-                        this.renderStaticBtn() + " " +
-                        (!this.isEmpty(this.props.className) ? this.props.className : "")
+                        this.renderButtonPrimeReactClass() +
+                        " " +
+                        this.renderRaisedBtn() +
+                        " " +
+                        this.renderRoundedBtn() +
+                        " " +
+                        this.renderStaticBtn() +
+                        " " +
+                        (!this.isEmpty(this.props.className)
+                            ? this.props.className
+                            : "")
                     }
-                    onClick={(e) => this.handleOnClick(e)}
+                    onClick={e => this.handleOnClick(e)}
                     disabled={this.props.disabled}
                 >
                     {this.renderLeftIcon()}
 
-                    <span className={"p-button-text p-c " + (!this.isEmpty(this.props.labelClassName) ? this.props.labelClassName : "")}>
-
-                        {(!this.isEmpty(this.props.icon) && this.props.iconLocation !== "right") ?
+                    <span
+                        className={
+                            "p-button-text p-c " +
+                            (!this.isEmpty(this.props.labelClassName)
+                                ? this.props.labelClassName
+                                : "")
+                        }
+                    >
+                        {!this.isEmpty(this.props.icon) &&
+                        this.props.iconLocation !== "right" ? (
                             <span>&nbsp;</span>
-                            : null}
+                        ) : null}
 
                         {this.props.label}
 
-                        {(!this.isEmpty(this.props.icon) && this.props.iconLocation === "right") ?
+                        {!this.isEmpty(this.props.icon) &&
+                        this.props.iconLocation === "right" ? (
                             <span>&nbsp;</span>
-                            : null}
-
+                        ) : null}
                     </span>
 
                     {this.renderRightIcon()}

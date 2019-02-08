@@ -1,19 +1,19 @@
-**Frontend of my personal site:  http://jasonyue.ca**
+**Frontend of my personal site: http://jasonyue.ca**
 
 # Projects
 
 ## Blog
 
-A blog that obtains its data from an API served from the backend. 
+A blog that obtains its data from an API served from the backend.
 
-The UI is inspired by reddit. The data is held inside cards, which expand into a scrollable overlay 
+The UI is inspired by reddit. The data is held inside cards, which expand into a scrollable overlay
 with a link to the full blog page.
 
 ## Tic-Tac-Toe
 
 A simple tic-tac-toe game built on the React tutorial.
 
-It has been expanded upon by adding an AI and multiplayer option. 
+It has been expanded upon by adding an AI and multiplayer option.
 
 ## Chat
 

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import '../assets/card.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import "../assets/card.css";
 
 class Card extends Component {
-	static defaultProps = {
+    static defaultProps = {
         id: null,
         header: null,
         footer: null,
@@ -24,26 +24,28 @@ class Card extends Component {
         className: PropTypes.string
     };
 
-    renderHeader(){
-        return <div className="c-card-header">
-                    {this.props.header}
-                </div>;
+    renderHeader() {
+        return <div className="c-card-header">{this.props.header}</div>;
     }
-    
-    renderBody(){
+
+    renderBody() {
         let title, subTitle, footer, children;
 
-        if(this.props.title) {
+        if (this.props.title) {
             title = <div className="c-card-title">{this.props.title}</div>;
         }
-        if(this.props.subTitle) {
-            subTitle = <div className="c-card-subtitle">{this.props.subTitle}</div>;
+        if (this.props.subTitle) {
+            subTitle = (
+                <div className="c-card-subtitle">{this.props.subTitle}</div>
+            );
         }
-        if(this.props.footer) {
+        if (this.props.footer) {
             footer = <div className="c-card-footer"> {this.props.footer}</div>;
         }
-        if(this.props.children) {
-            children = <div className="c-card-content"> {this.props.children} </div>;
+        if (this.props.children) {
+            children = (
+                <div className="c-card-content"> {this.props.children} </div>
+            );
         }
         return (
             <div className="c-card-body">
@@ -55,17 +57,16 @@ class Card extends Component {
         );
     }
 
-    render(){
-
+    render() {
         let header, body;
-        let className = classNames('c-card c-component',this.props.className);
+        let className = classNames("c-card c-component", this.props.className);
 
-        if(this.props.header) {
+        if (this.props.header) {
             header = this.renderHeader();
         }
         body = this.renderBody();
 
-        return(
+        return (
             <div id="card" className={className} style={this.props.style}>
                 {header}
                 {body}
@@ -73,5 +74,5 @@ class Card extends Component {
         );
     }
 }
- 
+
 export default Card;
