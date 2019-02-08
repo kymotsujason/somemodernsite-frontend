@@ -103,23 +103,19 @@ class Game extends Component {
 
     handleClear() {
         this.setState({
-            cells: this.makeCells(),
+            cells: [],
             board: this.makeEmptyBoard(this.state.rows)
         });
     }
 
     handleRandom() {
+        let board = this.state.board;
         for (let y = 0; y < this.state.rows; y++) {
             for (let x = 0; x < this.state.cols; x++) {
-                let board = this.state.board;
                 board[y][x] = Math.random() >= 0.5;
-                this.setState({
-                    board: board
-                });
             }
         }
-
-        this.setState({ cells: this.makeCells() });
+        this.setState({ board: board, cells: this.makeCells() });
     }
 
     runIteration() {
@@ -201,10 +197,15 @@ class Game extends Component {
 
     getElementOffset() {
         const rect = this.boardRef.getBoundingClientRect();
-        const doc = document.documentElement;
         return {
-            x: rect.left + window.pageXOffset - doc.clientLeft,
-            y: rect.top + window.pageYOffset - doc.clientTop
+            x:
+                rect.left +
+                window.pageXOffset -
+                document.documentElement.scrollLeft,
+            y:
+                rect.top +
+                window.pageYOffset -
+                document.documentElement.scrollTop
         };
     }
 
@@ -212,7 +213,6 @@ class Game extends Component {
         const elemOffset = this.getElementOffset();
         const offsetX = event.clientX - elemOffset.x;
         const offsetY = event.clientY - elemOffset.y;
-
         const x = Math.floor(offsetX / CELL_SIZE);
         const y = Math.floor(offsetY / CELL_SIZE);
         if (x >= 0 && x <= this.state.cols && y >= 0 && y <= this.state.rows) {

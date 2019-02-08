@@ -86,7 +86,37 @@ class Game extends Component {
         const winner = this.calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
-            const desc = move ? "Go to move #" + move : "Go to game start";
+            let pos = 0,
+                col = 1,
+                row = 0;
+            if (move > 0) {
+                for (let i = 0; i < step.squares.length; i++) {
+                    if (history[move - 1].squares[i] !== step.squares[i]) {
+                        pos = i;
+                        break;
+                    }
+                }
+            }
+            console.log(pos % 3);
+            if (pos % 3 === 0) {
+                col = 1;
+                row = 1;
+            } else if (pos % 3 === 1) {
+                col = 2;
+                row = 2;
+            } else if (pos % 3 === 2) {
+                col = 3;
+                row = 3;
+            }
+            const desc = move
+                ? "Go to move #" +
+                  move +
+                  " (" +
+                  col.toString() +
+                  ", " +
+                  row.toString() +
+                  ")"
+                : "Go to game start";
             return (
                 <li key={move} className="spacing-quarter remove-numbers">
                     <Button
