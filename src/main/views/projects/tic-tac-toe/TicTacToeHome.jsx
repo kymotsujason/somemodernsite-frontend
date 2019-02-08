@@ -8,6 +8,7 @@ import Typist from "react-typist";
 import { InputText } from "primereact/inputtext";
 import Multiplayer from "./Multiplayer";
 import { withRouter } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
 class TicTacToeHome extends Component {
     constructor(props) {
@@ -240,5 +241,10 @@ class TicTacToeHome extends Component {
         return this.renderMenu();
     }
 }
+
+TicTacToeHome.propTypes = {
+    location: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    history: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default withRouter(TicTacToeHome);

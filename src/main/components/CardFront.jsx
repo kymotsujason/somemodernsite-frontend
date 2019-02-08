@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { PropTypes } from "prop-types";
 
 class CardFront extends Component {
     render() {
@@ -19,5 +20,11 @@ class CardFront extends Component {
         );
     }
 }
+
+CardFront.propTypes = {
+    title: PropTypes.string,
+    image: PropTypes.string,
+    date: PropTypes.string
+};
 
 export default CardFront;

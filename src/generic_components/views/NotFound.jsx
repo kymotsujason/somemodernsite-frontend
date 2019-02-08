@@ -7,7 +7,7 @@ class NotFound extends Component {
             <div className="spacing main_container">
                 <Card>
                     <h2>Not Found</h2>
-                    <p>The page you're looking for does not exists.</p>
+                    <p>The page does not exists.</p>
                 </Card>
             </div>
         );

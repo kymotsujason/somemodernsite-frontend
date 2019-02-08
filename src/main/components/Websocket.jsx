@@ -1,7 +1,4 @@
 class WebSocketService {
-    static instance = null;
-    callbacks = {};
-
     static getInstance() {
         if (!WebSocketService.instance) {
             WebSocketService.instance = new WebSocketService();
@@ -11,6 +8,8 @@ class WebSocketService {
 
     constructor() {
         this.socketRef = null;
+        this.instance = null;
+        this.callbacks = {};
     }
 
     connect(url) {
@@ -20,9 +19,8 @@ class WebSocketService {
         this.socketRef.onmessage = e => {
             this.socketResponse(e.data);
         };
-
         this.socketRef.onerror = e => {
-            console.log(e.message);
+            console.log(e);
         };
         this.socketRef.onclose = () => {
             this.connect();
@@ -112,29 +110,12 @@ class WebSocketService {
         try {
             this.socketRef.send(JSON.stringify({ ...data }));
         } catch (err) {
-            console.log(err.message);
+            throw new Error(err);
         }
     }
 
     state() {
         return this.socketRef.readyState;
-    }
-
-    waitForSocketConnection(callback) {
-        const socket = this.socketRef;
-        const recursion = this.waitForSocketConnection;
-        setTimeout(function() {
-            if (socket.readyState === 1) {
-                console.log("Connection is made");
-                if (callback != null) {
-                    callback();
-                }
-                return;
-            } else {
-                console.log("connecting...");
-                recursion(callback);
-            }
-        }, 100); // wait 100 milisecond for the connection...
     }
 }
 

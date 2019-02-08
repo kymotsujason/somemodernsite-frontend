@@ -1,8 +1,7 @@
 import React, { Component } from "react";
+import { PropTypes } from "prop-types";
 
 class Square extends Component {
-    state = {};
-
     render() {
         return (
             <button className="square" onClick={() => this.props.onClick()}>
@@ -11,5 +10,10 @@ class Square extends Component {
         );
     }
 }
+
+Square.propTypes = {
+    value: PropTypes.string,
+    onClick: PropTypes.func
+};
 
 export default Square;

@@ -4,6 +4,7 @@ import Login from "./Login";
 import Chat from "./Chat";
 import { withRouter } from "react-router-dom";
 import Typist from "react-typist";
+import { PropTypes } from "prop-types";
 
 class ChatHome extends Component {
     constructor(props) {
@@ -60,4 +61,10 @@ class ChatHome extends Component {
         return this.renderMenu();
     }
 }
+
+ChatHome.propTypes = {
+    location: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    history: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
+
 export default withRouter(ChatHome);

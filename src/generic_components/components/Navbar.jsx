@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../main/assets/logo.png";
+import { PropTypes } from "prop-types";
 
 class Navbar extends Component {
     constructor(props) {
@@ -90,5 +91,9 @@ class Navbar extends Component {
         );
     }
 }
+
+Navbar.propTypes = {
+    item_list: PropTypes.array
+};
 
 export default Navbar;

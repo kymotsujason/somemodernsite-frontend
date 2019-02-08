@@ -39,14 +39,14 @@ class About extends Component {
                         <p>
                             My favorite game to play is Osu, but I also play
                             games such as MapleStory 2, League of Legends, and
-                            others. I used to "play" Minecraft, though it was
+                            others. I used to play Minecraft, though it was
                             mostly server administration and management
                             (probably for 3 years) for multiple servers (longest
                             time spent on a large-ish server for a Youtuber,
-                            15000+ unique visitors before I left). I'm more of a
-                            semi-competitive gamer, but I like to play it casual
-                            whenever I can (only because I lack talent for
-                            competitive =P).
+                            15000+ unique visitors before I left). I\'m more of
+                            a semi-competitive gamer, but I like to play it
+                            casual whenever I can (only because I lack talent
+                            for competitive =P).
                         </p>
                         <h4>Eating</h4>
                         <p>

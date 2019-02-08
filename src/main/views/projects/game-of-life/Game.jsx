@@ -149,12 +149,6 @@ class Game extends Component {
         }, this.state.interval);
     }
 
-    /**
-     * Calculate the number of neighbors at point (x, y)
-     * @param {Array} board
-     * @param {int} x
-     * @param {int} y
-     */
     calculateNeighbors(board, x, y) {
         let neighbors = 0;
         const dirs = [
@@ -189,9 +183,6 @@ class Game extends Component {
         let board = [];
         for (let y = 0; y < rows; y++) {
             board[y] = [];
-            for (let x = 0; x < this.size; x++) {
-                board[y][x] = false;
-            }
         }
         return board;
     }

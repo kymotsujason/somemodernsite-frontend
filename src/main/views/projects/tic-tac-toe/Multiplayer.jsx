@@ -9,6 +9,7 @@ import Typist from "react-typist";
 import { Button } from "primereact/button";
 import { socket_url } from "../../../components/static_socket";
 import { ClimbingBoxLoader } from "react-spinners";
+import { PropTypes } from "prop-types";
 
 class Multiplayer extends Component {
     constructor(props) {
@@ -400,5 +401,10 @@ class Multiplayer extends Component {
         }
     }
 }
+
+Multiplayer.propTypes = {
+    id: PropTypes.string,
+    location: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default withRouter(Multiplayer);

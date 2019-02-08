@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { InputText } from "primereact/inputtext";
 import Card from "../../../../generic_components//components/Card";
 import CustomButton from "../../../../generic_components/components/CustomButton";
+import { PropTypes } from "prop-types";
 
 class Login extends Component {
     constructor() {
@@ -44,5 +45,9 @@ class Login extends Component {
         );
     }
 }
+
+Login.propTypes = {
+    onLogin: PropTypes.func
+};
 
 export default Login;

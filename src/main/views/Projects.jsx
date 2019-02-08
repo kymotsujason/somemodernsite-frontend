@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../generic_components//components/Card";
 import FlipCard from "../components/FlipCard";
+import { PropTypes } from "prop-types";
 
 class Projects extends Component {
     render() {
@@ -14,5 +15,9 @@ class Projects extends Component {
         );
     }
 }
+
+Projects.propTypes = {
+    projects_items: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default Projects;

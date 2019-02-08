@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FetchAPI from "../components/FetchAPI";
 import BlogPageView from "./BlogPageView";
+import { PropTypes } from "prop-types";
 
 class BlogAPI extends Component {
     render() {
@@ -25,5 +26,13 @@ class BlogAPI extends Component {
         );
     }
 }
+
+BlogAPI.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            number: PropTypes.string
+        })
+    })
+};
 
 export default BlogAPI;

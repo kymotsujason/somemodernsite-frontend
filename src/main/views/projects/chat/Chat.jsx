@@ -6,6 +6,7 @@ import { socket_url } from "../../../components/static_socket";
 import Card from "../../../../generic_components/components/Card";
 import { ClimbingBoxLoader } from "react-spinners";
 import "./css/chat.css";
+import { PropTypes } from "prop-types";
 
 class Chat extends Component {
     constructor(props) {
@@ -122,6 +123,7 @@ class Chat extends Component {
         const currentUser = this.props.currentUser;
         return messages.map((message, i) => (
             <li
+                id={i}
                 key={message.content}
                 className={message.author === currentUser ? "me" : "him"}
             >
@@ -232,5 +234,9 @@ class Chat extends Component {
         }
     }
 }
+
+Chat.propTypes = {
+    currentUser: PropTypes.string
+};
 
 export default Chat;

@@ -5,6 +5,7 @@ import { projects_items } from "../assets/projects_preview";
 import ChatHome from "./projects/chat/ChatHome";
 import TicTacToeHome from "./projects/tic-tac-toe/TicTacToeHome";
 import GameOfLifeHome from "./projects/game-of-life/GameOfLife";
+import { PropTypes } from "prop-types";
 
 class ProjectsAPI extends Component {
     constructor(props) {
@@ -39,5 +40,13 @@ class ProjectsAPI extends Component {
         return this.verifyLink();
     }
 }
+
+ProjectsAPI.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            path: PropTypes.string
+        })
+    })
+};
 
 export default ProjectsAPI;

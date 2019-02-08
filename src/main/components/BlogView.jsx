@@ -5,6 +5,7 @@ import { Sidebar } from "primereact/sidebar";
 import { Button } from "primereact/button";
 import Card from "../../generic_components//components/Card";
 import CardMini from "../../generic_components//components/CardMini";
+import PropTypes from "prop-types";
 
 class BlogView extends Component {
     constructor(props) {
@@ -155,7 +156,7 @@ class BlogView extends Component {
                         baseZIndex={1000000}
                         showCloseIcon={false}
                         dismissable={true}
-                        onHide={e => this.setState({ visible: false })}
+                        onHide={() => this.setState({ visible: false })}
                     >
                         <div className="p-grid-nowrap">
                             <div style={{ overflow: "auto" }}>
@@ -214,5 +215,10 @@ class BlogView extends Component {
         );
     }
 }
+
+BlogView.propTypes = {
+    limit: PropTypes.number,
+    data: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default BlogView;

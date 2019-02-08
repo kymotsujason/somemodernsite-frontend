@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { PropTypes } from "prop-types";
 
 class Cell extends Component {
     render() {
@@ -16,5 +17,11 @@ class Cell extends Component {
         );
     }
 }
+
+Cell.propTypes = {
+    x: PropTypes.number,
+    y: PropTypes.number,
+    CELL_SIZE: PropTypes.number
+};
 
 export default Cell;

@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { ClimbingBoxLoader } from "react-spinners";
+import { PropTypes } from "prop-types";
 
 class FetchAPI extends Component {
-    state = {
-        data: [],
-        loaded: false,
-        error: false
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: [],
+            loaded: false,
+            error: false
+        };
+    }
 
     componentDidMount() {
         if (this.props.endpoint2) {
@@ -18,13 +23,12 @@ class FetchAPI extends Component {
                 ])
                 .then(
                     axios.spread((endRes, end2Res) => {
-                        if (endRes.status !== 200 || end2Res.status !== 200) {
-                            return console.log("Something went wrong");
+                        if (endRes.status === 200 || end2Res.status === 200) {
+                            let res = endRes.data.items;
+                            let res2 = end2Res.data;
+                            let data = [...res2, ...res];
+                            this.setState({ data: data, loaded: true });
                         }
-                        let res = endRes.data.items;
-                        let res2 = end2Res.data;
-                        let data = [...res2, ...res];
-                        this.setState({ data: data, loaded: true });
                     })
                 )
                 .catch(error => {
@@ -36,17 +40,15 @@ class FetchAPI extends Component {
             axios
                 .get(this.props.endpoint)
                 .then(response => {
-                    if (response.status !== 200) {
-                        return console.log("Something went wrong");
+                    if (response.status === 200) {
+                        this.setState({ data: response.data, loaded: true });
                     }
-                    return response.data;
                 })
                 .catch(error => {
                     if (error) {
                         this.setState({ error: true });
                     }
-                })
-                .then(data => this.setState({ data: data, loaded: true }));
+                });
         }
     }
 
@@ -70,5 +72,12 @@ class FetchAPI extends Component {
         }
     }
 }
+
+FetchAPI.propTypes = {
+    endpoint: PropTypes.string,
+    endpoint2: PropTypes.string,
+    anim: PropTypes.bool,
+    render: PropTypes.func
+};
 
 export default FetchAPI;

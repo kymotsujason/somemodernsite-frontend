@@ -4,6 +4,7 @@ import { Button } from "primereact/button";
 import { NavLink } from "react-router-dom";
 
 import FlipCard from "./FlipCard";
+import { PropTypes } from "prop-types";
 
 class FeaturedProjects extends Component {
     render() {
@@ -25,5 +26,9 @@ class FeaturedProjects extends Component {
         );
     }
 }
+
+FeaturedProjects.propTypes = {
+    projects_items: PropTypes.object
+};
 
 export default FeaturedProjects;

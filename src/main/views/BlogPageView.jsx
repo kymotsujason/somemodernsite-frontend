@@ -6,6 +6,7 @@ import CustomButton from "../../generic_components/components/CustomButton";
 import { withRouter } from "react-router-dom";
 import { Growl } from "primereact/growl";
 import { ClimbingBoxLoader } from "react-spinners";
+import { PropTypes } from "prop-types";
 
 class BlogPageView extends Component {
     constructor(props) {
@@ -162,5 +163,12 @@ class BlogPageView extends Component {
         }
     }
 }
+
+BlogPageView.propTypes = {
+    location: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    history: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    anim: PropTypes.bool,
+    data: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default withRouter(BlogPageView);

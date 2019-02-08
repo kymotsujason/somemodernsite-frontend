@@ -5,23 +5,16 @@ import { instanceOf } from "prop-types";
 import { withCookies, Cookies } from "react-cookie";
 
 class Cookiebar extends Component {
-    state = {
-        visible: false,
-        width: 0,
-        top: 0,
-        left: 0
-    };
-
-    static propTypes = {
-        cookies: instanceOf(Cookies).isRequired
-    };
-
     constructor(props) {
         super(props);
 
         const { cookies } = props;
         this.state = {
-            cookiebar: cookies.get("cookiebar")
+            cookiebar: cookies.get("cookiebar"),
+            visible: false,
+            width: 0,
+            top: 0,
+            left: 0
         };
         if (this.state.cookiebar !== "cookiebar") {
             this.state.visible = true;
@@ -86,7 +79,7 @@ class Cookiebar extends Component {
                     baseZIndex={1000000}
                     showCloseIcon={false}
                     dismissable={false}
-                    onHide={e => this.setState({ visible: false })}
+                    onHide={() => this.setState({ visible: false })}
                 >
                     <div className="center_text">
                         <p>
@@ -106,5 +99,9 @@ class Cookiebar extends Component {
         }
     }
 }
+
+Cookiebar.propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+};
 
 export default withCookies(Cookiebar);

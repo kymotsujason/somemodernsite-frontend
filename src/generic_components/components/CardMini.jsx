@@ -4,26 +4,6 @@ import classNames from "classnames";
 import "../assets/cardmini.css";
 
 class CardMini extends Component {
-    static defaultProps = {
-        id: null,
-        header: null,
-        footer: null,
-        title: null,
-        subTitle: null,
-        style: null,
-        className: null
-    };
-
-    static propTypes = {
-        id: PropTypes.string,
-        header: PropTypes.any,
-        footer: PropTypes.any,
-        title: PropTypes.string,
-        subTitle: PropTypes.string,
-        style: PropTypes.object,
-        className: PropTypes.string
-    };
-
     renderHeader() {
         return <div className="cm-card-header">{this.props.header}</div>;
     }
@@ -77,5 +57,16 @@ class CardMini extends Component {
         );
     }
 }
+
+CardMini.propTypes = {
+    id: PropTypes.string,
+    header: PropTypes.any,
+    footer: PropTypes.any,
+    title: PropTypes.string,
+    subTitle: PropTypes.string,
+    style: PropTypes.object,
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default CardMini;

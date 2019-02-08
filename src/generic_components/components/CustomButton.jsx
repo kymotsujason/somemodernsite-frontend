@@ -3,6 +3,7 @@ import "../assets/button.css";
 
 //font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PropTypes } from "prop-types";
 
 class CustomButton extends Component {
     /*
@@ -186,15 +187,15 @@ class CustomButton extends Component {
                     >
                         {!this.isEmpty(this.props.icon) &&
                         this.props.iconLocation !== "right" ? (
-                            <span>&nbsp;</span>
-                        ) : null}
+                                <span>&nbsp;</span>
+                            ) : null}
 
                         {this.props.label}
 
                         {!this.isEmpty(this.props.icon) &&
                         this.props.iconLocation === "right" ? (
-                            <span>&nbsp;</span>
-                        ) : null}
+                                <span>&nbsp;</span>
+                            ) : null}
                     </span>
 
                     {this.renderRightIcon()}
@@ -203,5 +204,22 @@ class CustomButton extends Component {
         );
     }
 }
+
+CustomButton.propTypes = {
+    iconLocation: PropTypes.string,
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    labelClassName: PropTypes.string,
+    label: PropTypes.string,
+    icon: PropTypes.string,
+    name: PropTypes.string,
+    className: PropTypes.string,
+    type: PropTypes.string,
+    textOnly: PropTypes.bool,
+    staticBtn: PropTypes.bool,
+    btnRound: PropTypes.bool,
+    btnRaised: PropTypes.bool,
+    iconSize: PropTypes.number
+};
 
 export default CustomButton;
