@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
-import withTracker from "./generic_components/components/withTracker";
+import withTracker from "./v1/generic_components/components/withTracker";
 
-import Main from "./main/views/Main";
-import NotFound from "./generic_components/views/NotFound";
+import Main from "./v2/main/views/Main";
+import MainOld from "./v1/main/views/MainOld";
+import NotFound from "./v1/generic_components/views/NotFound";
 
 class RouterView extends Component {
     render() {
@@ -12,6 +13,7 @@ class RouterView extends Component {
             <CookiesProvider>
                 <BrowserRouter>
                     <Switch>
+                        <Route path="/v1" component={withTracker(MainOld)} />
                         <Route path="/" component={withTracker(Main)} />
                         <Route component={NotFound} />
                     </Switch>

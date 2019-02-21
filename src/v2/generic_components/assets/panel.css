@@ -1,0 +1,30 @@
+.p-panel {
+    background-color: rgb(20, 21, 27);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.p-panel-light {
+    background-color: rgb(24, 25, 31);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.p-panel-footer {
+    background-color: rgb(31, 36, 46);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.p-component,
+.p-component * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.p-panel-body {
+    padding: 5em;
+}

@@ -1,0 +1,44 @@
+.cm-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 1px solid grey;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.cm-card:hover {
+    border: 1px solid cyan;
+}
+
+.cm-component,
+.cm-component * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.cm-card-header img {
+    width: 100%;
+}
+
+.cm-card-body {
+    padding: 0em;
+}
+
+.cm-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.cm-card-subtitle {
+    opacity: 0.7;
+    margin-bottom: 0.5em;
+    margin-top: -0.25em;
+    font-weight: bold;
+}
+
+.cm-card-footer {
+    padding-top: 1em;
+}

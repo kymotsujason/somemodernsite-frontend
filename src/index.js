@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 // css files
 import "./index.css";
-import "./assets/primeflex.css";
+import "./v1/assets/primeflex.css";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
