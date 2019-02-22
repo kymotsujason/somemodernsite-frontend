@@ -21,8 +21,8 @@ class About extends Component {
                 <Panel light={true}>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>Some fun facts about myself</p>
-                            <p>
+                            <p className="title">Some fun facts about myself</p>
+                            <p className="subtitle">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -46,8 +46,10 @@ class About extends Component {
                 <Panel>
                     <div className="center_content">
                         <span>
-                            <p>Understand who I am as a person</p>
-                            <p>
+                            <p className="title">
+                                Understand who I am as a person
+                            </p>
+                            <p className="description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -70,8 +72,8 @@ class About extends Component {
                 <Panel light={true}>
                     <div className="center_content">
                         <span>
-                            <p>Learn about my passions</p>
-                            <p>
+                            <p className="title">Learn about my passions</p>
+                            <p className="description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -94,18 +96,24 @@ class About extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>The skills that I've picked up</p>
-                            <p>Insert resume stuff link button here</p>
+                            <p className="title">
+                                The skills that I've picked up
+                            </p>
+                            <p className="description">
+                                Insert stuff about looking at resume
+                            </p>
                         </span>
                     </div>
                 </Panel>
                 <Panel light={true}>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>Hire an exceptional web developer today</p>
-                            <p>
+                            <p className="subheader">
                                 Now you know my personality and passions, feel
                                 free to reach out and start a conversation.
+                            </p>
+                            <p className="header">
+                                Hire an exceptional web developer today
                             </p>
                         </span>
                     </div>

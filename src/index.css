@@ -49,30 +49,6 @@ code {
     color: white;
 }
 
-.main_content {
-    min-height: 100vh;
-    color: white !important;
-}
-
-.center_content {
-    width: 1366px;
-    margin: auto;
-}
-
-.header {
-    font-size: 5em;
-    margin-bottom: 2.5em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.subheader {
-    font-size: 2em;
-    font-style: italic;
-    margin-top: 4.5em;
-    margin-bottom: -2em;
-}
-
 .dark_mode {
     background: #111;
     color: white;

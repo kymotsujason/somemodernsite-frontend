@@ -19,8 +19,8 @@ class Projects extends Component {
                 <Panel light={true}>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>Selling intro</p>
-                            <p>
+                            <p className="title">Selling intro</p>
+                            <p className="subtitle">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris

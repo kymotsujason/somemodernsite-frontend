@@ -21,8 +21,8 @@ class Home extends Component {
                 <Panel light={true}>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>Web Development (my focus)</p>
-                            <p>
+                            <p className="title">Web Development (my focus)</p>
+                            <p className="subtitle">
                                 Real talk. You need websites that look amazing,
                                 feel natural, and actually work. Well, that's
                                 what I do. Feel free to read on and learn more
@@ -34,11 +34,11 @@ class Home extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>
+                            <p className="title">
                                 I create algorithms to solve problems in a
                                 simple, yet efficient manner.
                             </p>
-                            <p>
+                            <p className="subtitle">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -64,8 +64,10 @@ class Home extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>Looking for an exceptional web developer?</p>
-                            <p>Hire me today</p>
+                            <p className="subheader">
+                                Looking for an exceptional web developer?
+                            </p>
+                            <p className="header">Hire me today</p>
                         </span>
                     </div>
                 </Panel>

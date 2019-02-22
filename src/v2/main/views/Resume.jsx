@@ -19,8 +19,8 @@ class Resume extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="p-grid-centered">
-                            <p className="p-col-2">Technologies</p>
-                            <p className="p-col-10 center_text">
+                            <p className="p-col-3 subtitle">Technologies</p>
+                            <p className="p-col-9 description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -43,8 +43,8 @@ class Resume extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="p-grid-centered">
-                            <p className="p-col-2">Work Experience</p>
-                            <p className="p-col-10 center_text">
+                            <p className="p-col-3 subtitle">Work Experience</p>
+                            <p className="p-col-9 description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -67,8 +67,8 @@ class Resume extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="p-grid-centered">
-                            <p className="p-col-2">Education</p>
-                            <p className="p-col-10 center_text">
+                            <p className="p-col-3 subtitle">Education</p>
+                            <p className="p-col-9 description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -91,8 +91,10 @@ class Resume extends Component {
                 <Panel light={true}>
                     <div className="center_content">
                         <span className="center_text">
-                            <p>Hire an exceptional web developer today</p>
-                            <p>
+                            <p className="title">
+                                Hire an exceptional web developer today
+                            </p>
+                            <p className="description">
                                 Now you know what I've done and what I can do,
                                 feel free to reach out and start a conversation.
                             </p>
