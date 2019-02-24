@@ -17,6 +17,7 @@ import Projects from "./Projects";
 import About from "./About";
 import Resume from "./Resume";
 import Blog from "./Blog";
+import BlogPage from "./BlogPage";
 import Contact from "./Contact";
 import Privacy from "./Privacy";
 import NotFound from "../../generic_components/views/NotFound";
@@ -36,7 +37,7 @@ class MainLayout extends Component {
                     <Route exact path={about_url} component={About} />
                     <Route exact path={resume_url} component={Resume} />
                     <Route exact path={blog_url} component={Blog} />
-                    {/* <Route path={blog_url + "/:number"} component={BlogAPI} /> */}
+                    <Route path={blog_url + "/:title"} component={BlogPage} />
                     <Route exact path={contact_url} component={Contact} />
                     <Route path={"/privacy"} component={Privacy} />
                     <Route component={NotFound} />

@@ -11,25 +11,12 @@
     display: inline-block;
     color: white;
     text-decoration: none;
-    -webkit-transition: opacity 0.15s;
-    transition: opacity 0.15s;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
 }
 
 .nav:hover .nav_menu:hover {
     opacity: 1;
-}
-
-.nav_logo {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    float: left;
-    width: 55px;
-    height: 55px;
-    -webkit-transition: -webkit-filter 0.15s;
-    transition: -webkit-filter 0.15s;
-    transition: filter 0.15s;
-    transition: filter 0.15s, -webkit-filter 0.15s;
 }
 
 .nav_logo:hover {
@@ -40,6 +27,10 @@
 .dark_background {
     z-index: -1;
     background: rgb(0, 0, 0);
+}
+
+.push_down {
+    margin-top: 2.5em;
 }
 
 .main_content {
@@ -75,6 +66,18 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
+    .nav_logo {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        float: left;
+        margin-left: 3em;
+        margin-top: 1em;
+        width: 2.3em;
+        height: 2.3em;
+        -webkit-transition: 0.15s;
+        transition: filter 0.15s;
+    }
     .nav {
         display: none;
     }
@@ -85,12 +88,15 @@
         opacity: 0.4;
     }
     .mobile_nav {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
-        margin: 0;
         padding: 0;
         overflow: hidden;
-        -webkit-transition: opacity 0.5s;
-        transition: opacity 0.5s;
+        padding: 1em;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
     }
     .p-grid-centered {
         display: -webkit-box;
@@ -99,57 +105,170 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
     }
     .center_content {
         margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .center_blog_content {
+        margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .p-col-4-auto {
+        width: 100%;
+    }
+    .p-col-3-auto {
+        width: 100%;
+    }
+    .p-col-9-auto {
+        width: 100%;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    .nav_logo {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        margin-left: 3em;
+        margin-top: 1em;
+        float: left;
+        width: 2.3em;
+        height: 2.3em;
+        -webkit-transition: 0.15s;
+        transition: filter 0.15s;
+    }
     .nav {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
-        margin: 0;
+        margin-right: 3em;
+        margin-top: 1em;
         padding: 0;
         float: right;
         overflow: hidden;
-        -webkit-transition: opacity 0.5s;
+        -webkit-transition: 0.5s;
         transition: opacity 0.5s;
     }
     .mobile_nav_button {
         display: none;
     }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1470px) {
     .p-grid-centered {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .center_content {
+        margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .center_blog_content {
+        margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .p-col-4-auto {
+        width: 50%;
+    }
+    .p-col-3-auto {
+        width: 100%;
+    }
+    .p-col-9-auto {
+        width: 100%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .center_blog_content {
+        width: 992px;
+        margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .p-col-3-auto {
+        width: 25%;
+    }
+    .p-col-9-auto {
+        width: 75%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1470px) {
+    .nav_logo {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        float: left;
+        margin-top: 1em;
+        padding: 0;
+        width: 2.3em;
+        height: 2.3em;
+        -webkit-transition: 0.15s;
+        transition: filter 0.15s;
+    }
+    .nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
-        margin: 0;
+        margin-top: 1em;
         padding: 0;
         float: right;
         overflow: hidden;
-        -webkit-transition: opacity 0.5s;
+        -webkit-transition: 0.5s;
         transition: opacity 0.5s;
+    }
+    .p-grid-centered {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
         width: 1366px;
         margin: auto;
     }
     .center_content {
         width: 1366px;
         margin: auto;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .p-col-4-auto {
+        width: 33.333%;
+    }
+    .p-col-3-auto {
+        width: 25%;
+    }
+    .p-col-9-auto {
+        width: 75%;
     }
 }

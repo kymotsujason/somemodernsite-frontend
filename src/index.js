@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store from "./redux/stores/index";
 
 // css files
 import "./index.css";
@@ -26,4 +28,9 @@ library.add(fas, far, fab);
 
 // https://www.npmjs.com/package/@fortawesome/react-fontawesome
 
-ReactDOM.render(<RouterView />, document.getElementById("root"));
+ReactDOM.render(
+    <Provider store={store}>
+        <RouterView />
+    </Provider>,
+    document.getElementById("root")
+);

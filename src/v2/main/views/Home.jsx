@@ -1,8 +1,19 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import code_img from "../assets/Code.png";
+import { getBlog } from "../../../redux/actions/index";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
+import BlogHandler from "../components/BlogHandler";
 
 class Home extends Component {
+    componentDidMount() {
+        if (this.props.blogData.length === 0 && !this.props.blogError) {
+            this.props.getBlog();
+        }
+    }
+
     render() {
         return (
             <div>
@@ -72,11 +83,52 @@ class Home extends Component {
                     </div>
                 </Panel>
                 <Panel light={true}>
-                    <div className="center_content">Blog</div>
+                    <div className="center_content">
+                        <span className="center_text">
+                            <p className="title">My latest blog posts</p>
+                        </span>
+                    </div>
+                    {this.props.blogError ? (
+                        <div className="center_content">
+                            <span className="center_text">
+                                <p className="title">
+                                    Unable to fetch blog contents
+                                </p>
+                            </span>
+                        </div>
+                    ) : this.props.blogData.length > 0 ? (
+                        <div className="center_content p-grid-centered">
+                            <BlogHandler
+                                limit={3}
+                                blogData={this.props.blogData}
+                            />
+                        </div>
+                    ) : (
+                        <div className="center_text">
+                            <Loader type="Oval" color="#FFFFFF" />
+                            Fetching...
+                        </div>
+                    )}
                 </Panel>
             </div>
         );
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        blogData: state.blogData,
+        blogError: state.blogError
+    };
+}
+
+Home.propTypes = {
+    blogData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    blogError: PropTypes.bool,
+    getBlog: PropTypes.func
+};
+
+export default connect(
+    mapStateToProps,
+    { getBlog }
+)(Home);

@@ -172,6 +172,7 @@ class CustomButton extends Component {
                             ? this.props.className
                             : "")
                     }
+                    style={this.props.style}
                     onClick={e => this.handleOnClick(e)}
                     disabled={this.props.disabled}
                 >
@@ -213,6 +214,7 @@ CustomButton.propTypes = {
     label: PropTypes.string,
     icon: PropTypes.string,
     name: PropTypes.string,
+    style: PropTypes.object,
     className: PropTypes.string,
     type: PropTypes.string,
     textOnly: PropTypes.bool,

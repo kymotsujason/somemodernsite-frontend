@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { PropTypes } from "prop-types";
-import CustomButton from "./CustomButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 class Navbar extends Component {
     constructor(props) {
@@ -26,7 +27,16 @@ class Navbar extends Component {
 
             tabMenuList.push(
                 <div key={i}>
-                    <NavLink to={url}>
+                    <NavLink
+                        to={url}
+                        onClick={() =>
+                            this.state.menu
+                                ? this.setState(prevState => ({
+                                    menu: !prevState.menu
+                                }))
+                                : null
+                        }
+                    >
                         <span className="p-menuitem-text nav_menu">
                             {label}
                         </span>
@@ -55,8 +65,16 @@ class Navbar extends Component {
                     />
                 </NavLink>
                 <div className="pull_right mobile_nav_button">
-                    <CustomButton
-                        icon="align-justify"
+                    <FontAwesomeIcon
+                        style={{
+                            backgroundColor: "transparent",
+                            border: "transparent",
+                            cursor: "pointer",
+                            marginRight: "2em",
+                            marginTop: "1em"
+                        }}
+                        icon={faBars}
+                        size="2x"
                         onClick={() =>
                             this.setState(prevState => ({
                                 menu: !prevState.menu

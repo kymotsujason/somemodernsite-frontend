@@ -19,8 +19,10 @@ class Resume extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="p-grid-centered">
-                            <p className="p-col-3 subtitle">Technologies</p>
-                            <p className="p-col-9 description">
+                            <p className="p-col-3-auto subtitle">
+                                Technologies
+                            </p>
+                            <p className="p-col-9-auto description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -43,8 +45,10 @@ class Resume extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="p-grid-centered">
-                            <p className="p-col-3 subtitle">Work Experience</p>
-                            <p className="p-col-9 description">
+                            <p className="p-col-3-auto subtitle">
+                                Work Experience
+                            </p>
+                            <p className="p-col-9-auto description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
@@ -67,8 +71,8 @@ class Resume extends Component {
                 <Panel>
                     <div className="center_content">
                         <span className="p-grid-centered">
-                            <p className="p-col-3 subtitle">Education</p>
-                            <p className="p-col-9 description">
+                            <p className="p-col-3-auto subtitle">Education</p>
+                            <p className="p-col-9-auto description">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Vivamus sit amet eros suscipit,
                                 rutrum ante gravida, imperdiet purus. Mauris
