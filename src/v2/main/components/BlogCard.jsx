@@ -33,16 +33,28 @@ class BlogCard extends Component {
                         day: "2-digit"
                     }).format(new Date(this.props.blogData.published_date))}
                 </div>
-                <div
-                    className="description"
-                    style={{
-                        height: "250px",
-                        overflow: "hidden",
-                        paddingTop: "1.5em"
-                    }}
-                >
-                    {Parser(this.props.blogData.text)}
-                </div>
+                {this.props.blogData.id < 6 ? (
+                    <div
+                        className="description"
+                        style={{
+                            height: "250px",
+                            overflow: "hidden",
+                            whiteSpace: "pre-wrap"
+                        }}
+                    >
+                        <p>{this.props.blogData.text}</p>
+                    </div>
+                ) : (
+                    <div
+                        className="description"
+                        style={{
+                            height: "250px",
+                            overflow: "hidden"
+                        }}
+                    >
+                        {Parser(this.props.blogData.text)}
+                    </div>
+                )}
                 <div style={{ paddingTop: "2em" }}>
                     <NavLink to={"/blog/" + url}>
                         <span
@@ -76,15 +88,28 @@ class BlogCard extends Component {
                         day: "2-digit"
                     }).format(new Date(this.props.blogData.published_date))}
                 </div>
-                <div
-                    className="description"
-                    style={{
-                        height: "250px",
-                        overflow: "hidden"
-                    }}
-                >
-                    {Parser(this.props.blogData.text)}
-                </div>
+                {this.props.blogData.id < 6 ? (
+                    <div
+                        className="description"
+                        style={{
+                            height: "250px",
+                            overflow: "hidden",
+                            whiteSpace: "pre-wrap"
+                        }}
+                    >
+                        <p>{this.props.blogData.text}</p>
+                    </div>
+                ) : (
+                    <div
+                        className="description"
+                        style={{
+                            height: "250px",
+                            overflow: "hidden"
+                        }}
+                    >
+                        {Parser(this.props.blogData.text)}
+                    </div>
+                )}
             </div>
         );
     }

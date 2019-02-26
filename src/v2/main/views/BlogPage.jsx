@@ -73,7 +73,7 @@ class BlogPage extends Component {
         }
         return (
             <div>
-                <Panel>
+                <Panel className="main_content">
                     {this.props.blogError ? (
                         <div className="center_content">
                             <span className="center_text">
@@ -99,12 +99,12 @@ class BlogPage extends Component {
                             Fetching...
                         </div>
                     )}
-                    <div className="push_down">
+                    <div className="push_down center_content">
                         {id.id - 1 > 0 ? (
                             <NavLink to={prevLink}>
                                 <div
-                                    className="p-grid-centered"
-                                    style={{ float: "left", color: "white" }}
+                                    className="p-grid"
+                                    style={{ color: "white", float: "left" }}
                                 >
                                     <div className="p-col-2 p-col-align-center">
                                         <FontAwesomeIcon
@@ -113,11 +113,21 @@ class BlogPage extends Component {
                                         />
                                     </div>
                                     <div className="p-col-10">
-                                        <div className="p-grid-centered">
-                                            <div style={{ fontSize: "0.8em" }}>
+                                        <div className="p-grid">
+                                            <div
+                                                className="p-col-12"
+                                                style={{
+                                                    fontSize: "0.8em",
+                                                    marginBottom: "-1.5em",
+                                                    paddingLeft: "1em"
+                                                }}
+                                            >
                                                 Prev
                                             </div>
-                                            <div style={{ fontSize: "1.5em" }}>
+                                            <div
+                                                className="p-col-12"
+                                                style={{ fontSize: "1.5em" }}
+                                            >
                                                 {prevTitle}
                                             </div>
                                         </div>
@@ -128,19 +138,25 @@ class BlogPage extends Component {
                         {this.props.blogData.length - id.id > 0 ? (
                             <NavLink to={nextLink}>
                                 <div
-                                    className="p-grid-centered"
-                                    style={{ float: "right", color: "white" }}
+                                    className="p-grid"
+                                    style={{ color: "white", float: "right" }}
                                 >
                                     <div className="p-col-10">
-                                        <div className="p-grid-centered">
+                                        <div className="p-grid">
                                             <div
+                                                className="p-col-12"
                                                 style={{
-                                                    fontSize: "0.8em"
+                                                    fontSize: "0.8em",
+                                                    marginBottom: "-1.5em",
+                                                    paddingLeft: "1em"
                                                 }}
                                             >
                                                 Next
                                             </div>
-                                            <div style={{ fontSize: "1.5em" }}>
+                                            <div
+                                                className="p-col-12"
+                                                style={{ fontSize: "1.5em" }}
+                                            >
                                                 {nextTitle}
                                             </div>
                                         </div>
@@ -156,7 +172,6 @@ class BlogPage extends Component {
                         ) : null}
                     </div>
                 </Panel>
-                )
             </div>
         );
     }

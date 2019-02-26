@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import code_img from "../assets/Code.png";
+import code_img from "../assets/code.png";
+import { NavLink } from "react-router-dom";
 
 class About extends Component {
     render() {
@@ -8,7 +9,7 @@ class About extends Component {
             <div>
                 <Panel img={code_img}>
                     <div className="center_content">
-                        <span className="center_text">
+                        <span className="center_text white">
                             <p className="subheader">
                                 Discover and learn about who I am
                             </p>
@@ -102,6 +103,26 @@ class About extends Component {
                             <p className="description">
                                 Insert stuff about looking at resume
                             </p>
+                            <div
+                                className="pseudo_button center_content custom_button"
+                                style={{
+                                    width: "200px",
+                                    height: "50px",
+                                    marginBottom: "3em"
+                                }}
+                            >
+                                <NavLink to="/resume">
+                                    <div
+                                        style={{
+                                            padding: "1em",
+                                            marginLeft: "-2em",
+                                            color: "white"
+                                        }}
+                                    >
+                                        View My Resume
+                                    </div>
+                                </NavLink>
+                            </div>
                         </span>
                     </div>
                 </Panel>
@@ -112,9 +133,32 @@ class About extends Component {
                                 Now you know my personality and passions, feel
                                 free to reach out and start a conversation.
                             </p>
-                            <p className="header">
+                            <p
+                                className="header"
+                                style={{ marginBottom: "0.45em" }}
+                            >
                                 Hire an exceptional web developer today
                             </p>
+                            <div
+                                className="pseudo_button center_content custom_button"
+                                style={{
+                                    width: "200px",
+                                    height: "50px",
+                                    marginBottom: "3em"
+                                }}
+                            >
+                                <NavLink to="/contact">
+                                    <div
+                                        style={{
+                                            padding: "1em",
+                                            marginLeft: "-2em",
+                                            color: "white"
+                                        }}
+                                    >
+                                        Contact me
+                                    </div>
+                                </NavLink>
+                            </div>
                         </span>
                     </div>
                 </Panel>

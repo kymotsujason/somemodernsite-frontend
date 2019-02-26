@@ -16,17 +16,19 @@ class Blog extends Component {
     render() {
         return (
             <div>
-                <Panel>
+                <Panel className="main_content">
                     <div
                         className="center_content"
                         style={{ marginBottom: "5em" }}
                     >
                         <span className="center_text">
                             <p className="title push_down">
-                                My latest blog posts
+                                Here are my thoughts
                             </p>
                             <p className="subtitle">
-                                This is the blog, read the stuff
+                                As a developer with experience in various
+                                technologies, here is where I provide insight
+                                into my thinking
                             </p>
                         </span>
                     </div>
@@ -39,7 +41,7 @@ class Blog extends Component {
                             </span>
                         </div>
                     ) : this.props.blogData.length > 0 ? (
-                        <div className="center_content p-grid-centered">
+                        <div className="center_content p-grid">
                             <BlogHandler blogData={this.props.blogData} />
                         </div>
                     ) : (

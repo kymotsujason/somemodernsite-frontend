@@ -20,7 +20,12 @@ class BlogHandler extends Component {
                 <div
                     key={index}
                     className="p-col-4-auto"
-                    style={{ padding: "2em" }}
+                    style={{
+                        padding: "2em",
+                        borderColor: "gray",
+                        borderWidth: "1px",
+                        borderStyle: "solid"
+                    }}
                 >
                     <BlogCard module={true} blogData={blogData[index]} />
                 </div>

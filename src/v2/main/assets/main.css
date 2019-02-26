@@ -24,18 +24,48 @@
     filter: brightness(1.25);
 }
 
+.custom_button {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.pseudo_button {
+    background-color: transparent;
+    border-color: gray;
+    border-style: solid;
+    border-width: 2px;
+    cursor: pointer;
+    padding-left: 2em;
+}
+
+.custom_sidebar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -210px;
+    margin-left: -210px;
+    width: 420px;
+    height: 420px;
+}
+
+.pseudo_button:hover {
+    background-color: rgb(70, 70, 70);
+    transition: 0.5s;
+}
+
 .dark_background {
     z-index: -1;
     background: rgb(0, 0, 0);
 }
 
 .push_down {
-    margin-top: 2.5em;
+    padding-top: 2.5em;
 }
 
 .main_content {
     min-height: 100vh;
-    color: white !important;
+    line-height: 2;
+    color: lightgray !important;
 }
 
 .header {
@@ -62,6 +92,22 @@
 
 .description {
     font-size: 1.1em;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.work_exp {
+    padding: 2em;
+}
+
+.white {
+    color: white;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -125,6 +171,9 @@
         width: 100%;
     }
     .p-col-9-auto {
+        width: 100%;
+    }
+    .p-col-6-auto {
         width: 100%;
     }
 }
@@ -191,6 +240,9 @@
     .p-col-9-auto {
         width: 100%;
     }
+    .p-col-6-auto {
+        width: 50%;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -210,6 +262,9 @@
     }
     .p-col-9-auto {
         width: 75%;
+    }
+    .p-col-6-auto {
+        width: 50%;
     }
 }
 
@@ -264,11 +319,5 @@
     }
     .p-col-4-auto {
         width: 33.333%;
-    }
-    .p-col-3-auto {
-        width: 25%;
-    }
-    .p-col-9-auto {
-        width: 75%;
     }
 }

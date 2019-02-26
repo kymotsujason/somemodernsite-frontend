@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import Panel from "../../generic_components/components/Panel";
-import code_img from "../assets/Code.png";
+import code_img from "../assets/code.png";
 import { getBlog } from "../../../redux/actions/index";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
@@ -19,7 +20,7 @@ class Home extends Component {
             <div>
                 <Panel img={code_img}>
                     <div className="center_content">
-                        <span className="center_text">
+                        <span className="center_text white">
                             <p className="subheader">
                                 Here to turn ideas into algorithms
                             </p>
@@ -78,7 +79,32 @@ class Home extends Component {
                             <p className="subheader">
                                 Looking for an exceptional web developer?
                             </p>
-                            <p className="header">Hire me today</p>
+                            <p
+                                className="header"
+                                style={{ marginBottom: "0.45em" }}
+                            >
+                                Hire me today
+                            </p>
+                            <div
+                                className="pseudo_button center_content custom_button"
+                                style={{
+                                    width: "200px",
+                                    height: "50px",
+                                    marginBottom: "3em"
+                                }}
+                            >
+                                <NavLink to="/contact">
+                                    <div
+                                        style={{
+                                            padding: "1em",
+                                            marginLeft: "-2em",
+                                            color: "white"
+                                        }}
+                                    >
+                                        Contact me
+                                    </div>
+                                </NavLink>
+                            </div>
                         </span>
                     </div>
                 </Panel>
