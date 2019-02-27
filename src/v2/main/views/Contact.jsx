@@ -55,6 +55,10 @@ class Contact extends Component {
     }
 
     render() {
+        if (document.title !== "Hire a Skilled Developer") {
+            document.title = "Learn About My Journey";
+        }
+
         return (
             <div>
                 <Panel img={code_img}>
@@ -71,8 +75,9 @@ class Contact extends Component {
                     <div
                         className="pseudo_button center_content"
                         style={{
-                            width: "250px",
-                            height: "250px"
+                            paddingBottom: "2.5em",
+                            width: "300px",
+                            height: "300px"
                         }}
                         onClick={() => this.setState({ visible: true })}
                     >

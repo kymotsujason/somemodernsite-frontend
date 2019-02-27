@@ -4,6 +4,10 @@ import code_img from "../assets/code.png";
 
 class Projects extends Component {
     render() {
+        if (document.title !== "Road to accumulating experience") {
+            document.title = "Road to accumulating experience";
+        }
+
         return (
             <div>
                 <Panel img={code_img}>

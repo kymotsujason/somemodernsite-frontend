@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Panel from "../../generic_components/components/Panel";
 import code_img from "../assets/code.png";
-import { getBlog } from "../../../redux/actions/index";
+import { loadBlog } from "../../../redux/actions/index";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
@@ -10,12 +10,20 @@ import BlogHandler from "../components/BlogHandler";
 
 class Home extends Component {
     componentDidMount() {
-        if (this.props.blogData.length === 0 && !this.props.blogError) {
-            this.props.getBlog();
+        if (
+            this.props.blogData.length === 0 &&
+            !this.props.blogError &&
+            !this.props.loadingBlog
+        ) {
+            this.props.loadBlog();
         }
     }
 
     render() {
+        if (document.title !== "Canadian Full-Stack Developer") {
+            document.title = "Canadian Full-Stack Developer";
+        }
+
         return (
             <div>
                 <Panel img={code_img}>
@@ -89,7 +97,6 @@ class Home extends Component {
                                 className="pseudo_button center_content custom_button"
                                 style={{
                                     width: "200px",
-                                    height: "50px",
                                     marginBottom: "3em"
                                 }}
                             >
@@ -143,6 +150,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
+        loadingBlog: state.loadingBlog,
         blogData: state.blogData,
         blogError: state.blogError
     };
@@ -151,10 +159,11 @@ function mapStateToProps(state) {
 Home.propTypes = {
     blogData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     blogError: PropTypes.bool,
-    getBlog: PropTypes.func
+    loadingBlog: PropTypes.bool,
+    loadBlog: PropTypes.func
 };
 
 export default connect(
     mapStateToProps,
-    { getBlog }
+    { loadBlog }
 )(Home);

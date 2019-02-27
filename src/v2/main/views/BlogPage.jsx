@@ -79,6 +79,11 @@ class BlogPage extends Component {
                             <span className="center_text">
                                 <p className="title">
                                     Unable to fetch blog contents
+                                    {document.title !==
+                                    "Unable to fetch blog contents"
+                                        ? (document.title =
+                                              "Unable to fetch blog contents")
+                                        : null}
                                 </p>
                             </span>
                         </div>
@@ -92,14 +97,33 @@ class BlogPage extends Component {
                                     ]
                                 }
                             />
+                            {document.title !==
+                            this.props.blogData[
+                                this.props.blogData.length - id.id
+                            ].title
+                                ? (document.title = this.props.blogData[
+                                    this.props.blogData.length - id.id
+                                ].title)
+                                : null}
                         </div>
                     ) : (
                         <div className="center_content center_text">
                             <Loader type="Oval" color="#FFFFFF" />
                             Fetching...
+                            {document.title !== "Loading..."
+                                ? (document.title = "Loading...")
+                                : null}
                         </div>
                     )}
-                    <div className="push_down center_content">
+                    <div
+                        className="center_content"
+                        style={{
+                            bottom: "250px",
+                            position: "absolute",
+                            left: 0,
+                            right: 0
+                        }}
+                    >
                         {id.id - 1 > 0 ? (
                             <NavLink to={prevLink}>
                                 <div

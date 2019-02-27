@@ -92,21 +92,13 @@ class BlogCard extends Component {
                     <div
                         className="description"
                         style={{
-                            height: "250px",
-                            overflow: "hidden",
                             whiteSpace: "pre-wrap"
                         }}
                     >
                         <p>{this.props.blogData.text}</p>
                     </div>
                 ) : (
-                    <div
-                        className="description"
-                        style={{
-                            height: "250px",
-                            overflow: "hidden"
-                        }}
-                    >
+                    <div className="description">
                         {Parser(this.props.blogData.text)}
                     </div>
                 )}

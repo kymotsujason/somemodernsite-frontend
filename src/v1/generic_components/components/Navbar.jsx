@@ -77,7 +77,7 @@ class Navbar extends Component {
         return (
             <div id="navbar">
                 <ul className="navbar">
-                    <NavLink to={"/"}>
+                    <NavLink to={"/v1"}>
                         <img
                             className="p-menuitem-text navbar_logo"
                             alt="logo"

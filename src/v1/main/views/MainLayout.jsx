@@ -28,7 +28,7 @@ class MainLayout extends Component {
             <div>
                 <Header />
 
-                <div className="main_content">
+                <div className="v1_main_content">
                     <Switch>
                         <Route exact path={home_url} component={Home} />
                         <Route exact path={about_url} component={About} />

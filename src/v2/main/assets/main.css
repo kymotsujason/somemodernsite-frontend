@@ -24,6 +24,10 @@
     filter: brightness(1.25);
 }
 
+.gallery {
+    background-color: rgb(20, 21, 27);
+}
+
 .custom_button {
     text-transform: uppercase;
     font-weight: bold;
@@ -55,7 +59,7 @@
 
 .dark_background {
     z-index: -1;
-    background: rgb(0, 0, 0);
+    background: rgb(20, 21, 27);
 }
 
 .push_down {
@@ -68,32 +72,6 @@
     color: lightgray !important;
 }
 
-.header {
-    font-size: 5em;
-    margin-bottom: 2.5em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.subheader {
-    font-size: 2em;
-    font-style: italic;
-    margin-top: 4.5em;
-    margin-bottom: -2em;
-}
-
-.title {
-    font-size: 3em;
-}
-
-.subtitle {
-    font-size: 1.65em;
-}
-
-.description {
-    font-size: 1.1em;
-}
-
 .bold {
     font-weight: bold;
 }
@@ -102,12 +80,37 @@
     text-transform: uppercase;
 }
 
-.work_exp {
-    padding: 2em;
-}
-
 .white {
     color: white;
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 50ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.75;
+    transition: opacity 50ms ease-in;
+}
+
+.transition-group {
+    position: relative;
+}
+
+.route-section {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -164,6 +167,9 @@
         -webkit-transition: 0.5s;
         transition: 0.5s;
     }
+    .work_exp {
+        padding: 1em;
+    }
     .p-col-4-auto {
         width: 100%;
     }
@@ -175,6 +181,31 @@
     }
     .p-col-6-auto {
         width: 100%;
+    }
+    .header {
+        font-size: 3em;
+        margin-bottom: 2.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .subheader {
+        font-size: 1.5em;
+        font-style: italic;
+        margin-top: 4.5em;
+        margin-bottom: -2em;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.5em;
+    }
+
+    .description {
+        font-size: 1em;
     }
 }
 
@@ -231,6 +262,9 @@
         -webkit-transition: 0.5s;
         transition: 0.5s;
     }
+    .work_exp {
+        padding: 2em;
+    }
     .p-col-4-auto {
         width: 50%;
     }
@@ -242,6 +276,36 @@
     }
     .p-col-6-auto {
         width: 50%;
+    }
+    .privacy {
+        padding: 1em 7em 1em 7em;
+    }
+    .header {
+        font-size: 5em;
+        margin-bottom: 2.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .subheader {
+        font-size: 2em;
+        font-style: italic;
+        margin-top: 4.5em;
+        margin-bottom: -2em;
+    }
+
+    .title {
+        font-size: 3em;
+    }
+
+    .subtitle {
+        font-size: 1.55em;
+        margin-bottom: 2.5em;
+    }
+
+    .description {
+        font-size: 1.1em;
+        margin-bottom: 2.5em;
     }
 }
 

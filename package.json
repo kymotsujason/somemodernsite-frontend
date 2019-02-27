@@ -61,6 +61,7 @@
         "react-dev-utils": "^7.0.3",
         "react-dom": "^16.8.3",
         "react-ga": "^2.5.7",
+        "react-image-gallery": "^0.8.14",
         "react-loader-spinner": "^2.3.0",
         "react-protected-mailto": "^1.0.3",
         "react-redux": "^6.0.1",

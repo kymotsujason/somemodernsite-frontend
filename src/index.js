@@ -9,6 +9,7 @@ import "./v1/assets/primeflex.css";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 // components
 
@@ -17,14 +18,14 @@ import "react-typist/dist/standalone/Typist.css";
 
 // font awesome
 // import all font awesome free icon library
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { fas } from "@fortawesome/free-solid-svg-icons";
+// import { far } from "@fortawesome/free-regular-svg-icons";
+// import { fab } from "@fortawesome/free-brands-svg-icons";
 import RouterView from "./RouterView";
 
 // Add all icons to the library so you can use it in your page
-library.add(fas, far, fab);
+// library.add(fas, far, fab);
 
 // https://www.npmjs.com/package/@fortawesome/react-fontawesome
 

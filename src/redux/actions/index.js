@@ -1,8 +1,12 @@
-import { BLOG_LOADED, BLOG_ERROR } from "../constants/action-types";
+import {
+    BLOG_LOADED,
+    BLOG_ERROR,
+    LOADING_BLOG
+} from "../constants/action-types";
 import axios from "axios";
 
 export function getBlog() {
-    return function(dispatch) {
+    return dispatch => {
         return axios
             .all([
                 axios.get(
@@ -25,5 +29,12 @@ export function getBlog() {
                     dispatch({ type: BLOG_ERROR, payload: true });
                 }
             });
+    };
+}
+
+export function loadBlog() {
+    return dispatch => {
+        dispatch({ type: LOADING_BLOG, payload: true });
+        dispatch(getBlog());
     };
 }

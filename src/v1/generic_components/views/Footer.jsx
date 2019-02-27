@@ -32,6 +32,14 @@ class Footer extends Component {
                         </NavLink>
                     </p>
                     <Time />
+                    <div>
+                        <div className="center_content center_text">
+                            <span style={{ color: "lightgray" }}>v1 - </span>
+                            <NavLink style={{ color: "white" }} to={"/"}>
+                                v2
+                            </NavLink>
+                        </div>
+                    </div>
                     <div className="p-col-1" />
                 </div>
             </div>

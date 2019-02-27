@@ -5,37 +5,56 @@ import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import Panel from "../components/Panel";
 
 class Footer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        if (
+            !window.confirm(
+                "You are leaving jasonyue to visit an external site"
+            )
+        ) {
+            e.preventDefault();
+        }
+    }
+
     render() {
         return (
             <div>
                 <Panel footer={true}>
                     <div className="center_content center_text">
-                        <div className="p-col-1" />
                         <p>
                             <FontAwesomeIcon icon={faCopyright} /> 2018 - 2019
                             Jason Yue - Powered by{" "}
                             <a
-                                style={{ color: "#5b63ff" }}
+                                style={{ color: "white" }}
                                 href="https://github.com/kymotsujason/somemodernsite-backend"
+                                onClick={e => this.handleClick(e)}
                             >
                                 Django
                             </a>{" "}
                             and{" "}
                             <a
-                                style={{ color: "#5b63ff" }}
+                                style={{ color: "white" }}
                                 href="https://github.com/kymotsujason/somemodernsite-frontend"
+                                onClick={e => this.handleClick(e)}
                             >
                                 React
                             </a>{" "}
                             -{" "}
-                            <NavLink
-                                style={{ color: "#5b63ff" }}
-                                to={"/privacy"}
-                            >
-                                Privacy
+                            <NavLink style={{ color: "white" }} to={"/privacy"}>
+                                Privacy Policy
                             </NavLink>
                         </p>
-                        <div className="p-col-1" />
+                        <div className="center_content center_text">
+                            <NavLink style={{ color: "white" }} to={"/v1"}>
+                                v1
+                            </NavLink>
+                            - v2
+                        </div>
                     </div>
                 </Panel>
             </div>
