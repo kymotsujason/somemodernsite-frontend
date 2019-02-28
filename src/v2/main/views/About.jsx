@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import code_img from "../assets/code.png";
+import cuba_img from "../assets/cuba.jpg";
+import food_img from "../assets/food.jpg";
+import hawaii_img from "../assets/hawaii.jpg";
+import japan_img from "../assets/japan.jpg";
+import music_img from "../assets/music.jpg";
+import tech_img from "../assets/tech.jpg";
 import StylizedButton from "../../generic_components/components/StylizedButton";
 import ImageGallery from "react-image-gallery";
 
@@ -28,12 +34,28 @@ class About extends Component {
 
         const images = [
             {
-                original: code_img,
-                thumbnail: code_img
+                original: cuba_img,
+                thumbnail: cuba_img
             },
             {
-                original: code_img,
-                thumbnail: code_img
+                original: food_img,
+                thumbnail: food_img
+            },
+            {
+                original: hawaii_img,
+                thumbnail: hawaii_img
+            },
+            {
+                original: japan_img,
+                thumbnail: japan_img
+            },
+            {
+                original: music_img,
+                thumbnail: music_img
+            },
+            {
+                original: tech_img,
+                thumbnail: tech_img
             }
         ];
 
