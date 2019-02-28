@@ -29,7 +29,7 @@ class BlogPage extends Component {
                     }
                 } else {
                     let title = element.title;
-                    if (url === title.toLowerCase().replace(" ", "-")) {
+                    if (url === title.toLowerCase().replace(/\s+/g, "-")) {
                         return element.id;
                     }
                 }
@@ -50,7 +50,7 @@ class BlogPage extends Component {
                 let title = this.props.blogData[
                     this.props.blogData.length - prevId
                 ].title;
-                prevLink = "/blog/" + title.toLowerCase().replace(" ", "-");
+                prevLink = "/blog/" + title.toLowerCase().replace(/\s+/g, "-");
             }
         }
         let nextId = id.id + 1;
@@ -68,7 +68,7 @@ class BlogPage extends Component {
                 let title = this.props.blogData[
                     this.props.blogData.length - nextId
                 ].title;
-                nextLink = "/blog/" + title.toLowerCase().replace(" ", "-");
+                nextLink = "/blog/" + title.toLowerCase().replace(/\s+/g, "-");
             }
         }
         return (

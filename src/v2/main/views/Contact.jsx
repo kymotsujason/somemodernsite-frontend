@@ -67,7 +67,12 @@ class Contact extends Component {
                             <p className="subheader">
                                 Reach out and send me a friendly greeting
                             </p>
-                            <p className="header">Let's have a chat</p>
+                            <p
+                                className="header"
+                                style={{ marginBottom: "0.5em" }}
+                            >
+                                Let's have a chat
+                            </p>
                         </span>
                     </div>
                 </Panel>
@@ -83,7 +88,7 @@ class Contact extends Component {
                     >
                         <div>
                             <p className="title">Email</p>
-                            <p className="text">
+                            <p className="description">
                                 Feel free to reach out and send me an email.
                             </p>
                         </div>

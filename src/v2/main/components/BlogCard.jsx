@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import Parser from "html-react-parser";
 import { NavLink } from "react-router-dom";
+import dayjs from "dayjs";
 
 class BlogCard extends Component {
     constructor(props) {
@@ -18,43 +19,40 @@ class BlogCard extends Component {
             url = urlArr[urlArr.length - 2];
         } else {
             let title = this.props.blogData.title;
-            url = title.toLowerCase().replace(" ", "-");
+            url = title.toLowerCase().replace(/\s+/g, "-");
         }
         return (
             <div>
-                <div style={{ fontSize: "2em" }}>
-                    {this.props.blogData.title}
-                </div>
-                <div style={{ fontSize: "0.85em" }}>
-                    by: Jason -{" "}
-                    {new Intl.DateTimeFormat("en-CA", {
-                        year: "numeric",
-                        month: "short",
-                        day: "2-digit"
-                    }).format(new Date(this.props.blogData.published_date))}
-                </div>
-                {this.props.blogData.id < 6 ? (
-                    <div
-                        className="description"
-                        style={{
-                            height: "250px",
-                            overflow: "hidden",
-                            whiteSpace: "pre-wrap"
-                        }}
-                    >
-                        <p>{this.props.blogData.text}</p>
+                <div
+                    style={{
+                        height: "400px",
+                        overflow: "hidden"
+                    }}
+                >
+                    <div style={{ fontSize: "2em" }}>
+                        {this.props.blogData.title}
                     </div>
-                ) : (
-                    <div
-                        className="description"
-                        style={{
-                            height: "250px",
-                            overflow: "hidden"
-                        }}
-                    >
-                        {Parser(this.props.blogData.text)}
+                    <div style={{ fontSize: "0.85em" }}>
+                        by: Jason -{" "}
+                        {dayjs(this.props.blogData.published_date).format(
+                            "MMMM DD YYYY"
+                        )}
                     </div>
-                )}
+                    {this.props.blogData.id < 6 ? (
+                        <div
+                            className="description"
+                            style={{
+                                whiteSpace: "pre-wrap"
+                            }}
+                        >
+                            <p>{this.props.blogData.text}</p>
+                        </div>
+                    ) : (
+                        <div className="description">
+                            {Parser(this.props.blogData.text)}
+                        </div>
+                    )}
+                </div>
                 <div style={{ paddingTop: "2em" }}>
                     <NavLink to={"/blog/" + url}>
                         <span
@@ -82,11 +80,9 @@ class BlogCard extends Component {
                     style={{ fontSize: "0.85em", padding: "2em" }}
                 >
                     by: Jason -{" "}
-                    {new Intl.DateTimeFormat("en-CA", {
-                        year: "numeric",
-                        month: "short",
-                        day: "2-digit"
-                    }).format(new Date(this.props.blogData.published_date))}
+                    {dayjs(this.props.blogData.published_date).format(
+                        "MMMM DD YYYY"
+                    )}
                 </div>
                 {this.props.blogData.id < 6 ? (
                     <div

@@ -16,39 +16,67 @@ class Projects extends Component {
                             <p className="subheader">
                                 My work as a fullstack web developer
                             </p>
-                            <p className="header">My Projects and portfolio</p>
+                            <p
+                                className="header"
+                                style={{ marginBottom: "0.5em" }}
+                            >
+                                My Projects and portfolio
+                            </p>
                         </span>
                     </div>
                 </Panel>
                 <Panel light={true}>
                     <div className="center_content">
                         <span className="center_text">
-                            <p className="title">Selling intro</p>
+                            <p className="title">
+                                I'm a dedicated full-stack developer
+                            </p>
                             <p className="subtitle">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vivamus sit amet eros suscipit,
-                                rutrum ante gravida, imperdiet purus. Mauris
-                                lectus arcu, sodales vel tortor et, tincidunt
-                                faucibus mauris. Sed et volutpat erat.
-                                Pellentesque nec sapien eros. Nullam id molestie
-                                nisi. Donec a convallis purus, id vehicula nisl.
-                                Nullam non magna mattis, placerat purus at,
-                                faucibus elit. Maecenas eu dictum enim. Fusce
-                                consequat tortor nulla, non iaculis arcu
-                                eleifend ac. Vestibulum rutrum lorem id erat
-                                hendrerit efficitur. Quisque ornare laoreet
-                                lacinia. Sed id consequat ligula. Interdum et
-                                malesuada fames ac ante ipsum primis in
-                                faucibus. Curabitur vitae pulvinar augue.
+                                With experience in various technologies and
+                                platforms, I am confident in my skills as a
+                                full-stack developer. There is no design I can't
+                                implement and no algorithm I can't build. Below
+                                are some of my projects that showcase my skills
+                                and programming comptency.
                             </p>
                         </span>
                     </div>
                 </Panel>
                 <Panel>
-                    <div className="center_content">Web Projects</div>
+                    <div className="center_content">
+                        <span className="center_text">
+                            <p
+                                className="title"
+                                style={{ marginBottom: "0px" }}
+                            >
+                                Web Projects
+                            </p>
+                            <p
+                                className="subtitle"
+                                style={{ fontStyle: "italic" }}
+                            >
+                                Coming soon
+                            </p>
+                        </span>
+                    </div>
                 </Panel>
                 <Panel light={true}>
-                    <div className="center_content">Software Projects</div>
+                    <div className="center_content">
+                        <span className="center_text">
+                            <p
+                                className="title"
+                                style={{ marginBottom: "0px" }}
+                            >
+                                Software Projects
+                            </p>
+                            <p
+                                className="subtitle"
+                                style={{ fontStyle: "italic" }}
+                            >
+                                Coming soon
+                            </p>
+                        </span>
+                    </div>
                 </Panel>
             </div>
         );

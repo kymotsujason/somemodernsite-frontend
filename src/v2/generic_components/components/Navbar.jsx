@@ -16,7 +16,7 @@ class Navbar extends Component {
         this.renderMenuTab = this.renderMenuTab.bind(this);
     }
 
-    renderMenuTab() {
+    renderMenuTab(navURL) {
         let tabMenuList = [];
         let item_list = this.props.item_list;
         let size = item_list.length - 1;
@@ -24,23 +24,32 @@ class Navbar extends Component {
             let key = size - i;
             let label = item_list[key].label;
             let url = item_list[key].url;
-
             tabMenuList.push(
                 <div key={i}>
-                    <NavLink
-                        to={url}
-                        onClick={() =>
-                            this.state.menu
-                                ? this.setState(prevState => ({
-                                    menu: !prevState.menu
-                                }))
-                                : null
-                        }
-                    >
-                        <span className="p-menuitem-text nav_menu">
-                            {label}
-                        </span>
-                    </NavLink>
+                    {navURL[3] === label.toLowerCase() ||
+                    (navURL[3] === "" && label.toLowerCase() === "home") ? (
+                            <span
+                                className="p-menuitem-text nav_menu"
+                                style={{ color: "lightgray" }}
+                            >
+                                {label}
+                            </span>
+                        ) : (
+                            <NavLink
+                                to={url}
+                                onClick={() =>
+                                    this.state.menu
+                                        ? this.setState(prevState => ({
+                                            menu: !prevState.menu
+                                        }))
+                                        : null
+                                }
+                            >
+                                <span className="p-menuitem-text nav_menu">
+                                    {label}
+                                </span>
+                            </NavLink>
+                        )}
                 </div>
             );
         });
@@ -50,6 +59,8 @@ class Navbar extends Component {
 
     render() {
         let navClass;
+        let navURL = window.location.href.split("/");
+        navURL[3] = navURL[3].trim();
         if (this.state.menu) {
             navClass = "mobile_nav";
         } else {
@@ -57,13 +68,22 @@ class Navbar extends Component {
         }
         return (
             <div>
-                <NavLink to="/">
+                {navURL[3] === "" ? (
                     <img
                         className="p-menuitem-text nav_logo"
                         alt="logo"
                         src={logo}
                     />
-                </NavLink>
+                ) : (
+                    <NavLink to="/">
+                        <img
+                            className="p-menuitem-text nav_logo"
+                            alt="logo"
+                            src={logo}
+                        />
+                    </NavLink>
+                )}
+
                 <div className="pull_right mobile_nav_button">
                     <FontAwesomeIcon
                         style={{
@@ -82,7 +102,7 @@ class Navbar extends Component {
                         }
                     />
                 </div>
-                <div className={navClass}>{this.renderMenuTab()}</div>
+                <div className={navClass}>{this.renderMenuTab(navURL)}</div>
             </div>
         );
     }

@@ -22,38 +22,48 @@ class Footer extends Component {
     }
 
     render() {
+        let navURL = window.location.href.split("/");
         return (
             <div>
                 <Panel footer={true}>
                     <div className="center_content center_text">
-                        <p>
-                            <FontAwesomeIcon icon={faCopyright} /> 2018 - 2019
-                            Jason Yue - Powered by{" "}
+                        <div>
+                            <FontAwesomeIcon icon={faCopyright} />
+                            <span> 2018 - 2019 Jason Yue - Powered by </span>
                             <a
                                 style={{ color: "white" }}
                                 href="https://github.com/kymotsujason/somemodernsite-backend"
                                 onClick={e => this.handleClick(e)}
                             >
                                 Django
-                            </a>{" "}
-                            and{" "}
+                            </a>
+                            <span> & </span>
                             <a
                                 style={{ color: "white" }}
                                 href="https://github.com/kymotsujason/somemodernsite-frontend"
                                 onClick={e => this.handleClick(e)}
                             >
                                 React
-                            </a>{" "}
-                            -{" "}
-                            <NavLink style={{ color: "white" }} to={"/privacy"}>
-                                Privacy Policy
-                            </NavLink>
-                        </p>
+                            </a>
+                            <span> - </span>
+                            {navURL[3] === "privacy" ? (
+                                <span style={{ color: "lightgray" }}>
+                                    Privacy Policy
+                                </span>
+                            ) : (
+                                <NavLink
+                                    style={{ color: "white" }}
+                                    to={"/privacy"}
+                                >
+                                    <span>Privacy Policy</span>
+                                </NavLink>
+                            )}
+                        </div>
                         <div className="center_content center_text">
                             <NavLink style={{ color: "white" }} to={"/v1"}>
-                                v1
+                                <span>v1</span>
                             </NavLink>
-                            - v2
+                            <span> - v2</span>
                         </div>
                     </div>
                 </Panel>

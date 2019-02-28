@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import StylizedButton from "../../generic_components/components/StylizedButton";
 import Panel from "../../generic_components/components/Panel";
 import code_img from "../assets/code.png";
 
@@ -16,7 +16,7 @@ class Resume extends Component {
             <div>
                 <Panel img={code_img}>
                     <div className="center_content">
-                        <span className="center_text white">
+                        <div className="center_text white">
                             <p className="subheader">
                                 Explore my skills and accomplishments
                             </p>
@@ -26,26 +26,12 @@ class Resume extends Component {
                             >
                                 Take a closer look
                             </p>
-                            <div
-                                className="pseudo_button center_content custom_button"
-                                style={{
-                                    width: "200px",
-                                    marginBottom: "3em"
-                                }}
-                            >
-                                <NavLink to="/static/bundles/media/2019-Jason_Yue-Resume.pdf">
-                                    <div
-                                        style={{
-                                            padding: "1em",
-                                            marginLeft: "-2em",
-                                            color: "white"
-                                        }}
-                                    >
-                                        Download Resume
-                                    </div>
-                                </NavLink>
-                            </div>
-                        </span>
+                            <StylizedButton
+                                width="200px"
+                                text="Download Resume"
+                                url="/static/bundles/media/2019-Jason_Yue-Resume.pdf"
+                            />
+                        </div>
                     </div>
                 </Panel>
                 <Panel>
@@ -163,7 +149,7 @@ class Resume extends Component {
                     <div className="center_content">
                         <div className="p-grid-centered">
                             <p className="p-col-3-auto subtitle">Education</p>
-                            <div className="p-col-9-auto description">
+                            <div className="p-col-9-auto description work_exp">
                                 <span className="work_exp">
                                     <p className="bold uppercase">
                                         Bachelor of Applied Science - Computer
@@ -200,33 +186,17 @@ class Resume extends Component {
                     <div className="center_content">
                         <div className="center_text">
                             <p className="title">
-                                Hire an exceptional web developer today
+                                Hire an exceptional full-stack developer today
                             </p>
                             <p className="description">
                                 Now you know what I've done and what I can do,
                                 feel free to reach out and start a conversation.
                             </p>
-                            <div>
-                                <div
-                                    className="pseudo_button center_content custom_button"
-                                    style={{
-                                        width: "200px",
-                                        marginBottom: "3em"
-                                    }}
-                                >
-                                    <NavLink to="/contact">
-                                        <div
-                                            style={{
-                                                padding: "1em",
-                                                marginLeft: "-2em",
-                                                color: "white"
-                                            }}
-                                        >
-                                            Contact me
-                                        </div>
-                                    </NavLink>
-                                </div>
-                            </div>
+                            <StylizedButton
+                                width="200px"
+                                text="Contact me"
+                                url="/contact"
+                            />
                         </div>
                     </div>
                 </Panel>

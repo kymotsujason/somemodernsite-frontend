@@ -22,6 +22,8 @@ import Contact from "./Contact";
 import Privacy from "./Privacy";
 import NotFound from "../../generic_components/views/NotFound";
 
+import Cookiebar from "../../../v1/generic_components/components/Cookiebar";
+
 class MainLayout extends Component {
     render() {
         return (
@@ -42,6 +44,7 @@ class MainLayout extends Component {
                     <Route path={"/privacy"} component={Privacy} />
                     <Route component={NotFound} />
                 </Switch>
+                <Cookiebar />
                 <Footer />
             </div>
         );

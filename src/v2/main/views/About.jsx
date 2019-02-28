@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import code_img from "../assets/code.png";
-import { NavLink } from "react-router-dom";
+import StylizedButton from "../../generic_components/components/StylizedButton";
 import ImageGallery from "react-image-gallery";
 
 class About extends Component {
@@ -45,7 +45,10 @@ class About extends Component {
                             <p className="subheader">
                                 Discover and learn about who I am
                             </p>
-                            <p className="header">
+                            <p
+                                className="header"
+                                style={{ marginBottom: "0.5em" }}
+                            >
                                 My passions and personality
                             </p>
                         </span>
@@ -59,7 +62,7 @@ class About extends Component {
                         <span className="subtitle p-grid">
                             <ul className="p-col-4-auto">
                                 <li>My favorite food is toro sashimi</li>
-                                <li>I was not tech savvy until 16</li>
+                                <li>I became a tech enthusiast at 16</li>
                                 <li>
                                     I own a stuffed dolphin that was taller than
                                     me
@@ -122,23 +125,26 @@ class About extends Component {
                                 learn to create unique and innovative UIs in the
                                 future.
                             </p>
-                            <p className="description">
+                            <p
+                                className="description"
+                                style={{ marginBottom: "2.5em" }}
+                            >
                                 When I decide to take a break, relax, or catch
                                 my friends during their spare times, I enjoy
-                                watching YouTube videos or playing video games.
-                                Some games I'm passionate about (or just play a
-                                lot) include Osu, Apex Legends, Nier Automata,
-                                Terraria, and all sorts of other genres of games
-                                including VR games (I own an HTC Vive). I spend
-                                the majority of my time behind a computer
-                                screen, but when I decide to go out, I often
-                                hang out with friends, whether it's at a
-                                restaurant, a shopping mall (Metrotown), or one
-                                of their homes. I also enjoy traveling (whenever
-                                I get the chance). Some notable locations that
-                                I've been to include Japan, Hawaii, Cuba, and
-                                others. To stimulate my thinking, I also enjoy
-                                activities such as escape rooms.
+                                watching YouTube videos, anime, reading manga,
+                                or playing video games. Some games I'm
+                                passionate about (or just play a lot) include
+                                Osu, Apex Legends, Nier Automata, Terraria, and
+                                all sorts of other genres of games including VR
+                                games (I own an HTC Vive). I spend the majority
+                                of my time behind a computer screen, but when I
+                                decide to go out, I often hang out with friends,
+                                whether it's at a restaurant, a shopping mall
+                                (Metrotown), or one of their homes. I also enjoy
+                                traveling (whenever I get the chance). Some
+                                notable locations that I've been to include
+                                Japan, Hawaii, Cuba, and others. I'm a big fan
+                                of escape rooms.
                             </p>
                         </span>
                     </div>
@@ -148,11 +154,30 @@ class About extends Component {
                         <span>
                             <p className="title">Learn about my passions</p>
                             <p className="description">
-                                The road that I've paved for myself isn't as
-                                straight as others. While I'm currently focusing
-                                on growing my skills as a full-stack developer,
-                                I occasionally take a dive into software
-                                development.
+                                I would call myself a tech enthusiast. I love
+                                technology and always keep up to date with the
+                                latest innovations and newest products. New
+                                computer hardware, computer peripherals, mobile
+                                devices, programming concepts, programming
+                                languages, you get the point. When it comes to
+                                programming, the road that I've paved for myself
+                                isn't as straight as others. While I'm currently
+                                focusing on growing my skills as a full-stack
+                                developer, I occasionally take a dive into
+                                software development. As someone who loves
+                                algorithms, I don't see a reason not to dip my
+                                feet into both software and web development.
+                            </p>
+                            <p
+                                className="description"
+                                style={{ marginBottom: "2.5em" }}
+                            >
+                                Gaming is a large part of my life. I've played
+                                video games from when I was in elementary school
+                                and still play even now. I also watch anime,
+                                though not as much as I used to. While I've
+                                watched hundreds of different anime seasons,
+                                I've read thousands of manga.
                             </p>
                         </span>
                     </div>
@@ -170,25 +195,11 @@ class About extends Component {
                                 of each is influenced by time and experience (as
                                 a recent graduate, I try my best).
                             </p>
-                            <div
-                                className="pseudo_button center_content custom_button"
-                                style={{
-                                    width: "200px",
-                                    marginBottom: "3em"
-                                }}
-                            >
-                                <NavLink to="/resume">
-                                    <div
-                                        style={{
-                                            padding: "1em",
-                                            marginLeft: "-2em",
-                                            color: "white"
-                                        }}
-                                    >
-                                        View My Resume
-                                    </div>
-                                </NavLink>
-                            </div>
+                            <StylizedButton
+                                width="200px"
+                                text="View My Resume"
+                                url="/resume"
+                            />
                         </span>
                     </div>
                 </Panel>
