@@ -4,6 +4,20 @@ import Panel from "../../generic_components/components/Panel";
 import resume_img from "../assets/resume.jpg";
 
 class Resume extends Component {
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        if (
+            !window.confirm("You will be redirected to the external PDF file.")
+        ) {
+            e.preventDefault();
+        }
+    }
+
     render() {
         if (
             document.title !==
@@ -26,11 +40,15 @@ class Resume extends Component {
                             >
                                 Take a closer look
                             </p>
-                            <StylizedButton
-                                width="200px"
-                                text="Download Resume"
-                                url="/static/bundles/media/2019-Jason_Yue-Resume.pdf"
-                            />
+                            <a
+                                href="https://jasonyue.ca/static/bundles/media/2019-Jason_Yue-Resume.pdf"
+                                onClick={e => this.handleClick(e)}
+                            >
+                                <StylizedButton
+                                    width="200px"
+                                    text="Download Resume"
+                                />
+                            </a>
                         </div>
                     </div>
                 </Panel>

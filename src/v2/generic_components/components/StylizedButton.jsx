@@ -15,7 +15,19 @@ class StylizedButton extends Component {
                     marginBottom: "3em"
                 }}
             >
-                <NavLink to={url}>
+                {url ? (
+                    <NavLink to={url}>
+                        <div
+                            style={{
+                                padding: "1em",
+                                marginLeft: "-2em",
+                                color: "white"
+                            }}
+                        >
+                            {text}
+                        </div>
+                    </NavLink>
+                ) : (
                     <div
                         style={{
                             padding: "1em",
@@ -25,7 +37,7 @@ class StylizedButton extends Component {
                     >
                         {text}
                     </div>
-                </NavLink>
+                )}
             </div>
         );
     }
