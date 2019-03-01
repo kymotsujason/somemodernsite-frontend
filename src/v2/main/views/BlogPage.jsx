@@ -79,11 +79,6 @@ class BlogPage extends Component {
                             <span className="center_text">
                                 <p className="title">
                                     Unable to fetch blog contents
-                                    {document.title !==
-                                    "Unable to fetch blog contents"
-                                        ? (document.title =
-                                              "Unable to fetch blog contents")
-                                        : null}
                                 </p>
                             </span>
                         </div>
@@ -102,12 +97,9 @@ class BlogPage extends Component {
                             />
                         </div>
                     ) : (
-                        <div className="center_content center_text">
+                        <div className="center_content center_text push_down">
                             <Loader type="Oval" color="#FFFFFF" />
                             Fetching...
-                            {document.title !== "Loading..."
-                                ? (document.title = "Loading...")
-                                : null}
                         </div>
                     )}
                     <div
