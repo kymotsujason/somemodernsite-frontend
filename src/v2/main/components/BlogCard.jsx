@@ -70,6 +70,7 @@ class BlogCard extends Component {
     }
 
     renderPage() {
+        document.title = this.props.blogData.title;
         return (
             <div>
                 <div className="center_text push_down title">

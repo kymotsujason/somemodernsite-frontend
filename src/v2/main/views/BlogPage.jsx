@@ -88,7 +88,10 @@ class BlogPage extends Component {
                             </span>
                         </div>
                     ) : this.props.blogData.length > 0 && id !== -1 ? (
-                        <div className="center_blog_content">
+                        <div
+                            className="center_blog_content"
+                            style={{ paddingBottom: "3em" }}
+                        >
                             <BlogCard
                                 module={false}
                                 blogData={
@@ -97,14 +100,6 @@ class BlogPage extends Component {
                                     ]
                                 }
                             />
-                            {document.title !==
-                            this.props.blogData[
-                                this.props.blogData.length - id.id
-                            ].title
-                                ? (document.title = this.props.blogData[
-                                    this.props.blogData.length - id.id
-                                ].title)
-                                : null}
                         </div>
                     ) : (
                         <div className="center_content center_text">
