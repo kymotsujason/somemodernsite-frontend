@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import code_img from "../assets/code.png";
+import project_img from "../assets/project.jpg";
 
 class Projects extends Component {
     render() {
@@ -10,7 +10,7 @@ class Projects extends Component {
 
         return (
             <div>
-                <Panel img={code_img}>
+                <Panel img={project_img}>
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader">

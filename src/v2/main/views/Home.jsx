@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import code_img from "../assets/code.png";
+import frontend_img from "../assets/frontend.png";
+import backend_img from "../assets/backend.png";
+import analytics_img from "../assets/analytics.png";
 import { loadBlog } from "../../../redux/actions/index";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
@@ -72,8 +75,8 @@ class Home extends Component {
                                     }}
                                 >
                                     <img
-                                        src={code_img}
-                                        width="250px"
+                                        src={frontend_img}
+                                        width="285px"
                                         height="150px"
                                     />
                                     <p
@@ -102,8 +105,8 @@ class Home extends Component {
                                     }}
                                 >
                                     <img
-                                        src={code_img}
-                                        width="250px"
+                                        src={backend_img}
+                                        width="285px"
                                         height="150px"
                                     />
                                     <p
@@ -129,8 +132,8 @@ class Home extends Component {
                                     }}
                                 >
                                     <img
-                                        src={code_img}
-                                        width="250px"
+                                        src={analytics_img}
+                                        width="285px"
                                         height="150px"
                                     />
                                     <p

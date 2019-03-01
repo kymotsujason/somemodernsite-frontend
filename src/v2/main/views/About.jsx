@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import code_img from "../assets/code.png";
+import about_img from "../assets/about.jpg";
 import cuba_img from "../assets/cuba.jpg";
 import food_img from "../assets/food.jpg";
 import hawaii_img from "../assets/hawaii.jpg";
@@ -61,7 +61,7 @@ class About extends Component {
 
         return (
             <div>
-                <Panel img={code_img}>
+                <Panel img={about_img}>
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader">

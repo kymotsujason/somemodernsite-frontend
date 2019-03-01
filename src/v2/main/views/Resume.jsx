@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import StylizedButton from "../../generic_components/components/StylizedButton";
 import Panel from "../../generic_components/components/Panel";
-import code_img from "../assets/code.png";
+import resume_img from "../assets/resume.jpg";
 
 class Resume extends Component {
     render() {
@@ -14,7 +14,7 @@ class Resume extends Component {
 
         return (
             <div>
-                <Panel img={code_img}>
+                <Panel img={resume_img}>
                     <div className="center_content">
                         <div className="center_text white">
                             <p className="subheader">

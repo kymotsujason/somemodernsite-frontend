@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import { Sidebar } from "primereact/sidebar";
 import Mailto from "react-protected-mailto";
-import code_img from "../assets/code.png";
+import contact_img from "../assets/contact.jpg";
 import map_img from "../assets/map.jpg";
 
 class Contact extends Component {
@@ -61,7 +61,7 @@ class Contact extends Component {
 
         return (
             <div>
-                <Panel img={code_img}>
+                <Panel img={contact_img}>
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader">

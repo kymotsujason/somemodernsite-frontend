@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import LazyLoad from "react-lazyload";
 import "../assets/panel.css";
 
 class Panel extends Component {
@@ -32,16 +33,18 @@ class Panel extends Component {
         body = this.renderBody();
 
         return (
-            <div
-                id="panel"
-                className={className}
-                style={{
-                    propStyle,
-                    backgroundImage: "url(" + this.props.img + ")"
-                }}
-            >
-                {body}
-            </div>
+            <LazyLoad offset={100} once>
+                <div
+                    id="panel"
+                    className={className}
+                    style={{
+                        propStyle,
+                        backgroundImage: "url(" + this.props.img + ")"
+                    }}
+                >
+                    {body}
+                </div>
+            </LazyLoad>
         );
     }
 }
