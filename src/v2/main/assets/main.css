@@ -207,6 +207,12 @@
     .description {
         font-size: 1em;
     }
+    .blog_nav {
+        bottom: 200px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -307,6 +313,12 @@
         font-size: 1.1em;
         margin-bottom: 2.5em;
     }
+    .blog_nav {
+        bottom: 200px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -316,6 +328,12 @@
         margin: auto;
         -webkit-transition: 0.5s;
         transition: 0.5s;
+    }
+    .blog_nav {
+        bottom: 250px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
     }
 }
 

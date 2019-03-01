@@ -85,7 +85,7 @@ class BlogPage extends Component {
                     ) : this.props.blogData.length > 0 && id !== -1 ? (
                         <div
                             className="center_blog_content"
-                            style={{ paddingBottom: "3em" }}
+                            style={{ paddingBottom: "16em" }}
                         >
                             <BlogCard
                                 module={false}
@@ -102,15 +102,7 @@ class BlogPage extends Component {
                             Fetching...
                         </div>
                     )}
-                    <div
-                        className="center_content"
-                        style={{
-                            bottom: "250px",
-                            position: "absolute",
-                            left: 0,
-                            right: 0
-                        }}
-                    >
+                    <div className="center_content blog_nav">
                         {id.id - 1 > 0 ? (
                             <NavLink to={prevLink}>
                                 <div
