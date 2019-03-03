@@ -689,7 +689,7 @@ class Privacy extends Component {
         return (
             <div>
                 <Panel className="main_content">
-                    <div className="center_content">
+                    <div className="center_content push_down">
                         <p className="title">Privacy Policy</p>
                         {this.showAdvanced()}
                         {this.showLegal()}

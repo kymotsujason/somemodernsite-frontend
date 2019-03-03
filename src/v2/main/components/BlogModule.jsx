@@ -4,7 +4,7 @@ import Parser from "html-react-parser";
 import { NavLink } from "react-router-dom";
 import dayjs from "dayjs";
 
-class BlogCard extends Component {
+class BlogModule extends Component {
     constructor(props) {
         super(props);
 
@@ -108,9 +108,9 @@ class BlogCard extends Component {
     }
 }
 
-BlogCard.propTypes = {
+BlogModule.propTypes = {
     blogData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     module: PropTypes.bool
 };
 
-export default BlogCard;
+export default BlogModule;

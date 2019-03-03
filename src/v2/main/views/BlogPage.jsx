@@ -7,7 +7,8 @@ import Loader from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import BlogCard from "../components/BlogCard";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import BlogModule from "../components/BlogModule";
 import { NavLink } from "react-router-dom";
 
 class BlogPage extends Component {
@@ -15,6 +16,11 @@ class BlogPage extends Component {
         if (this.props.blogData.length === 0 && !this.props.blogError) {
             this.props.getBlog();
         }
+        this.goBack = this.goBack.bind(this);
+    }
+
+    goBack() {
+        this.props.history.goBack();
     }
 
     render() {
@@ -74,6 +80,15 @@ class BlogPage extends Component {
         return (
             <div>
                 <Panel className="main_content">
+                    <div className="center_blog_content push_down">
+                        <FontAwesomeIcon
+                            style={{ cursor: "pointer", marginTop: "2em" }}
+                            icon={faArrowLeft}
+                            size="2x"
+                            onClick={this.goBack}
+                        />
+                        <span className="descriptionr"> Back</span>
+                    </div>
                     {this.props.blogError ? (
                         <div className="center_content">
                             <span className="center_text">
@@ -85,9 +100,9 @@ class BlogPage extends Component {
                     ) : this.props.blogData.length > 0 && id !== -1 ? (
                         <div
                             className="center_blog_content"
-                            style={{ paddingBottom: "16em" }}
+                            style={{ paddingBottom: "16em", marginTop: "-2em" }}
                         >
-                            <BlogCard
+                            <BlogModule
                                 module={false}
                                 blogData={
                                     this.props.blogData[
@@ -195,7 +210,8 @@ BlogPage.propTypes = {
         params: PropTypes.shape({
             title: PropTypes.string
         })
-    })
+    }),
+    history: PropTypes.object
 };
 
 export default connect(

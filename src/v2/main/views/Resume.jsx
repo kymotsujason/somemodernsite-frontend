@@ -31,29 +31,31 @@ class Resume extends Component {
                 <Panel img={resume_img}>
                     <div className="center_content">
                         <div className="center_text white">
-                            <p className="subheader">
+                            <p className="subheader shadow">
                                 Explore my skills and accomplishments
                             </p>
                             <p
-                                className="header"
-                                style={{ marginBottom: "0.45em" }}
+                                className="header shadow"
+                                style={{ marginBottom: "0.4em" }}
                             >
                                 Take a closer look
                             </p>
-                            <a
-                                href="https://jasonyue.ca/static/bundles/media/2019-Jason_Yue-Resume.pdf"
-                                onClick={e => this.handleClick(e)}
-                            >
-                                <StylizedButton
-                                    width="200px"
-                                    text="Download Resume"
-                                />
-                            </a>
+                            <p className="panel_bottom_space">
+                                <a
+                                    href="https://jasonyue.ca/static/bundles/media/2019-Jason_Yue-Resume.pdf"
+                                    onClick={e => this.handleClick(e)}
+                                >
+                                    <StylizedButton
+                                        width="200px"
+                                        text="Download Resume"
+                                    />
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </Panel>
                 <Panel>
-                    <div className="center_content p-grid-centered">
+                    <div className="center_content p-grid">
                         <p className="p-col-3-auto subtitle">Technologies</p>
                         <div className="p-col-9-auto description">
                             <div className="p-grid work_exp">
@@ -113,90 +115,79 @@ class Resume extends Component {
                             </div>
                         </div>
                     </div>
-                </Panel>
-                <Panel>
-                    <div className="center_content">
-                        <div className="p-grid-centered">
-                            <p className="p-col-3-auto subtitle">
-                                Work Experience
-                            </p>
-                            <div className="p-col-9-auto description">
-                                <div className="work_exp">
-                                    <p className="bold uppercase white">
-                                        Junior Web Developer
-                                    </p>
-                                    <p>
-                                        <span className="bold white">
-                                            ImageX Media
-                                        </span>
-                                        , Vancouver, BC, May 2017 - December
-                                        2017
-                                        <br />
-                                        Created automated behavioral testing
-                                        system using Behat for large-scale
-                                        academic websites. Created testing phase
-                                        in OpenEDU CI/CD using the automated
-                                        behavioral testing system. Performed QA
-                                        with Jira workflow. Worked closely with
-                                        clients to design a prototype front-end.
-                                        Implemented optimizations and bug fixes
-                                        for mobile front-end. Redesigned legacy
-                                        back-end database API for modern use
-                                    </p>
-                                </div>
-                                <div className="work_exp">
-                                    <p className="bold uppercase white">
-                                        Volunteer IT Technician
-                                    </p>
-                                    <p>
-                                        <span className="bold white">
-                                            PMC Sierra
-                                        </span>
-                                        , Burnaby, BC, April 2013 - May 2013
-                                        <br />
-                                        Answered internal support calls and
-                                        tickets. Resolved networking, software,
-                                        and hardware issues
-                                    </p>
-                                </div>
+                    <div className="center_content p-grid">
+                        <p className="p-col-3-auto subtitle">Work Experience</p>
+                        <div className="p-col-9-auto description">
+                            <div className="work_exp">
+                                <p className="bold uppercase white">
+                                    Junior Web Developer
+                                </p>
+                                <p>
+                                    <span className="bold white">
+                                        ImageX Media
+                                    </span>
+                                    , Vancouver, BC, May 2017 - December 2017
+                                    <br />
+                                    Created automated behavioral testing system
+                                    using Behat for large-scale academic
+                                    websites. Created testing phase in OpenEDU
+                                    CI/CD using the automated behavioral testing
+                                    system. Performed QA with Jira workflow.
+                                    Worked closely with clients to design a
+                                    prototype front-end. Implemented
+                                    optimizations and bug fixes for mobile
+                                    front-end. Redesigned legacy back-end
+                                    database API for modern use
+                                </p>
+                            </div>
+                            <div className="work_exp">
+                                <p className="bold uppercase white">
+                                    Volunteer IT Technician
+                                </p>
+                                <p>
+                                    <span className="bold white">
+                                        PMC Sierra
+                                    </span>
+                                    , Burnaby, BC, April 2013 - May 2013
+                                    <br />
+                                    Answered internal support calls and tickets.
+                                    Resolved networking, software, and hardware
+                                    issues
+                                </p>
                             </div>
                         </div>
                     </div>
-                </Panel>
-                <Panel>
-                    <div className="center_content">
-                        <div className="p-grid-centered">
-                            <p className="p-col-3-auto subtitle">Education</p>
-                            <div className="p-col-9-auto description work_exp">
-                                <span className="work_exp">
-                                    <p className="bold uppercase">
-                                        Bachelor of Applied Science - Computer
-                                        Science
-                                    </p>
-                                    <p>
-                                        Trinity Western University, Langley, BC,
-                                        2014-2018
-                                    </p>
-                                </span>
-                                <span className="work_exp">
-                                    <p className="bold uppercase">
-                                        ACE-IT Computer Networking Technician
-                                    </p>
-                                    <p>
-                                        Burnaby South Secondary, Burnaby, BC,
-                                        2012-2013
-                                    </p>
-                                </span>
-                                <span className="work_exp">
-                                    <p className="bold uppercase">
-                                        General Education
-                                    </p>
-                                    <p>
-                                        Burnaby South Secondary, Burnaby, BC,
-                                        2009-2014
-                                    </p>
-                                </span>
-                            </div>
+                    <div className="center_content p-grid">
+                        <p className="p-col-3-auto subtitle">Education</p>
+                        <div className="p-col-9-auto description work_exp">
+                            <span className="work_exp">
+                                <p className="bold uppercase">
+                                    Bachelor of Applied Science - Computer
+                                    Science
+                                </p>
+                                <p>
+                                    Trinity Western University, Langley, BC,
+                                    2014-2018
+                                </p>
+                            </span>
+                            <span className="work_exp">
+                                <p className="bold uppercase">
+                                    ACE-IT Computer Networking Technician
+                                </p>
+                                <p>
+                                    Burnaby South Secondary, Burnaby, BC,
+                                    2012-2013
+                                </p>
+                            </span>
+                            <span className="work_exp">
+                                <p className="bold uppercase">
+                                    General Education
+                                </p>
+                                <p>
+                                    Burnaby South Secondary, Burnaby, BC,
+                                    2009-2014
+                                </p>
+                            </span>
                         </div>
                     </div>
                 </Panel>

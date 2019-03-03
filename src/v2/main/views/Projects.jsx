@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import project_img from "../assets/project.jpg";
+import ProjectsModule from "./../components/ProjectsModule";
 
 class Projects extends Component {
     render() {
@@ -13,13 +14,10 @@ class Projects extends Component {
                 <Panel img={project_img}>
                     <div className="center_content">
                         <span className="center_text white">
-                            <p className="subheader">
+                            <p className="subheader shadow">
                                 My work as a fullstack web developer
                             </p>
-                            <p
-                                className="header"
-                                style={{ marginBottom: "0.5em" }}
-                            >
+                            <p className="header shadow panel_bottom_space">
                                 My Projects and portfolio
                             </p>
                         </span>
@@ -44,20 +42,20 @@ class Projects extends Component {
                 </Panel>
                 <Panel>
                     <div className="center_content">
-                        <span className="center_text">
-                            <p
-                                className="title"
-                                style={{ marginBottom: "0px" }}
-                            >
-                                Web Projects
-                            </p>
-                            <p
-                                className="subtitle"
-                                style={{ fontStyle: "italic" }}
-                            >
-                                Coming soon
-                            </p>
-                        </span>
+                        <p
+                            className="title center_text"
+                            style={{ marginBottom: "1em" }}
+                        >
+                            Web Projects
+                        </p>
+                        <div
+                            className="center_content p-grid-centered"
+                            style={{
+                                marginBottom: "4em"
+                            }}
+                        >
+                            <ProjectsModule />
+                        </div>
                     </div>
                 </Panel>
                 <Panel light={true}>

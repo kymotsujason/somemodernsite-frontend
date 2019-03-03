@@ -64,13 +64,10 @@ class About extends Component {
                 <Panel img={about_img}>
                     <div className="center_content">
                         <span className="center_text white">
-                            <p className="subheader">
+                            <p className="subheader shadow">
                                 Discover and learn about who I am
                             </p>
-                            <p
-                                className="header"
-                                style={{ marginBottom: "0.5em" }}
-                            >
+                            <p className="header shadow panel_bottom_space">
                                 My passions and personality
                             </p>
                         </span>
@@ -119,11 +116,7 @@ class About extends Component {
                     </div>
                 </Panel>
                 <div className="gallery">
-                    <ImageGallery
-                        items={images}
-                        lazyLoad={true}
-                        autoPlay={true}
-                    />
+                    <ImageGallery items={images} lazyLoad={true} />
                 </div>
                 <Panel light={true}>
                     <div className="center_content">

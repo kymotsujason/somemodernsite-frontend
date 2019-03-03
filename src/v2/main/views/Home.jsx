@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import BlogHandler from "../components/BlogHandler";
 import StylizedButton from "../../generic_components/components/StylizedButton";
+import ProjectsModule from "./../components/ProjectsModule";
 
 class Home extends Component {
     componentDidMount() {
@@ -23,8 +24,8 @@ class Home extends Component {
     }
 
     render() {
-        if (document.title !== "Canadian Full-Stack Developer") {
-            document.title = "Canadian Full-Stack Developer";
+        if (document.title !== "Jason Yue - Canadian Full-Stack Developer") {
+            document.title = "Jason Yue - Canadian Full-Stack Developer";
         }
 
         return (
@@ -32,13 +33,10 @@ class Home extends Component {
                 <Panel img={code_img}>
                     <div className="center_content">
                         <span className="center_text white">
-                            <p className="subheader">
+                            <p className="subheader shadow">
                                 Here to turn ideas into algorithms
                             </p>
-                            <p
-                                className="header"
-                                style={{ marginBottom: "0.5em" }}
-                            >
+                            <p className="header shadow panel_bottom_space">
                                 Let's build the future together
                             </p>
                         </span>
@@ -164,20 +162,27 @@ class Home extends Component {
                 </Panel>
                 <Panel light={true}>
                     <div className="center_content">
-                        <span className="center_text">
-                            <p
-                                className="title"
-                                style={{ marginBottom: "0px" }}
-                            >
-                                My latest Projects
-                            </p>
-                            <p
-                                className="subtitle"
-                                style={{ fontStyle: "italic" }}
-                            >
-                                Coming soon
-                            </p>
-                        </span>
+                        <p
+                            className="title center_text"
+                            style={{ marginBottom: "1em" }}
+                        >
+                            My latest web projects
+                        </p>
+                        <div
+                            className="center_content p-grid-centered"
+                            style={{
+                                marginBottom: "4em"
+                            }}
+                        >
+                            <ProjectsModule limit={3} />
+                        </div>
+                        <div style={{ marginBottom: "5em" }}>
+                            <StylizedButton
+                                width="200px"
+                                text="View more"
+                                url="/projects"
+                            />
+                        </div>
                     </div>
                 </Panel>
                 <Panel>
@@ -193,7 +198,7 @@ class Home extends Component {
                                 className="header"
                                 style={{ marginBottom: "0.45em" }}
                             >
-                                Hire me today
+                                Hire Jason today
                             </p>
                             <StylizedButton
                                 width="200px"
@@ -230,11 +235,13 @@ class Home extends Component {
                                     blogData={this.props.blogData}
                                 />
                             </div>
-                            <StylizedButton
-                                width="200px"
-                                text="View more"
-                                url="/blog"
-                            />
+                            <div style={{ marginBottom: "5em" }}>
+                                <StylizedButton
+                                    width="200px"
+                                    text="View more"
+                                    url="/blog"
+                                />
+                            </div>
                         </div>
                     ) : (
                         <div className="center_text">

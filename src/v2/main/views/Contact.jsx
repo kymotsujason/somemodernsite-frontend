@@ -64,12 +64,11 @@ class Contact extends Component {
                 <Panel img={contact_img}>
                     <div className="center_content">
                         <span className="center_text white">
-                            <p className="subheader">
+                            <p className="subheader shadow">
                                 Reach out and send me a friendly greeting
                             </p>
                             <p
-                                className="header"
-                                style={{ marginBottom: "0.5em" }}
+                                className="header shadow panel_bottom_space"
                             >
                                 Let's have a chat
                             </p>

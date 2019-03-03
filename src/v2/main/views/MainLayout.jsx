@@ -14,6 +14,7 @@ import Header from "../../generic_components/views/Header";
 import Footer from "../../generic_components/views/Footer";
 import Home from "./Home";
 import Projects from "./Projects";
+import ProjectsRouter from "./ProjectsRouter";
 import About from "./About";
 import Resume from "./Resume";
 import Blog from "./Blog";
@@ -21,7 +22,6 @@ import BlogPage from "./BlogPage";
 import Contact from "./Contact";
 import Privacy from "./Privacy";
 import NotFound from "../../generic_components/views/NotFound";
-
 import Cookiebar from "../../../v1/generic_components/components/Cookiebar";
 
 class MainLayout extends Component {
@@ -32,10 +32,10 @@ class MainLayout extends Component {
                 <Switch>
                     <Route exact path={home_url} component={Home} />
                     <Route exact path={projects_url} component={Projects} />
-                    {/* <Route
+                    <Route
                         path={projects_url + "/:path"}
-                        component={ProjectsAPI}
-                    /> */}
+                        component={ProjectsRouter}
+                    />
                     <Route exact path={about_url} component={About} />
                     <Route exact path={resume_url} component={Resume} />
                     <Route exact path={blog_url} component={Blog} />

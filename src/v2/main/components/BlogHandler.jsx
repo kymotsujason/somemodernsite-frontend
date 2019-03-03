@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BlogCard from "./BlogCard";
+import BlogModule from "./BlogModule";
 import { PropTypes } from "prop-types";
 
 class BlogHandler extends Component {
@@ -27,7 +27,7 @@ class BlogHandler extends Component {
                         borderStyle: "solid"
                     }}
                 >
-                    <BlogCard module={true} blogData={blogData[index]} />
+                    <BlogModule module={true} blogData={blogData[index]} />
                 </div>
             );
         });
