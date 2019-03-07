@@ -67,9 +67,7 @@ class Contact extends Component {
                             <p className="subheader shadow">
                                 Reach out and send me a friendly greeting
                             </p>
-                            <p
-                                className="header shadow panel_bottom_space"
-                            >
+                            <p className="header shadow panel_bottom_space">
                                 Let's have a chat
                             </p>
                         </span>
@@ -79,7 +77,10 @@ class Contact extends Component {
                     <div
                         className="pseudo_button center_content"
                         style={{
-                            paddingBottom: "2.5em",
+                            paddingBottom: "1em",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
                             width: "300px",
                             height: "300px"
                         }}

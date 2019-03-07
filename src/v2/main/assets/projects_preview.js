@@ -1,16 +1,16 @@
-import tictactoe_img from "./placeholder.png";
-import chat_img from "./placeholder.png";
-import gameoflife_img from "./placeholder.png";
+import tictactoe_img from "./tictactoe.jpg";
+import chat_img from "./chat.jpg";
+import gameoflife_img from "./gameoflife.jpg";
 
-export const tictactoe_url = "/projects/tic-tac-toe";
-export const chat_url = "/projects/chat";
-export const gameoflife_url = "/projects/game-of-life";
+export const tictactoe_url = "/projects/tic-tac-toe/";
+export const chat_url = "/projects/chat/";
+export const gameoflife_url = "/projects/game-of-life/";
 
 export const projectsData = {
     "game-of-life": {
-        title: "Game of Life",
+        title: "Conway's Game of Life",
         date: "February 5, 2019",
-        description: "A ReactJS implementation of Conways Game of Life.",
+        description: "A ReactJS implementation of Conway's  Game of Life.",
         img: gameoflife_img,
         url: gameoflife_url,
         index: 2

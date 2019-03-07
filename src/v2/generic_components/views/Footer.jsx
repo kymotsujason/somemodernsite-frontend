@@ -8,7 +8,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faBitbucket } from "@fortawesome/free-brands-svg-icons";
 import { faQuora } from "@fortawesome/free-brands-svg-icons";
 import { faSoundcloud } from "@fortawesome/free-brands-svg-icons";
-import { faHackerrank } from "@fortawesome/free-brands-svg-icons";
+// import { faHackerrank } from "@fortawesome/free-brands-svg-icons";
 import { faSteam } from "@fortawesome/free-brands-svg-icons";
 import Panel from "../components/Panel";
 
@@ -59,7 +59,7 @@ class Footer extends Component {
                             >
                                 <FontAwesomeIcon icon={faBitbucket} size="2x" />
                             </a>
-                            <span> </span>
+                            {/* <span> </span>
                             <a
                                 style={{ color: "white" }}
                                 href="https://www.hackerrank.com/kymotsujason"
@@ -69,7 +69,7 @@ class Footer extends Component {
                                     icon={faHackerrank}
                                     size="2x"
                                 />
-                            </a>
+                            </a> */}
                             <span> </span>
                             <a
                                 style={{ color: "white" }}

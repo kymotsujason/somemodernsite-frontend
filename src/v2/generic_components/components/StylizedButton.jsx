@@ -12,6 +12,9 @@ class StylizedButton extends Component {
                 className="pseudo_button center_content custom_button center_text"
                 style={{
                     width: width,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
                     marginBottom: "3em"
                 }}
             >

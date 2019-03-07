@@ -87,7 +87,7 @@ class BlogPage extends Component {
                             size="2x"
                             onClick={this.goBack}
                         />
-                        <span className="descriptionr"> Back</span>
+                        <span className="description"> Back</span>
                     </div>
                     {this.props.blogError ? (
                         <div className="center_content">

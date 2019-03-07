@@ -24,26 +24,20 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+.p-panel-body {
+    padding: 2em;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
-    .p-panel-body {
-        padding: 1.5em;
-    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .p-panel-body {
-        padding: 1.5em;
-    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .p-panel-body {
-        padding: 5em;
-    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

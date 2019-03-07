@@ -26,8 +26,9 @@ class Navbar extends Component {
             let url = item_list[key].url;
             tabMenuList.push(
                 <div key={i}>
-                    {navURL[3] === label.toLowerCase() ||
-                    (navURL[3] === "" && label.toLowerCase() === "home") ? (
+                    {(navURL[3] === label.toLowerCase() ||
+                        (navURL[3] === "" && label.toLowerCase() === "home")) &&
+                    navURL.length === 4 ? (
                             <span
                                 className="p-menuitem-text nav_menu"
                                 style={{ color: "lightgray" }}

@@ -1,0 +1,104 @@
+.chat2 {
+    height: 75vh;
+}
+
+.chat2 .container2 {
+    padding: 0 30px;
+    height: 85%;
+}
+
+.chat2 .container2.message-form2 {
+    height: 10%;
+    margin-top: 5%;
+}
+
+.chat2 h1,
+.chat2 h3 {
+    margin-top: 0;
+    color: white;
+}
+
+.chat2 input {
+    color: #7e99a0;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 38px;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 80%;
+}
+
+.chat2 button {
+    background-color: #0084ff;
+    border-color: #0084ff;
+    border-style: solid;
+    color: white;
+    font-size: 1em;
+    padding: 5px;
+    width: 20%;
+}
+
+.chat2 ul {
+    list-style: none;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.chat2 ul li {
+    clear: both;
+    display: block;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.chat2 ul li p {
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin: 0;
+}
+
+.chat2 ul li .author {
+    color: grey;
+    display: inline-block;
+    padding: 5px;
+    margin: 0 2%;
+    font-weight: 300;
+    font-size: 14px;
+    width: 100%;
+}
+
+.chat2 .him {
+    float: left;
+    text-align: left;
+}
+
+.chat2 .him p {
+    background: grey;
+}
+
+.chat2 .me {
+    float: left;
+    text-align: left;
+}
+
+.chat2 .me .author {
+    color: white;
+}
+
+.chat2 .me p {
+    background: #0084ff;
+    color: #fff;
+}
+
+.status {
+    float: left;
+    background: green;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin: 0;
+}
