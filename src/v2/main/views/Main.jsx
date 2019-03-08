@@ -14,7 +14,7 @@ class Main extends Component {
                 <TransitionGroup className="transition-group">
                     <CSSTransition
                         key={this.props.location.key}
-                        timeout={{ enter: 50, exit: 50 }}
+                        timeout={{ enter: 100, exit: 100 }}
                         classNames={"fade"}
                     >
                         <section className="route-section">

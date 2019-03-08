@@ -66,7 +66,6 @@ class TicTacToeHome extends Component {
                                         this.setState({
                                             id: e.target.value
                                         });
-                                        this.handleEmail(e.target.value);
                                     }}
                                 />
                                 {this.state.id.trim() === "" ||
@@ -100,14 +99,12 @@ class TicTacToeHome extends Component {
                 <div>
                     <StylizedButton
                         text="Singleplayer"
-                        width="300px"
-                        height="300px"
+                        width="250px"
                         url="/projects/tic-tac-toe/singleplayer/"
                     />
                     <StylizedButton
                         text="Multiplayer"
-                        width="300px"
-                        height="300px"
+                        width="250px"
                         url="/projects/tic-tac-toe/multiplayer/"
                     />
                 </div>
@@ -119,8 +116,7 @@ class TicTacToeHome extends Component {
                         <div>
                             <StylizedButton
                                 text="Back"
-                                width="300px"
-                                height="300px"
+                                width="250px"
                                 url="/projects/tic-tac-toe/"
                             />
                             <Singleplayer />
@@ -131,8 +127,7 @@ class TicTacToeHome extends Component {
                         <div>
                             <StylizedButton
                                 text="Host game"
-                                width="300px"
-                                height="300px"
+                                width="250px"
                                 url={
                                     "/projects/tic-tac-toe/multiplayer/" +
                                     randomstring.generate(5) +
@@ -140,19 +135,22 @@ class TicTacToeHome extends Component {
                                 }
                             />
                             <div
+                                style={{
+                                    width: "250px",
+                                    marginLeft: "auto",
+                                    marginRight: "auto"
+                                }}
                                 onClick={() => this.setState({ visible: true })}
                             >
                                 <StylizedButton
                                     text="Join game"
-                                    width="300px"
-                                    height="300px"
+                                    width="250px"
                                 />
                             </div>
 
                             <StylizedButton
                                 text="Back"
-                                width="300px"
-                                height="300px"
+                                width="250px"
                                 url="/projects/tic-tac-toe/"
                             />
 
@@ -169,11 +167,10 @@ class TicTacToeHome extends Component {
                     <div>
                         <StylizedButton
                             text="Back"
-                            width="300px"
-                            height="300px"
-                            url="/projects/tic-tac-toe/"
+                            width="250px"
+                            url="/projects/tic-tac-toe/multiplayer/"
                         />
-                        <Multiplayer />
+                        <Multiplayer id={url[6]} />
                     </div>
                 );
             } else {

@@ -1,3 +1,5 @@
+import randomstring from "randomstring";
+
 class WebSocketService {
     static getInstance() {
         if (!WebSocketService.instance) {
@@ -9,13 +11,18 @@ class WebSocketService {
     constructor() {
         this.socketRef = null;
         this.instance = null;
+        this.playerId = randomstring.generate();
+        this.status = 0;
         this.callbacks = {};
     }
 
     connect(url) {
+        this.status = 2;
         const path = url;
         this.socketRef = new WebSocket(path);
-        this.socketRef.onopen = () => {};
+        this.socketRef.onopen = () => {
+            this.status = 1;
+        };
         this.socketRef.onmessage = e => {
             this.socketResponse(e.data);
         };
@@ -26,6 +33,7 @@ class WebSocketService {
     }
 
     disconnect() {
+        this.status = 0;
         this.socketRef.onclose = null;
         this.socketRef.close();
     }
@@ -110,6 +118,14 @@ class WebSocketService {
         } catch (err) {
             throw new Error(err);
         }
+    }
+
+    getPlayerId() {
+        return this.playerId;
+    }
+
+    connectionStatus() {
+        return this.status;
     }
 
     state() {

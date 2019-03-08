@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import WebSocketInstance from "./../../../components/Websocket";
 import Board from "./Board";
 import "./css/game.css";
-import randomstring from "randomstring";
 import { Button } from "primereact/button";
 import { socket_url } from "../../../components/static_socket";
-import { PropTypes } from "prop-types";
 import Loader from "react-loader-spinner";
+import { PropTypes } from "prop-types";
 
 class Multiplayer extends Component {
     constructor(props) {
@@ -24,17 +23,24 @@ class Multiplayer extends Component {
             reset: false,
             opponentMove: false,
             player: "",
-            playerId: randomstring.generate(),
+            playerId: WebSocketInstance.getPlayerId(),
             playerCount: 1
         };
+
         this.calculateWinner = this.calculateWinner.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.sendMove = this.sendMove.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
+        this.receiveMessage = this.receiveMessage.bind(this);
+        this.receiveMove = this.receiveMove.bind(this);
+        this.waitForSocketConnection = this.waitForSocketConnection.bind(this);
 
-        WebSocketInstance.connect(
-            socket_url + "tictactoe/multi/" + this.props.id
-        );
+        if (WebSocketInstance.connectionStatus() === 0) {
+            WebSocketInstance.connect(
+                socket_url + "tictactoe/multi/" + this.props.id
+            );
+        }
+
         this.waitForSocketConnection(() => {
             this.setState({ connected: true });
             this.sendMessage("connected", this.state.playerId);
@@ -53,15 +59,17 @@ class Multiplayer extends Component {
     }
 
     componentWillUnmount() {
-        this.setState({
-            playerCount: this.state.playerCount - 1
-        });
-        this.sendMessage("disconnected", this.state.playerId);
         window.removeEventListener("beforeunload", ev => {
             ev.preventDefault();
             return this.sendMessage("disconnected", this.state.playerId);
         });
-        WebSocketInstance.disconnect();
+        if (WebSocketInstance.state() === 1) {
+            this.setState({
+                playerCount: 1
+            });
+            this.sendMessage("disconnected", this.state.playerId);
+            WebSocketInstance.disconnect();
+        }
     }
 
     waitForSocketConnection(callback) {
@@ -156,7 +164,10 @@ class Multiplayer extends Component {
             } else if (this.state.player === "O") {
                 this.sendMessage("O", this.state.playerId);
             }
-        } else if (message === "disconnected") {
+        } else if (
+            message === "disconnected" &&
+            playerId !== this.state.playerId
+        ) {
             this.setState({
                 playerCount: this.state.playerCount - 1
             });
@@ -221,7 +232,6 @@ class Multiplayer extends Component {
     }
 
     render() {
-        let url = window.location.href.split("/");
         if (this.state.connected) {
             if (this.state.playerCount >= 2) {
                 const history = this.state.history;
@@ -323,16 +333,16 @@ class Multiplayer extends Component {
                         <br />
                         <span>
                             <p>Have your opponent join using this id: </p>
-                            <a href={true} style={{ color: "#bfc9ff" }}>
-                                {url[6]}
+                            <a href="" style={{ color: "#bfc9ff" }}>
+                                {this.props.id}
                             </a>
                         </span>
                         <p>or</p>
                         <span>
                             <p>Give them this link: </p>
-                            <a href={true} style={{ color: "#bfc9ff" }}>
+                            <a href="" style={{ color: "#bfc9ff" }}>
                                 https://jasonyue.ca/projects/tic-tac-toe/multiplayer/
-                                {url[6]}
+                                {this.props.id}
                             </a>
                         </span>
                     </div>
