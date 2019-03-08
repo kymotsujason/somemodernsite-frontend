@@ -185,9 +185,13 @@ class TicTacToeHome extends Component {
         return !this.state.wrong ? (
             <div>
                 <Panel>
-                    <div className="center_blog_content push_down">
+                    <div className="center_content push_down">
                         <FontAwesomeIcon
-                            style={{ cursor: "pointer", marginTop: "2em" }}
+                            style={{
+                                cursor: "pointer",
+                                marginTop: "2em",
+                                marginLeft: "-1em"
+                            }}
                             icon={faArrowLeft}
                             size="2x"
                             onClick={this.goBack}
@@ -201,7 +205,7 @@ class TicTacToeHome extends Component {
                         <div
                             style={{
                                 marginBottom: "1em",
-                                paddingLeft: "5em"
+                                paddingLeft: "1em"
                             }}
                         >
                             <span className="work_exp">
