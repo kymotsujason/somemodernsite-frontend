@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import project_img from "../assets/project.jpg";
 import ProjectsModule from "./../components/ProjectsModule";
 
 class Projects extends Component {
@@ -11,7 +10,7 @@ class Projects extends Component {
 
         return (
             <div>
-                <Panel img={project_img}>
+                <Panel className="projects">
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader shadow">

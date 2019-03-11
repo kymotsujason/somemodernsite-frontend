@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import NotFound from "../../generic_components/views/NotFound";
-import MainLayout from "./MainLayout";
-
+import Loadable from "react-loadable";
+import PageLoader from "../../generic_components/views/PageLoader";
 import "../assets/main.css";
 import { PropTypes } from "prop-types";
+
+const AsyncMainLayout = Loadable({
+    loader: () => import("./MainLayout"),
+    loading: PageLoader
+});
+
+const AsyncNotFound = Loadable({
+    loader: () => import("../../generic_components/views/NotFound"),
+    loading: PageLoader
+});
 
 class Main extends Component {
     render() {
@@ -19,8 +28,8 @@ class Main extends Component {
                     >
                         <section className="route-section">
                             <Switch location={this.props.location}>
-                                <Route path="/" component={MainLayout} />
-                                <Route component={NotFound} />
+                                <Route path="/" component={AsyncMainLayout} />
+                                <Route component={AsyncNotFound} />
                             </Switch>
                         </section>
                     </CSSTransition>

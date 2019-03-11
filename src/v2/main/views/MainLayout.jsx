@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import Loadable from "react-loadable";
+import PageLoader from "../../generic_components/views/PageLoader";
 
 import {
     home_url,
@@ -12,17 +14,57 @@ import {
 
 import Header from "../../generic_components/views/Header";
 import Footer from "../../generic_components/views/Footer";
-import Home from "./Home";
-import Projects from "./Projects";
-import ProjectsRouter from "./ProjectsRouter";
-import About from "./About";
-import Resume from "./Resume";
-import Blog from "./Blog";
-import BlogPage from "./BlogPage";
-import Contact from "./Contact";
-import Privacy from "./Privacy";
-import NotFound from "../../generic_components/views/NotFound";
 import Cookiebar from "../../../v1/generic_components/components/Cookiebar";
+
+const AsyncHome = Loadable({
+    loader: () => import("./Home"),
+    loading: PageLoader
+});
+
+const AsyncProjects = Loadable({
+    loader: () => import("./Projects"),
+    loading: PageLoader
+});
+
+const AsyncProjectsRouter = Loadable({
+    loader: () => import("./ProjectsRouter"),
+    loading: PageLoader
+});
+
+const AsyncAbout = Loadable({
+    loader: () => import("./About"),
+    loading: PageLoader
+});
+
+const AsyncResume = Loadable({
+    loader: () => import("./Resume"),
+    loading: PageLoader
+});
+
+const AsyncBlog = Loadable({
+    loader: () => import("./Blog"),
+    loading: PageLoader
+});
+
+const AsyncBlogPage = Loadable({
+    loader: () => import("./BlogPage"),
+    loading: PageLoader
+});
+
+const AsyncContact = Loadable({
+    loader: () => import("./Contact"),
+    loading: PageLoader
+});
+
+const AsyncPrivacy = Loadable({
+    loader: () => import("./Privacy"),
+    loading: PageLoader
+});
+
+const AsyncNotFound = Loadable({
+    loader: () => import("../../generic_components/views/NotFound"),
+    loading: PageLoader
+});
 
 class MainLayout extends Component {
     render() {
@@ -30,19 +72,26 @@ class MainLayout extends Component {
             <div>
                 <Header />
                 <Switch>
-                    <Route exact path={home_url} component={Home} />
-                    <Route exact path={projects_url} component={Projects} />
+                    <Route exact path={home_url} component={AsyncHome} />
+                    <Route
+                        exact
+                        path={projects_url}
+                        component={AsyncProjects}
+                    />
                     <Route
                         path={projects_url + "/:path"}
-                        component={ProjectsRouter}
+                        component={AsyncProjectsRouter}
                     />
-                    <Route exact path={about_url} component={About} />
-                    <Route exact path={resume_url} component={Resume} />
-                    <Route exact path={blog_url} component={Blog} />
-                    <Route path={blog_url + "/:title"} component={BlogPage} />
-                    <Route exact path={contact_url} component={Contact} />
-                    <Route path={"/privacy"} component={Privacy} />
-                    <Route component={NotFound} />
+                    <Route exact path={about_url} component={AsyncAbout} />
+                    <Route exact path={resume_url} component={AsyncResume} />
+                    <Route exact path={blog_url} component={AsyncBlog} />
+                    <Route
+                        path={blog_url + "/:title"}
+                        component={AsyncBlogPage}
+                    />
+                    <Route exact path={contact_url} component={AsyncContact} />
+                    <Route path={"/privacy"} component={AsyncPrivacy} />
+                    <Route component={AsyncNotFound} />
                 </Switch>
                 <Cookiebar />
                 <Footer />

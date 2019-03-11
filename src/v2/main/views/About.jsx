@@ -1,14 +1,160 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import about_img from "../assets/about.jpg";
-import cuba_img from "../assets/cuba.jpg";
-import food_img from "../assets/food.jpg";
-import hawaii_img from "../assets/hawaii.jpg";
-import japan_img from "../assets/japan.jpg";
-import music_img from "../assets/music.jpg";
-import tech_img from "../assets/tech.jpg";
+import cuba_img from "../assets/img/about/cuba-min.jpg";
+import cuba_img_1470 from "../assets/img/about/cuba-1470-min.jpg";
+import cuba_img_992 from "../assets/img/about/cuba-992-min.jpg";
+import cuba_img_768 from "../assets/img/about/cuba-768-min.jpg";
+import food_img from "../assets/img/about/food-min.jpg";
+import food_img_1470 from "../assets/img/about/food-1470-min.jpg";
+import food_img_992 from "../assets/img/about/food-992-min.jpg";
+import food_img_768 from "../assets/img/about/food-768-min.jpg";
+import hawaii_img from "../assets/img/about/hawaii-min.jpg";
+import hawaii_img_1470 from "../assets/img/about/hawaii-1470-min.jpg";
+import hawaii_img_992 from "../assets/img/about/hawaii-992-min.jpg";
+import hawaii_img_768 from "../assets/img/about/hawaii-768-min.jpg";
+import japan_img from "../assets/img/about/japan-min.jpg";
+import japan_img_1470 from "../assets/img/about/japan-1470-min.jpg";
+import japan_img_992 from "../assets/img/about/japan-992-min.jpg";
+import japan_img_768 from "../assets/img/about/japan-768-min.jpg";
+import music_img from "../assets/img/about/music-min.jpg";
+import music_img_1470 from "../assets/img/about/music-1470-min.jpg";
+import music_img_992 from "../assets/img/about/music-992-min.jpg";
+import music_img_768 from "../assets/img/about/music-768-min.jpg";
+import tech_img from "../assets/img/about/tech-min.jpg";
+import tech_img_1470 from "../assets/img/about/tech-1470-min.jpg";
+import tech_img_992 from "../assets/img/about/tech-992-min.jpg";
+import tech_img_768 from "../assets/img/about/tech-768-min.jpg";
+import cuba_thumbnail from "../assets/img/about/cuba_thumbnail-min.jpg";
+import food_thumbnail from "../assets/img/about/food_thumbnail-min.jpg";
+import hawaii_thumbnail from "../assets/img/about/hawaii_thumbnail-min.jpg";
+import japan_thumbnail from "../assets/img/about/japan_thumbnail-min.jpg";
+import music_thumbnail from "../assets/img/about/music_thumbnail-min.jpg";
+import tech_thumbnail from "../assets/img/about/tech_thumbnail-min.jpg";
 import StylizedButton from "../../generic_components/components/StylizedButton";
 import ImageGallery from "react-image-gallery";
+
+const images = [
+    {
+        thumbnail: cuba_thumbnail,
+        imageSet: [
+            {
+                srcSet: cuba_img_768,
+                media: "(max-width: 768px)"
+            },
+            {
+                srcSet: cuba_img_992,
+                media: "(max-width: 992px)"
+            },
+            {
+                srcSet: cuba_img_1470,
+                media: "(max-width: 1470px)"
+            },
+            {
+                srcSet: cuba_img
+            }
+        ]
+    },
+    {
+        thumbnail: food_thumbnail,
+        imageSet: [
+            {
+                srcSet: food_img_768,
+                media: "(max-width: 768px)"
+            },
+            {
+                srcSet: food_img_992,
+                media: "(max-width: 992px)"
+            },
+            {
+                srcSet: food_img_1470,
+                media: "(max-width: 1470px)"
+            },
+            {
+                srcSet: food_img
+            }
+        ]
+    },
+    {
+        thumbnail: hawaii_thumbnail,
+        imageSet: [
+            {
+                srcSet: hawaii_img_768,
+                media: "(max-width: 768px)"
+            },
+            {
+                srcSet: hawaii_img_992,
+                media: "(max-width: 992px)"
+            },
+            {
+                srcSet: hawaii_img_1470,
+                media: "(max-width: 1470px)"
+            },
+            {
+                srcSet: hawaii_img
+            }
+        ]
+    },
+    {
+        thumbnail: japan_thumbnail,
+        imageSet: [
+            {
+                srcSet: japan_img_768,
+                media: "(max-width: 768px)"
+            },
+            {
+                srcSet: japan_img_992,
+                media: "(max-width: 992px)"
+            },
+            {
+                srcSet: japan_img_1470,
+                media: "(max-width: 1470px)"
+            },
+            {
+                srcSet: japan_img
+            }
+        ]
+    },
+    {
+        thumbnail: music_thumbnail,
+        imageSet: [
+            {
+                srcSet: music_img_768,
+                media: "(max-width: 768px)"
+            },
+            {
+                srcSet: music_img_992,
+                media: "(max-width: 992px)"
+            },
+            {
+                srcSet: music_img_1470,
+                media: "(max-width: 1470px)"
+            },
+            {
+                srcSet: music_img
+            }
+        ]
+    },
+    {
+        thumbnail: tech_thumbnail,
+        imageSet: [
+            {
+                srcSet: tech_img_768,
+                media: "(max-width: 768px)"
+            },
+            {
+                srcSet: tech_img_992,
+                media: "(max-width: 992px)"
+            },
+            {
+                srcSet: tech_img_1470,
+                media: "(max-width: 1470px)"
+            },
+            {
+                srcSet: tech_img
+            }
+        ]
+    }
+];
 
 class About extends Component {
     constructor(props) {
@@ -32,36 +178,9 @@ class About extends Component {
             document.title = "Learn About My Journey";
         }
 
-        const images = [
-            {
-                original: cuba_img,
-                thumbnail: cuba_img
-            },
-            {
-                original: food_img,
-                thumbnail: food_img
-            },
-            {
-                original: hawaii_img,
-                thumbnail: hawaii_img
-            },
-            {
-                original: japan_img,
-                thumbnail: japan_img
-            },
-            {
-                original: music_img,
-                thumbnail: music_img
-            },
-            {
-                original: tech_img,
-                thumbnail: tech_img
-            }
-        ];
-
         return (
             <div>
-                <Panel img={about_img}>
+                <Panel className="about">
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader shadow">
@@ -89,7 +208,7 @@ class About extends Component {
                             </ul>
                             <ul className="p-col-4-auto">
                                 <li>
-                                    My dream is to build{" "}
+                                    <span>My dream is to build </span>
                                     <a
                                         href="https://sakurasounopetnakanojo.fandom.com/wiki/Maid"
                                         style={{ color: "white" }}
@@ -116,7 +235,7 @@ class About extends Component {
                     </div>
                 </Panel>
                 <div className="gallery">
-                    <ImageGallery items={images} lazyLoad={true} />
+                    <ImageGallery items={images} />
                 </div>
                 <Panel light={true}>
                     <div className="center_content">

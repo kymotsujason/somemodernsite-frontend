@@ -38,8 +38,7 @@ class Panel extends Component {
                     id="panel"
                     className={className}
                     style={{
-                        propStyle,
-                        backgroundImage: "url(" + this.props.img + ")"
+                        propStyle
                     }}
                 >
                     {body}

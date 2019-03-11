@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import StylizedButton from "../../generic_components/components/StylizedButton";
 import Panel from "../../generic_components/components/Panel";
-import resume_img from "../assets/resume.jpg";
 
 class Resume extends Component {
     constructor(props) {
@@ -28,7 +27,7 @@ class Resume extends Component {
 
         return (
             <div>
-                <Panel img={resume_img}>
+                <Panel className="resume">
                     <div className="center_content">
                         <div className="center_text white">
                             <p className="subheader shadow">
@@ -40,7 +39,7 @@ class Resume extends Component {
                             >
                                 Take a closer look
                             </p>
-                            <p className="panel_bottom_space">
+                            <span className="panel_bottom_space">
                                 <a
                                     href="https://jasonyue.ca/static/bundles/media/2019-Jason_Yue-Resume.pdf"
                                     onClick={e => this.handleClick(e)}
@@ -50,7 +49,7 @@ class Resume extends Component {
                                         text="Download Resume"
                                     />
                                 </a>
-                            </p>
+                            </span>
                         </div>
                     </div>
                 </Panel>

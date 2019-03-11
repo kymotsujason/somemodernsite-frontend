@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { NavLink } from "react-router-dom";
 import { projectsData } from "../assets/projects_preview";
+import { Picture } from "react-responsive-picture";
 
 class ProjectsModule extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class ProjectsModule extends Component {
                     <div className="card_height">
                         <NavLink to={projectsData[project].url}>
                             <div className="center_text">
-                                <img
+                                <Picture
                                     className="project_image"
                                     src={projectsData[project].img}
                                 />

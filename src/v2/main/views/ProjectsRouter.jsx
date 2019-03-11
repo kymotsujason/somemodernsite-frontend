@@ -1,10 +1,27 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import TicTacToeHome from "./projects/tictactoe/TicTacToeHome";
-import GameOfLifeHome from "./projects/gameoflife/GameOfLifeHome";
-import ChatHome from "./projects/chat/ChatHome";
-import NotFound from "./../../generic_components/views/NotFound";
+import Loadable from "react-loadable";
+import PageLoader from "../../generic_components/views/PageLoader";
 
+const AsyncTicTacToe = Loadable({
+    loader: () => import("./projects/tictactoe/TicTacToeHome"),
+    loading: PageLoader
+});
+
+const AsyncGameOfLife = Loadable({
+    loader: () => import("./projects/gameoflife/GameOfLifeHome"),
+    loading: PageLoader
+});
+
+const AsyncChat = Loadable({
+    loader: () => import("./projects/chat/ChatHome"),
+    loading: PageLoader
+});
+
+const AsyncNotFound = Loadable({
+    loader: () => import("./../../generic_components/views/NotFound"),
+    loading: PageLoader
+});
 class ProjectsRouter extends Component {
     constructor(props) {
         super(props);
@@ -15,13 +32,13 @@ class ProjectsRouter extends Component {
     route() {
         let url = this.props.match.params.path;
         if (url === "tic-tac-toe") {
-            return <TicTacToeHome />;
+            return <AsyncTicTacToe />;
         } else if (url === "chat") {
-            return <ChatHome />;
+            return <AsyncChat />;
         } else if (url === "game-of-life") {
-            return <GameOfLifeHome />;
+            return <AsyncGameOfLife />;
         } else {
-            return <NotFound />;
+            return <AsyncNotFound />;
         }
     }
 

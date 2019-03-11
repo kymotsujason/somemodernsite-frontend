@@ -119,6 +119,24 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
+    .home {
+        background-image: url("../assets/img/home/home-768-min.png");
+    }
+    .about {
+        background-image: url("../assets/img/about/about-768-min.jpg");
+    }
+    .resume {
+        background-image: url("../assets/img/resume/resume-768-min.jpg");
+    }
+    .projects {
+        background-image: url("../assets/img/projects/project-768-min.jpg");
+    }
+    .contact {
+        background-image: url("../assets/img/contact/contact-768-min.jpg");
+    }
+    .contact_map {
+        background-image: url("../assets/img/contact/map-768-min.jpg");
+    }
     .nav_logo {
         color: white;
         text-align: center;
@@ -229,6 +247,24 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    .home {
+        background-image: url("../assets/img/home/home-992-min.png");
+    }
+    .about {
+        background-image: url("../assets/img/about/about-992-min.jpg");
+    }
+    .resume {
+        background-image: url("../assets/img/resume/resume-992-min.jpg");
+    }
+    .projects {
+        background-image: url("../assets/img/projects/project-992-min.jpg");
+    }
+    .contact {
+        background-image: url("../assets/img/contact/contact-992-min.jpg");
+    }
+    .contact_map {
+        background-image: url("../assets/img/contact/map-992-min.jpg");
+    }
     .nav_logo {
         color: white;
         text-align: center;
@@ -339,6 +375,24 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .home {
+        background-image: url("../assets/img/home/home-1470-min.png");
+    }
+    .about {
+        background-image: url("../assets/img/about/about-1470-min.jpg");
+    }
+    .resume {
+        background-image: url("../assets/img/resume/resume-1470-min.jpg");
+    }
+    .projects {
+        background-image: url("../assets/img/projects/project-1470-min.jpg");
+    }
+    .contact {
+        background-image: url("../assets/img/contact/contact-1470-min.jpg");
+    }
+    .contact_map {
+        background-image: url("../assets/img/contact/map-1470-min.jpg");
+    }
     .center_blog_content {
         width: 992px;
         margin: auto;
@@ -380,6 +434,24 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1470px) {
+    .home {
+        background-image: url("../assets/img/home/home-min.png");
+    }
+    .about {
+        background-image: url("../assets/img/about/about-min.jpg");
+    }
+    .resume {
+        background-image: url("../assets/img/resume/resume-min.jpg");
+    }
+    .projects {
+        background-image: url("../assets/img/projects/project-min.jpg");
+    }
+    .contact {
+        background-image: url("../assets/img/contact/contact-min.jpg");
+    }
+    .contact_map {
+        background-image: url("../assets/img/contact/map-min.jpg");
+    }
     .nav_logo {
         color: white;
         text-align: center;

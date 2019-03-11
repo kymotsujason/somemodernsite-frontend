@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import code_img from "../assets/code.png";
-import frontend_img from "../assets/frontend.png";
-import backend_img from "../assets/backend.png";
-import analytics_img from "../assets/analytics.png";
+import frontend_img from "../assets/img/home/frontend-min.png";
+import frontend_img_1470 from "../assets/img/home/frontend-1470-min.png";
+import frontend_img_992 from "../assets/img/home/frontend-992-min.png";
+import frontend_img_768 from "../assets/img/home/frontend-768-min.png";
+import backend_img from "../assets/img/home/backend-min.png";
+import backend_img_1470 from "../assets/img/home/backend-1470-min.png";
+import backend_img_992 from "../assets/img/home/backend-992-min.png";
+import backend_img_768 from "../assets/img/home/backend-768-min.png";
+import analytics_img from "../assets/img/home/analytics-min.png";
+import analytics_img_1470 from "../assets/img/home/analytics-1470-min.png";
+import analytics_img_992 from "../assets/img/home/analytics-992-min.png";
+import analytics_img_768 from "../assets/img/home/analytics-768-min.png";
 import { loadBlog } from "../../../redux/actions/index";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { Picture } from "react-responsive-picture";
+import { css } from "emotion";
 import Loader from "react-loader-spinner";
 import BlogHandler from "../components/BlogHandler";
 import StylizedButton from "../../generic_components/components/StylizedButton";
@@ -30,7 +40,7 @@ class Home extends Component {
 
         return (
             <div>
-                <Panel img={code_img}>
+                <Panel className="home">
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader shadow">
@@ -72,10 +82,28 @@ class Home extends Component {
                                         padding: "2em"
                                     }}
                                 >
-                                    <img
-                                        src={frontend_img}
-                                        width="285px"
-                                        height="150px"
+                                    <Picture
+                                        className={css`
+                                            width: 285px;
+                                            height: 150px;
+                                        `}
+                                        sources={[
+                                            {
+                                                srcSet: frontend_img_768,
+                                                media: "(max-width: 768px)"
+                                            },
+                                            {
+                                                srcSet: frontend_img_992,
+                                                media: "(max-width: 992px)"
+                                            },
+                                            {
+                                                srcSet: frontend_img_1470,
+                                                media: "(max-width: 1470px)"
+                                            },
+                                            {
+                                                srcSet: frontend_img
+                                            }
+                                        ]}
                                     />
                                     <p
                                         className="subtitle"
@@ -102,10 +130,28 @@ class Home extends Component {
                                         padding: "2em"
                                     }}
                                 >
-                                    <img
-                                        src={backend_img}
-                                        width="285px"
-                                        height="150px"
+                                    <Picture
+                                        className={css`
+                                            width: 285px;
+                                            height: 150px;
+                                        `}
+                                        sources={[
+                                            {
+                                                srcSet: backend_img_768,
+                                                media: "(max-width: 768px)"
+                                            },
+                                            {
+                                                srcSet: backend_img_992,
+                                                media: "(max-width: 992px)"
+                                            },
+                                            {
+                                                srcSet: backend_img_1470,
+                                                media: "(max-width: 1470px)"
+                                            },
+                                            {
+                                                srcSet: backend_img
+                                            }
+                                        ]}
                                     />
                                     <p
                                         className="subtitle"
@@ -129,10 +175,28 @@ class Home extends Component {
                                         padding: "2em"
                                     }}
                                 >
-                                    <img
-                                        src={analytics_img}
-                                        width="285px"
-                                        height="150px"
+                                    <Picture
+                                        className={css`
+                                            width: 285px;
+                                            height: 150px;
+                                        `}
+                                        sources={[
+                                            {
+                                                srcSet: analytics_img_768,
+                                                media: "(max-width: 768px)"
+                                            },
+                                            {
+                                                srcSet: analytics_img_992,
+                                                media: "(max-width: 992px)"
+                                            },
+                                            {
+                                                srcSet: analytics_img_1470,
+                                                media: "(max-width: 1470px)"
+                                            },
+                                            {
+                                                srcSet: analytics_img
+                                            }
+                                        ]}
                                     />
                                     <p
                                         className="subtitle"

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
 import { Sidebar } from "primereact/sidebar";
 import Mailto from "react-protected-mailto";
-import contact_img from "../assets/contact.jpg";
-import map_img from "../assets/map.jpg";
 
 class Contact extends Component {
     constructor(props) {
@@ -61,7 +59,7 @@ class Contact extends Component {
 
         return (
             <div>
-                <Panel img={contact_img}>
+                <Panel className="contact">
                     <div className="center_content">
                         <span className="center_text white">
                             <p className="subheader shadow">
@@ -95,7 +93,7 @@ class Contact extends Component {
                     </div>
                 </Panel>
                 {this.state.visible ? this.renderOverlay() : null}
-                <Panel img={map_img}>
+                <Panel className="contact_map">
                     <div className="center_content">
                         <span
                             className="center_text"
