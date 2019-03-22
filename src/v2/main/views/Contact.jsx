@@ -1,55 +1,15 @@
 import React, { Component } from "react";
 import Panel from "../../generic_components/components/Panel";
-import { Sidebar } from "primereact/sidebar";
 import Mailto from "react-protected-mailto";
+import StylizedButton from "./../../generic_components/components/StylizedButton";
 
 class Contact extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            text: "",
-            subject: "",
-            firstName: "",
-            lastName: "",
-            email: "",
-            validEmail: false,
-            visible: false,
-            textError: "gray",
-            subjectError: "gray",
-            firstNameError: "gray",
-            lastnameError: "gray",
-            emailError: "gray"
+            email: false
         };
-
-        this.renderOverlay = this.renderOverlay.bind(this);
-    }
-
-    renderOverlay() {
-        return (
-            <Sidebar
-                className="custom_sidebar"
-                visible={this.state.visible}
-                style={{
-                    background: "transparent",
-                    borderColor: "transparent"
-                }}
-                baseZIndex={1000000}
-                showCloseIcon={true}
-                dismissable={true}
-                onHide={() => this.setState({ visible: false })}
-            >
-                <Panel>
-                    <div className="center_text">
-                        <p className="subtitle" style={{ color: "white" }}>
-                            Click on the email below or type it in your
-                            preferred mail client.
-                        </p>
-                        <Mailto email="kymotsujason@gmail.com" />
-                    </div>
-                </Panel>
-            </Sidebar>
-        );
     }
 
     render() {
@@ -72,25 +32,46 @@ class Contact extends Component {
                     </div>
                 </Panel>
                 <Panel light={true}>
-                    <div
-                        className="pseudo_button center_content"
-                        style={{
-                            paddingBottom: "1em",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            width: "300px",
-                            height: "300px"
-                        }}
-                        onClick={() => this.setState({ visible: true })}
-                    >
-                        <div>
-                            <p className="title">Email</p>
-                            <p className="description">
-                                Feel free to reach out and send me an email.
+                    {this.state.email ? (
+                        <div className="center_text center_content">
+                            <div
+                                style={{
+                                    width: "250px",
+                                    marginLeft: "auto",
+                                    marginRight: "auto"
+                                }}
+                                onClick={() => this.setState({ email: false })}
+                            >
+                                <StylizedButton text="Back" width="250px" />
+                            </div>
+
+                            <p className="subtitle" style={{ color: "white" }}>
+                                Click on the email below or type it in your
+                                preferred mail client.
                             </p>
+                            <Mailto email="kymotsujason@gmail.com" />
                         </div>
-                    </div>
+                    ) : (
+                        <div
+                            className="pseudo_button center_content"
+                            style={{
+                                paddingBottom: "1em",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                width: "300px",
+                                height: "300px"
+                            }}
+                            onClick={() => this.setState({ email: true })}
+                        >
+                            <div>
+                                <p className="title">Email</p>
+                                <p className="description">
+                                    Feel free to reach out and send me an email.
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </Panel>
                 {this.state.visible ? this.renderOverlay() : null}
                 <Panel className="contact_map">

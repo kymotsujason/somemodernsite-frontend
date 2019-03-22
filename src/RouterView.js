@@ -5,14 +5,10 @@ import Loadable from "react-loadable";
 import PageLoader from "./v2/generic_components/views/PageLoader";
 import withTracker from "./v1/generic_components/components/withTracker";
 import ScrollToTop from "./v2/generic_components/components/ScrollToTop";
+import Main from "./v2/main/views/MainLayout";
 
 const AsyncMainOld = Loadable({
     loader: () => import("./v1/main/views/MainOld"),
-    loading: PageLoader
-});
-
-const AsyncMain = Loadable({
-    loader: () => import("./v2/main/views/Main"),
     loading: PageLoader
 });
 
@@ -32,10 +28,7 @@ class RouterView extends Component {
                                 path="/v1"
                                 component={withTracker(AsyncMainOld)}
                             />
-                            <Route
-                                path="/"
-                                component={withTracker(AsyncMain)}
-                            />
+                            <Route path="/" component={withTracker(Main)} />
                             <Route component={AsyncNotFound} />
                         </Switch>
                     </ScrollToTop>

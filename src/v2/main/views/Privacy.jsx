@@ -274,11 +274,14 @@ class Privacy extends Component {
                     </p>
                     <p
                         className="bold description"
-                        style={{ marginBottom: "-20px" }}
+                        style={{ marginBottom: "-5px" }}
                     >
                         Legal basis of processing
                     </p>
-                    <p className="description" style={{ marginBottom: "0px" }}>
+                    <div
+                        className="description"
+                        style={{ marginBottom: "0px" }}
+                    >
                         The Owner may process Personal Data relating to Users if
                         one of the following applies:
                         <ul>
@@ -313,7 +316,7 @@ class Privacy extends Component {
                                 a third party.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                     <p className="description" style={{ marginBottom: "0px" }}>
                         In any case, the Owner will gladly help to clarify the
                         specific legal basis that applies to the processing, and
@@ -364,7 +367,10 @@ class Privacy extends Component {
                         Personal Data shall be processed and stored for as long
                         as required by the purpose they have been collected for.
                     </p>
-                    <p className="description" style={{ marginBottom: "0px" }}>
+                    <div
+                        className="description"
+                        style={{ marginBottom: "0px" }}
+                    >
                         Therefore:
                         <ul>
                             <li>
@@ -383,7 +389,7 @@ class Privacy extends Component {
                                 by contacting the Owner.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                     <p className="description" style={{ marginBottom: "0px" }}>
                         The Owner may be allowed to retain Personal Data for a
                         longer period whenever the User has given consent to
@@ -438,7 +444,10 @@ class Privacy extends Component {
                         Users may exercise certain rights regarding their Data
                         processed by the Owner.
                     </p>
-                    <p className="description" style={{ marginBottom: "0px" }}>
+                    <div
+                        className="description"
+                        style={{ marginBottom: "0px" }}
+                    >
                         <ul>
                             <li>
                                 <span className="bold">
@@ -513,7 +522,7 @@ class Privacy extends Component {
                                 their competent data protection authority.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                     <p
                         className="bold description"
                         style={{ marginBottom: "-20px" }}

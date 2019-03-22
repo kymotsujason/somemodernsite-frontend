@@ -32,7 +32,27 @@ class ProjectsModule extends Component {
                             <div className="center_text">
                                 <Picture
                                     className="project_image"
-                                    src={projectsData[project].img}
+                                    alt={projectsData[project].alt}
+                                    sources={[
+                                        {
+                                            srcSet:
+                                                projectsData[project].img_768,
+                                            media: "(max-width: 768px)"
+                                        },
+                                        {
+                                            srcSet:
+                                                projectsData[project].img_992,
+                                            media: "(max-width: 992px)"
+                                        },
+                                        {
+                                            srcSet:
+                                                projectsData[project].img_1470,
+                                            media: "(max-width: 1470px)"
+                                        },
+                                        {
+                                            srcSet: projectsData[project].img
+                                        }
+                                    ]}
                                 />
                             </div>
                         </NavLink>

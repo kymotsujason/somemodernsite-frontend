@@ -87,6 +87,7 @@ class Home extends Component {
                                             width: 285px;
                                             height: 150px;
                                         `}
+                                        alt="Responsive Front-end"
                                         sources={[
                                             {
                                                 srcSet: frontend_img_768,
@@ -135,6 +136,7 @@ class Home extends Component {
                                             width: 285px;
                                             height: 150px;
                                         `}
+                                        alt="Back-end Optimization"
                                         sources={[
                                             {
                                                 srcSet: backend_img_768,
@@ -157,7 +159,7 @@ class Home extends Component {
                                         className="subtitle"
                                         style={{ marginBottom: "1px" }}
                                     >
-                                        Optimized back-end code
+                                        Back-end API optimization
                                     </p>
                                     <p
                                         className="description"
@@ -180,6 +182,7 @@ class Home extends Component {
                                             width: 285px;
                                             height: 150px;
                                         `}
+                                        alt="Analytics"
                                         sources={[
                                             {
                                                 srcSet: analytics_img_768,
@@ -202,7 +205,7 @@ class Home extends Component {
                                         className="subtitle"
                                         style={{ marginBottom: "1px" }}
                                     >
-                                        Analytics-focused Results
+                                        Analytics-focused results
                                     </p>
                                     <p
                                         className="description"

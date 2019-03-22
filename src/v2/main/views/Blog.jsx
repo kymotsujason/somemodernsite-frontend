@@ -50,10 +50,12 @@ class Blog extends Component {
                         </div>
                     ) : this.props.blogData.length > 0 ? (
                         <div
-                            className="center_content p-grid"
+                            className="center_content"
                             style={{ marginBottom: "2em" }}
                         >
-                            <BlogHandler blogData={this.props.blogData} />
+                            <div className="p-grid">
+                                <BlogHandler blogData={this.props.blogData} />
+                            </div>
                         </div>
                     ) : (
                         <div className="center_content center_text">

@@ -55,9 +55,9 @@ class GameOfLifeHome extends Component {
                                 paddingLeft: "1em"
                             }}
                         >
-                            <span className="work_exp">
+                            <div className="work_exp">
                                 <p className="title">Conway's Game of Life</p>
-                                <p className="subtitle">
+                                <span className="subtitle">
                                     This is an old, but popular evolution game
                                     called Conway's Game of Life. The idea is
                                     that a universe is created with cells that
@@ -90,8 +90,8 @@ class GameOfLifeHome extends Component {
                                     I followed a tutorial to create this game,
                                     but expanded it by improving the
                                     responsiveness for smaller screens.
-                                </p>
-                            </span>
+                                </span>
+                            </div>
                         </div>
                         {this.renderMenu()}
                     </div>

@@ -38,7 +38,7 @@ class Footer extends Component {
                         <div>
                             <a
                                 style={{ color: "white" }}
-                                href="https://linkedin.com/in/kymotsujason"
+                                href="https://www.linkedin.com/in/kaisrisque/"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
@@ -46,7 +46,7 @@ class Footer extends Component {
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://github.com/kymotsujason/"
+                                href="https://github.com/kaisrisque"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faGithub} size="2x" />
@@ -54,7 +54,7 @@ class Footer extends Component {
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://bitbucket.org/kymotsujason/"
+                                href="https://bitbucket.org/kaisrisque/"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faBitbucket} size="2x" />
@@ -73,7 +73,7 @@ class Footer extends Component {
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://www.quora.com/profile/Jason-Yue-14"
+                                href="https://www.quora.com/profile/Jason-2082"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faQuora} size="2x" />
@@ -81,7 +81,7 @@ class Footer extends Component {
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://soundcloud.com/jason-yue-484250127"
+                                href="https://soundcloud.com/kaisrisque"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon
@@ -92,7 +92,7 @@ class Footer extends Component {
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://www.youtube.com/user/kymotsujason"
+                                href="https://www.youtube.com/c/kaisrisque"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faYoutube} size="2x" />
@@ -100,7 +100,7 @@ class Footer extends Component {
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://steamcommunity.com/id/kymotsujason/"
+                                href="https://steamcommunity.com/id/kaisrisque/"
                                 onClick={e => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faSteam} size="2x" />
@@ -111,7 +111,7 @@ class Footer extends Component {
                             <span> 2018 - 2019 Jason Yue - Powered by </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://github.com/kymotsujason/somemodernsite-backend"
+                                href="https://github.com/kaisrisque/somemodernsite-backend"
                                 onClick={e => this.handleClick(e)}
                             >
                                 Django
@@ -119,7 +119,7 @@ class Footer extends Component {
                             <span> & </span>
                             <a
                                 style={{ color: "white" }}
-                                href="https://github.com/kymotsujason/somemodernsite-frontend"
+                                href="https://github.com/kaisrisque/somemodernsite-frontend"
                                 onClick={e => this.handleClick(e)}
                             >
                                 React
