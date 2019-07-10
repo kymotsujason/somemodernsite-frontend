@@ -69,18 +69,18 @@ class TicTacToeHome extends Component {
                                     }}
                                 />
                                 {this.state.id.trim() === "" ||
-                                !isAlphanumeric(this.state.id) ||
-                                this.state.id.length !== 5 ? (
+                                    !isAlphanumeric(this.state.id) ||
+                                    this.state.id.length !== 5 ? (
                                         <label style={{ color: "red" }}>
-                                        Invalid id
+                                            Invalid id
                                         </label>
                                     ) : (
                                         <StylizedButton
                                             text="Join"
                                             url={
                                                 "/projects/tic-tac-toe/multiplayer/" +
-                                            this.state.id +
-                                            "/"
+                                                this.state.id +
+                                                "/"
                                             }
                                         />
                                     )}
@@ -182,6 +182,10 @@ class TicTacToeHome extends Component {
     }
 
     render() {
+        if (document.title !== "Tic Tac Toe") {
+            document.title = "Tic Tac Toe";
+        }
+
         return !this.state.wrong ? (
             <div>
                 <Panel>

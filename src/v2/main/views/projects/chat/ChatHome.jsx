@@ -46,6 +46,10 @@ class ChatHome extends Component {
     }
 
     render() {
+        if (document.title !== "Realtime Chat") {
+            document.title = "Realtime Chat";
+        }
+
         let url = window.location.href.split("/");
         return url.length <= 6 ? (
             <div>

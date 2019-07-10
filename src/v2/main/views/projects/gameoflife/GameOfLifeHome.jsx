@@ -28,6 +28,10 @@ class GameOfLifeHome extends Component {
     }
 
     render() {
+        if (document.title !== "Game of Life") {
+            document.title = "Game of Life";
+        }
+
         let url = window.location.href.split("/");
         return url.length <= 6 ? (
             <div>
