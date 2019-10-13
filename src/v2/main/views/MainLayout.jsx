@@ -11,7 +11,7 @@ import {
     projects_url,
     about_url,
     resume_url,
-    blog_url,
+    //blog_url,
     contact_url
 } from "../../assets/static_routes";
 
@@ -44,15 +44,15 @@ const AsyncResume = Loadable({
     loading: PageLoader
 });
 
-const AsyncBlog = Loadable({
-    loader: () => import("./Blog"),
-    loading: PageLoader
-});
+// const AsyncBlog = Loadable({
+//     loader: () => import("./Blog"),
+//     loading: PageLoader
+// });
 
-const AsyncBlogPage = Loadable({
-    loader: () => import("./BlogPage"),
-    loading: PageLoader
-});
+// const AsyncBlogPage = Loadable({
+//     loader: () => import("./BlogPage"),
+//     loading: PageLoader
+// });
 
 const AsyncContact = Loadable({
     loader: () => import("./Contact"),
@@ -106,7 +106,7 @@ class MainLayout extends Component {
                                     path={resume_url}
                                     component={AsyncResume}
                                 />
-                                <Route
+                                {/* <Route
                                     exact
                                     path={blog_url}
                                     component={AsyncBlog}
@@ -114,7 +114,7 @@ class MainLayout extends Component {
                                 <Route
                                     path={blog_url + "/:title"}
                                     component={AsyncBlogPage}
-                                />
+                                /> */}
                                 <Route
                                     exact
                                     path={contact_url}

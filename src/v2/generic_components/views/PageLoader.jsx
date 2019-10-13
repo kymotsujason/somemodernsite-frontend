@@ -1,20 +1,24 @@
 import React from "react";
 import Panel from "../components/Panel";
-import Loader from "react-loader-spinner";
+import { makeStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+        position: "absolute",
+        width: "100%",
+        top: 0
+    }
+});
 
 const PageLoader = ({ isLoading, error }) => {
+    const classes = useStyles();
+
     if (isLoading) {
         return (
-            <div>
-                <Panel>
-                    <div
-                        className="center_text push_down"
-                        style={{ paddingTop: "5em" }}
-                    >
-                        <Loader type="Oval" color="#FFFFFF" />
-                        Loading...
-                    </div>
-                </Panel>
+            <div className={classes.root}>
+                <LinearProgress />
             </div>
         );
     } else if (error) {

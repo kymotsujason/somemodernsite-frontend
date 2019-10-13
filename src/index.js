@@ -11,6 +11,8 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 
+import "typeface-roboto";
+
 // components
 
 // react-typist fancy blinking

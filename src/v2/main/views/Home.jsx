@@ -17,22 +17,10 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { Picture } from "react-responsive-picture";
 import { css } from "emotion";
-import Loader from "react-loader-spinner";
-import BlogHandler from "../components/BlogHandler";
 import StylizedButton from "../../generic_components/components/StylizedButton";
 import ProjectsModule from "./../components/ProjectsModule";
 
 class Home extends Component {
-    componentDidMount() {
-        if (
-            this.props.blogData.length === 0 &&
-            !this.props.blogError &&
-            !this.props.loadingBlog
-        ) {
-            this.props.loadBlog();
-        }
-    }
-
     render() {
         if (document.title !== "Jason Yue - Canadian Full-Stack Developer") {
             document.title = "Jason Yue - Canadian Full-Stack Developer";
@@ -254,6 +242,24 @@ class Home extends Component {
                 </Panel>
                 <Panel>
                     <div className="center_content">
+                        <span className="center_text">
+                            <p className="title">
+                                A developer's thoughts, stories, and ideas
+                            </p>
+                            <p className="subtitle">
+                                As a full-stack developer with experience in
+                                various technologies, here is where I post
+                                monthly blogs on various events that have some
+                                degree of relevance to my life and career.
+                            </p>
+                        </span>
+                    </div>
+                    <a href="https://blog.jasonyue.ca/">
+                        <StylizedButton width="200px" text="Visit Blog" />
+                    </a>
+                </Panel>
+                <Panel light={true}>
+                    <div className="center_content">
                         <div className="center_text">
                             <p
                                 className="title"
@@ -274,48 +280,6 @@ class Home extends Component {
                             />
                         </div>
                     </div>
-                </Panel>
-                <Panel light={true}>
-                    <div className="center_content">
-                        <span className="center_text">
-                            <p className="title">My latest blog posts</p>
-                        </span>
-                    </div>
-                    {this.props.blogError ? (
-                        <div className="center_content">
-                            <span className="center_text">
-                                <p className="title">
-                                    Unable to fetch blog contents
-                                </p>
-                            </span>
-                        </div>
-                    ) : this.props.blogData.length > 0 ? (
-                        <div>
-                            <div
-                                className="center_content p-grid-centered"
-                                style={{
-                                    marginBottom: "4em"
-                                }}
-                            >
-                                <BlogHandler
-                                    limit={3}
-                                    blogData={this.props.blogData}
-                                />
-                            </div>
-                            <div style={{ marginBottom: "5em" }}>
-                                <StylizedButton
-                                    width="200px"
-                                    text="View more"
-                                    url="/blog"
-                                />
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="center_text">
-                            <Loader type="Oval" color="#FFFFFF" />
-                            Fetching...
-                        </div>
-                    )}
                 </Panel>
             </div>
         );

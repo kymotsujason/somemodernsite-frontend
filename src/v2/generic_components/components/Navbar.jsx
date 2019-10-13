@@ -35,6 +35,21 @@ class Navbar extends Component {
                             >
                                 {label}
                             </span>
+                        ) : label === "Blog" ? (
+                            <a href="https://blog.jasonyue.ca/">
+                                <span
+                                    onClick={() =>
+                                        this.state.menu
+                                            ? this.setState(prevState => ({
+                                                menu: !prevState.menu
+                                            }))
+                                            : null
+                                    }
+                                    className="p-menuitem-text nav_menu"
+                                >
+                                    {label}
+                                </span>
+                            </a>
                         ) : (
                             <NavLink
                                 to={url}
