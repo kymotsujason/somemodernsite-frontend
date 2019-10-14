@@ -114,7 +114,7 @@ class Footer extends Component {
                                 href="https://github.com/kaisrisque/somemodernsite-backend"
                                 onClick={e => this.handleClick(e)}
                             >
-                                Django
+                                Node
                             </a>
                             <span> & </span>
                             <a
