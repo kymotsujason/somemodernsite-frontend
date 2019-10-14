@@ -12,11 +12,6 @@ const AsyncMainOld = Loadable({
     loading: PageLoader
 });
 
-const AsyncNotFound = Loadable({
-    loader: () => import("./v1/generic_components/views/NotFound"),
-    loading: PageLoader
-});
-
 class RouterView extends Component {
     render() {
         return (
@@ -30,8 +25,7 @@ class RouterView extends Component {
                             />
                             <Route path="/" component={withTracker(Main)} /> */}
                             <Route path="/v1" component={AsyncMainOld} />
-                            <Route path="/" component={Main} />
-                            <Route component={AsyncNotFound} />
+                            <Route component={Main} />
                         </Switch>
                     </ScrollToTop>
                 </BrowserRouter>
