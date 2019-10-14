@@ -254,9 +254,11 @@ class Home extends Component {
                             </p>
                         </span>
                     </div>
-                    <a href="https://blog.jasonyue.ca/">
-                        <StylizedButton width="200px" text="Visit Blog" />
-                    </a>
+                    <StylizedButton
+                        width="200px"
+                        text="Visit Blog"
+                        url="https://blog.jasonyue.ca/"
+                    />
                 </Panel>
                 <Panel light={true}>
                     <div className="center_content">

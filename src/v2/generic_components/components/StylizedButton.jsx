@@ -19,17 +19,31 @@ class StylizedButton extends Component {
                 }}
             >
                 {url ? (
-                    <NavLink to={url}>
-                        <div
-                            style={{
-                                padding: "1em",
-                                marginLeft: "-2em",
-                                color: "white"
-                            }}
-                        >
-                            {text}
-                        </div>
-                    </NavLink>
+                    url.indexOf("http") > -1 ? (
+                        <a href={url}>
+                            <div
+                                style={{
+                                    padding: "1em",
+                                    marginLeft: "-2em",
+                                    color: "white"
+                                }}
+                            >
+                                {text}
+                            </div>
+                        </a>
+                    ) : (
+                        <NavLink to={url}>
+                            <div
+                                style={{
+                                    padding: "1em",
+                                    marginLeft: "-2em",
+                                    color: "white"
+                                }}
+                            >
+                                {text}
+                            </div>
+                        </NavLink>
+                    )
                 ) : (
                     <div
                         style={{

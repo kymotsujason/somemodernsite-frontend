@@ -139,9 +139,13 @@ class Footer extends Component {
                             )}
                         </div>
                         <div>
-                            <NavLink style={{ color: "white" }} to={"/v1"}>
+                            <a
+                                style={{ color: "white" }}
+                                href="https://jasonyue.ca/v1"
+                                onClick={e => this.handleClick(e)}
+                            >
                                 <span>v1</span>
-                            </NavLink>
+                            </a>
                             <span> - v2</span>
                         </div>
                     </div>
