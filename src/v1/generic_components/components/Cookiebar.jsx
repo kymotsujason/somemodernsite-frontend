@@ -59,10 +59,7 @@ class Cookiebar extends Component {
 
     render() {
         const { cookiebar } = this.state;
-        let width = this.state.width;
         let height = 115;
-        let top = this.state.top;
-        let left = this.state.left;
 
         if (this.state.visible) {
             return (
@@ -71,11 +68,9 @@ class Cookiebar extends Component {
                     style={{
                         background: "#111",
                         color: "white",
-                        width: width,
-                        height: height,
-                        top: top,
-                        left: left
+                        height: height
                     }}
+                    position="bottom"
                     baseZIndex={1000000}
                     showCloseIcon={false}
                     dismissable={false}

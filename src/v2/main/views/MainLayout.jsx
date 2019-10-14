@@ -14,7 +14,6 @@ import {
 
 import Header from "../../generic_components/views/Header";
 import Footer from "../../generic_components/views/Footer";
-import Cookiebar from "../../../v1/generic_components/components/Cookiebar";
 import Home from "./Home";
 import Projects from "./Projects";
 import ProjectRouter from "./ProjectsRouter";
@@ -64,7 +63,7 @@ const MainLayout = () => {
                                 >
                                     <div className="page">
                                         <Component />
-                                        <Cookiebar />
+
                                         <Footer />
                                     </div>
                                 </CSSTransition>
