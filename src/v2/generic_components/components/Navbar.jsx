@@ -72,7 +72,7 @@ class Navbar extends Component {
             navClass = "nav";
         }
         return (
-            <div>
+            <div style={{ background: "rgb(20, 21, 27)" }}>
                 <NavLink to="/">
                     <img
                         className="p-menuitem-text nav_logo"
@@ -87,6 +87,7 @@ class Navbar extends Component {
                             backgroundColor: "transparent",
                             border: "transparent",
                             cursor: "pointer",
+                            color: "white",
                             marginRight: "2em",
                             marginTop: "1em"
                         }}
