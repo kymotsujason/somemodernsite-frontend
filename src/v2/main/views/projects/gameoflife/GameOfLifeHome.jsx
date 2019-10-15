@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import Panel from "./../../../../generic_components/components/Panel";
 import NotFound from "./../../../../generic_components/views/NotFound";
 import Game from "./Game";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { PropTypes } from "prop-types";
 
 class GameOfLifeHome extends Component {
@@ -36,7 +36,7 @@ class GameOfLifeHome extends Component {
         return url.length <= 6 ? (
             <div>
                 <Panel>
-                    <div className="center_content push_down">
+                    {/* <div className="center_content push_down">
                         <FontAwesomeIcon
                             style={{
                                 cursor: "pointer",
@@ -48,7 +48,7 @@ class GameOfLifeHome extends Component {
                             onClick={this.goBack}
                         />
                         <span className="description"> Back</span>
-                    </div>
+                    </div> */}
                     <div
                         className="center_content "
                         style={{ marginBottom: "2em" }}
