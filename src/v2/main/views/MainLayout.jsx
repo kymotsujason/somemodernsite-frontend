@@ -58,6 +58,9 @@ const MainLayout = () => {
                                 <CSSTransition
                                     in={match != null}
                                     timeout={300}
+                                    onEntering={() => {
+                                        window.scrollTo(0, 0);
+                                    }}
                                     classNames="page"
                                     unmountOnExit
                                 >

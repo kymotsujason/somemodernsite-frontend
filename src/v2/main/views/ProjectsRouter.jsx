@@ -1,28 +1,21 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import Loadable from "react-loadable";
-import PageLoader from "../../generic_components/views/PageLoader";
+import { withRouter } from "react-router-dom";
 import Panel from "../../generic_components/components/Panel";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import NotFound from "./../../generic_components/views/NotFound";
+import GameOfLife from "./projects/gameoflife/GameOfLifeHome";
 
 // const AsyncTicTacToe = Loadable({
 //     loader: () => import("./projects/tictactoe/TicTacToeHome"),
 //     loading: PageLoader
 // });
 
-const AsyncGameOfLife = Loadable({
-    loader: () => import("./projects/gameoflife/GameOfLifeHome"),
-    loading: PageLoader
-});
-
 // const AsyncChat = Loadable({
 //     loader: () => import("./projects/chat/ChatHome"),
 //     loading: PageLoader
 // });
 
-const AsyncNotFound = Loadable({
-    loader: () => import("./../../generic_components/views/NotFound"),
-    loading: PageLoader
-});
 class ProjectsRouter extends Component {
     constructor(props) {
         super(props);
@@ -31,43 +24,58 @@ class ProjectsRouter extends Component {
     }
 
     route() {
-        let url = this.props.match.params.path;
-        if (url === "tic-tac-toe") {
-            //return <AsyncTicTacToe />;
+        if (this.props.match === null) {
             return (
-                <div>
-                    <Panel>
-                        <div className="center_content center_text">
-                            <p
-                                className="header"
-                                style={{ marginBottom: "0.5em" }}
-                            >
-                                Under migration
-                            </p>
-                        </div>
-                    </Panel>
+                <div
+                    style={{
+                        flexGrow: 1,
+                        position: "absolute",
+                        width: "100%",
+                        top: 0
+                    }}
+                >
+                    <LinearProgress />
                 </div>
             );
-        } else if (url === "chat") {
-            //return <AsyncChat />;
-            return (
-                <div>
-                    <Panel>
-                        <div className="center_content center_text">
-                            <p
-                                className="header"
-                                style={{ marginBottom: "0.5em" }}
-                            >
-                                Under migration
-                            </p>
-                        </div>
-                    </Panel>
-                </div>
-            );
-        } else if (url === "game-of-life") {
-            return <AsyncGameOfLife />;
         } else {
-            return <AsyncNotFound />;
+            let url = this.props.match.params.path;
+            if (url === "tic-tac-toe") {
+                //return <AsyncTicTacToe />;
+                return (
+                    <div>
+                        <Panel>
+                            <div className="center_content center_text">
+                                <p
+                                    className="header"
+                                    style={{ marginBottom: "0.5em" }}
+                                >
+                                    Under migration
+                                </p>
+                            </div>
+                        </Panel>
+                    </div>
+                );
+            } else if (url === "chat") {
+                //return <AsyncChat />;
+                return (
+                    <div>
+                        <Panel>
+                            <div className="center_content center_text">
+                                <p
+                                    className="header"
+                                    style={{ marginBottom: "0.5em" }}
+                                >
+                                    Under migration
+                                </p>
+                            </div>
+                        </Panel>
+                    </div>
+                );
+            } else if (url === "game-of-life") {
+                return <GameOfLife />;
+            } else {
+                return <NotFound />;
+            }
         }
     }
 
@@ -77,11 +85,7 @@ class ProjectsRouter extends Component {
 }
 
 ProjectsRouter.propTypes = {
-    match: PropTypes.shape({
-        params: PropTypes.shape({
-            path: PropTypes.string
-        })
-    })
+    match: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 };
 
-export default ProjectsRouter;
+export default withRouter(ProjectsRouter);

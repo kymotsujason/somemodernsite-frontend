@@ -4,7 +4,6 @@ import { CookiesProvider } from "react-cookie";
 import Loadable from "react-loadable";
 import PageLoader from "./v2/generic_components/views/PageLoader";
 //import withTracker from "./v1/generic_components/components/withTracker";
-import ScrollToTop from "./v2/generic_components/components/ScrollToTop";
 import Main from "./v2/main/views/MainLayout";
 
 const AsyncMainOld = Loadable({
@@ -17,17 +16,15 @@ class RouterView extends Component {
         return (
             <CookiesProvider>
                 <BrowserRouter>
-                    <ScrollToTop>
-                        <Switch>
-                            {/* <Route
+                    <Switch>
+                        {/* <Route
                                 path="/v1"
                                 component={withTracker(AsyncMainOld)}
                             />
                             <Route path="/" component={withTracker(Main)} /> */}
-                            <Route path="/v1" component={AsyncMainOld} />
-                            <Route component={Main} />
-                        </Switch>
-                    </ScrollToTop>
+                        <Route path="/v1" component={AsyncMainOld} />
+                        <Route component={Main} />
+                    </Switch>
                 </BrowserRouter>
             </CookiesProvider>
         );
