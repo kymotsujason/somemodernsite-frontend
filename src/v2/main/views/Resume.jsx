@@ -41,7 +41,7 @@ class Resume extends Component {
                             </p>
                             <span className="panel_bottom_space">
                                 <a
-                                    href="https://jasonyue.ca/static/bundles/media/2019-Jason_Yue-Resume.pdf"
+                                    href="https://jasonyue.ca/public/pdf/2019-Jason_Yue-Resume-Web.pdf"
                                     onClick={e => this.handleClick(e)}
                                 >
                                     <StylizedButton
