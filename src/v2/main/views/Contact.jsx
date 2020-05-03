@@ -75,14 +75,7 @@ class Contact extends Component {
                 </Panel>
                 {this.state.visible ? this.renderOverlay() : null}
                 <Panel className="contact_map">
-                    <div className="center_content">
-                        <span
-                            className="center_text"
-                            style={{ color: "black" }}
-                        >
-                            <p className="header" />
-                        </span>
-                    </div>
+                    <div style={{ marginBottom: "400px" }} />
                 </Panel>
             </div>
         );

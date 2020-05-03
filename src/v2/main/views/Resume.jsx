@@ -41,8 +41,8 @@ class Resume extends Component {
                             </p>
                             <span className="panel_bottom_space">
                                 <a
-                                    href="https://jasonyue.ca/public/pdf/2019-Jason_Yue-Resume-Web.pdf"
-                                    onClick={e => this.handleClick(e)}
+                                    href="https://jasonyue.ca/public/pdf/2020-Jason_Yue-Resume-Web.pdf"
+                                    onClick={(e) => this.handleClick(e)}
                                 >
                                     <StylizedButton
                                         width="200px"
@@ -68,6 +68,8 @@ class Resume extends Component {
                                         <span>
                                             <ul>
                                                 <li>React.js</li>
+                                                <li>Node.js</li>
+                                                <li>Redux</li>
                                                 <li>JavaScript / JQuery</li>
                                                 <li>PHP</li>
                                                 <li>HTML5 / CSS3</li>
@@ -95,8 +97,6 @@ class Resume extends Component {
                                         </p>
                                         <span>
                                             <ul>
-                                                <li>Node.js</li>
-                                                <li>Redux (limited)</li>
                                                 <li>Electron.js (limited)</li>
                                                 <li>Drupal</li>
                                                 <li>Swift</li>
@@ -126,6 +126,26 @@ class Resume extends Component {
                                 Work Experience
                             </p>
                             <div className="p-col-9-auto description">
+                                <div className="work_exp">
+                                    <p className="bold uppercase white">
+                                        Junior IT Engineer
+                                    </p>
+                                    <p>
+                                        <span className="bold white">
+                                            Fortinet
+                                        </span>
+                                        , Burnaby, BC, March 2019 - Present 2017
+                                        <br />
+                                        Provide technical assistance and support
+                                        for incoming queries and issues related
+                                        to networking, computer software, and
+                                        hardware. Develop automated scripts and
+                                        services to enhance general helpdesk and
+                                        IT services and procedures. Design
+                                        websites and executables to reduce user
+                                        story complexity
+                                    </p>
+                                </div>
                                 <div className="work_exp">
                                     <p className="bold uppercase white">
                                         Junior Web Developer
