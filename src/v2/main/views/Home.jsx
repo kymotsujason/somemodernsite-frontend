@@ -67,7 +67,7 @@ class Home extends Component {
                                 <span
                                     className="p-col-4-auto"
                                     style={{
-                                        padding: "2em"
+                                        padding: "2em",
                                     }}
                                 >
                                     <Picture
@@ -79,19 +79,19 @@ class Home extends Component {
                                         sources={[
                                             {
                                                 srcSet: frontend_img_768,
-                                                media: "(max-width: 768px)"
+                                                media: "(max-width: 768px)",
                                             },
                                             {
                                                 srcSet: frontend_img_992,
-                                                media: "(max-width: 992px)"
+                                                media: "(max-width: 992px)",
                                             },
                                             {
                                                 srcSet: frontend_img_1470,
-                                                media: "(max-width: 1470px)"
+                                                media: "(max-width: 1470px)",
                                             },
                                             {
-                                                srcSet: frontend_img
-                                            }
+                                                srcSet: frontend_img,
+                                            },
                                         ]}
                                     />
                                     <p
@@ -109,14 +109,14 @@ class Home extends Component {
                                         amazing theme and design. I create
                                         performance-oriented, front-end
                                         components with a focus on user
-                                        satisfaction to guarentee user retention
+                                        satisfaction to guarantee user retention
                                         and growth.
                                     </p>
                                 </span>
                                 <span
                                     className="p-col-4-auto"
                                     style={{
-                                        padding: "2em"
+                                        padding: "2em",
                                     }}
                                 >
                                     <Picture
@@ -128,19 +128,19 @@ class Home extends Component {
                                         sources={[
                                             {
                                                 srcSet: backend_img_768,
-                                                media: "(max-width: 768px)"
+                                                media: "(max-width: 768px)",
                                             },
                                             {
                                                 srcSet: backend_img_992,
-                                                media: "(max-width: 992px)"
+                                                media: "(max-width: 992px)",
                                             },
                                             {
                                                 srcSet: backend_img_1470,
-                                                media: "(max-width: 1470px)"
+                                                media: "(max-width: 1470px)",
                                             },
                                             {
-                                                srcSet: backend_img
-                                            }
+                                                srcSet: backend_img,
+                                            },
                                         ]}
                                     />
                                     <p
@@ -162,7 +162,7 @@ class Home extends Component {
                                 <span
                                     className="p-col-4-auto"
                                     style={{
-                                        padding: "2em"
+                                        padding: "2em",
                                     }}
                                 >
                                     <Picture
@@ -174,19 +174,19 @@ class Home extends Component {
                                         sources={[
                                             {
                                                 srcSet: analytics_img_768,
-                                                media: "(max-width: 768px)"
+                                                media: "(max-width: 768px)",
                                             },
                                             {
                                                 srcSet: analytics_img_992,
-                                                media: "(max-width: 992px)"
+                                                media: "(max-width: 992px)",
                                             },
                                             {
                                                 srcSet: analytics_img_1470,
-                                                media: "(max-width: 1470px)"
+                                                media: "(max-width: 1470px)",
                                             },
                                             {
-                                                srcSet: analytics_img
-                                            }
+                                                srcSet: analytics_img,
+                                            },
                                         ]}
                                     />
                                     <p
@@ -226,7 +226,7 @@ class Home extends Component {
                         <div
                             className="center_content p-grid-centered"
                             style={{
-                                marginBottom: "4em"
+                                marginBottom: "4em",
                             }}
                         >
                             <ProjectsModule limit={3} />
@@ -292,7 +292,7 @@ function mapStateToProps(state) {
     return {
         loadingBlog: state.loadingBlog,
         blogData: state.blogData,
-        blogError: state.blogError
+        blogError: state.blogError,
     };
 }
 
@@ -300,10 +300,7 @@ Home.propTypes = {
     blogData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     blogError: PropTypes.bool,
     loadingBlog: PropTypes.bool,
-    loadBlog: PropTypes.func
+    loadBlog: PropTypes.func,
 };
 
-export default connect(
-    mapStateToProps,
-    { loadBlog }
-)(Home);
+export default connect(mapStateToProps, { loadBlog })(Home);
