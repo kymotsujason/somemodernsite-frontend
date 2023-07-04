@@ -108,7 +108,7 @@ class Footer extends Component {
                         </div>
                         <div>
                             <FontAwesomeIcon icon={faCopyright} />
-                            <span> 2018 - 2020 Jason Yue - Powered by </span>
+                            <span> 2018 - 2023 Jason Yue - Powered by </span>
                             <a
                                 style={{ color: "white" }}
                                 href="https://github.com/kymotsujason/somemodernsite-backend"

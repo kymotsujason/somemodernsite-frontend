@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
 import Panel from "../../generic_components/components/Panel";
-import LinearProgress from "@material-ui/core/LinearProgress";
+import LinearProgress from "@mui/material/LinearProgress";
 import NotFound from "./../../generic_components/views/NotFound";
 import GameOfLife from "./projects/gameoflife/GameOfLifeHome";
 
@@ -31,7 +31,7 @@ class ProjectsRouter extends Component {
                         flexGrow: 1,
                         position: "absolute",
                         width: "100%",
-                        top: 0
+                        top: 0,
                     }}
                 >
                     <LinearProgress />
@@ -85,7 +85,7 @@ class ProjectsRouter extends Component {
 }
 
 ProjectsRouter.propTypes = {
-    match: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+    match: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 export default withRouter(ProjectsRouter);

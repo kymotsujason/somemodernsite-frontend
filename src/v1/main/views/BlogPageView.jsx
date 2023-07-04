@@ -4,7 +4,6 @@ import Parser from "html-react-parser";
 import axios from "axios";
 import CustomButton from "../../generic_components/components/CustomButton";
 import { withRouter } from "react-router-dom";
-import { Growl } from "primereact/growl";
 import { ClimbingBoxLoader } from "react-spinners";
 import { PropTypes } from "prop-types";
 
@@ -16,7 +15,7 @@ class BlogPageView extends Component {
             data: [],
             redirect: false,
             loaded: true,
-            error: false
+            error: false,
         };
 
         this.renderPage = this.renderPage.bind(this);
@@ -40,27 +39,21 @@ class BlogPageView extends Component {
             }
             axios
                 .get(endpoint)
-                .then(response => {
+                .then((response) => {
                     if (response.status !== 200) {
                         this.setState({
                             data: response.data,
                             redirect: true,
-                            loaded: true
+                            loaded: true,
                         });
                     }
                 })
-                .catch(error => {
+                .catch((error) => {
                     if (error) {
                         this.setState({ error: true });
                     }
                 });
             this.props.history.push(url);
-        } else {
-            this.growl.show({
-                severity: "error",
-                summary: "Error Message",
-                detail: "Previous page does not exist!"
-            });
         }
     }
 
@@ -80,26 +73,20 @@ class BlogPageView extends Component {
             }
             axios
                 .get(endpoint)
-                .then(response => {
+                .then((response) => {
                     if (response.status === 200) {
                         this.setState({
                             data: response.data,
                             redirect: true,
-                            loaded: true
+                            loaded: true,
                         });
                     }
                 })
-                .catch(error => {
+                .catch((error) => {
                     if (error) {
                         this.setState({ error: true });
                     }
                 });
-        } else {
-            this.growl.show({
-                severity: "error",
-                summary: "Error Message",
-                detail: "Next page does not exist!"
-            });
         }
     }
 
@@ -125,7 +112,7 @@ class BlogPageView extends Component {
                             {new Intl.DateTimeFormat("en-CA", {
                                 year: "numeric",
                                 month: "short",
-                                day: "2-digit"
+                                day: "2-digit",
                             }).format(new Date(data.published_date))}
                         </small>
                     </div>
@@ -148,7 +135,6 @@ class BlogPageView extends Component {
                     <div>
                         {this.renderPage()}
                         <br />
-                        <Growl ref={el => (this.growl = el)} />
                         <div className="p-grid_nowrap p-justify-center">
                             <Card>
                                 <CustomButton
@@ -184,7 +170,7 @@ BlogPageView.propTypes = {
     location: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     history: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     anim: PropTypes.bool,
-    data: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+    data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 export default withRouter(BlogPageView);

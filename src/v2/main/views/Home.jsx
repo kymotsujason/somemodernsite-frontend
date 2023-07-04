@@ -16,7 +16,7 @@ import { loadBlog } from "../../../redux/actions/index";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { Picture } from "react-responsive-picture";
-import { css } from "emotion";
+import { css } from "@emotion/css";
 import StylizedButton from "../../generic_components/components/StylizedButton";
 import ProjectsModule from "./../components/ProjectsModule";
 

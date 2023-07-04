@@ -41,7 +41,7 @@ class Resume extends Component {
                             </p>
                             <span className="panel_bottom_space">
                                 <a
-                                    href="https://jasonyue.ca/public/pdf/2020-Jason_Yue-Resume-Web.pdf"
+                                    href="https://jasonyue.ca/public/pdf/2022-Jason_Yue-Resume-Web.pdf"
                                     onClick={(e) => this.handleClick(e)}
                                 >
                                     <StylizedButton
@@ -88,6 +88,9 @@ class Resume extends Component {
                                                     Responsive Layout and Design
                                                 </li>
                                                 <li>Agile Methodology</li>
+                                                <li>
+                                                    Cross-Browser Compatibility
+                                                </li>
                                             </ul>
                                         </span>
                                     </div>
@@ -97,6 +100,7 @@ class Resume extends Component {
                                         </p>
                                         <span>
                                             <ul>
+                                                <li>Angular.js</li>
                                                 <li>Electron.js (limited)</li>
                                                 <li>Drupal</li>
                                                 <li>Swift</li>
@@ -112,9 +116,6 @@ class Resume extends Component {
                                                     Testing (limited)
                                                 </li>
                                                 <li>Photoshop / Illustrator</li>
-                                                <li>
-                                                    Cross-Browser Compatibility
-                                                </li>
                                             </ul>
                                         </span>
                                     </div>
@@ -128,13 +129,34 @@ class Resume extends Component {
                             <div className="p-col-9-auto description">
                                 <div className="work_exp">
                                     <p className="bold uppercase white">
-                                        Junior IT Engineer
+                                        Software Engineer
                                     </p>
                                     <p>
                                         <span className="bold white">
                                             Fortinet
                                         </span>
-                                        , Burnaby, BC, March 2019 - Present 2017
+                                        , Burnaby, BC, August 2021 - Present
+                                        <br />
+                                        Design and develop new features for
+                                        Fortinet mobile software (FortiExplorer)
+                                        and E-Learning game (Fortinet Fabric
+                                        Challenge). Collaborate with other teams
+                                        to improve product integration. Work
+                                        with other developers to review and
+                                        improve code quality • Optimize and
+                                        stress test builds against heavy usage
+                                        (scale)
+                                    </p>
+                                </div>
+                                <div className="work_exp">
+                                    <p className="bold uppercase white">
+                                        IT Specialist Team Lead
+                                    </p>
+                                    <p>
+                                        <span className="bold white">
+                                            Fortinet
+                                        </span>
+                                        , Burnaby, BC, March 2019 - July 2021
                                         <br />
                                         Provide technical assistance and support
                                         for incoming queries and issues related

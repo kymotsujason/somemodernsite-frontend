@@ -1,23 +1,18 @@
 import React from "react";
 import Panel from "../components/Panel";
-import { makeStyles } from "@material-ui/core/styles";
-import LinearProgress from "@material-ui/core/LinearProgress";
-
-const useStyles = makeStyles({
-    root: {
-        flexGrow: 1,
-        position: "absolute",
-        width: "100%",
-        top: 0
-    }
-});
+import LinearProgress from "@mui/material/LinearProgress";
 
 const PageLoader = ({ isLoading, error }) => {
-    const classes = useStyles();
-
     if (isLoading) {
         return (
-            <div className={classes.root}>
+            <div
+                style={{
+                    flexGrow: 1,
+                    position: "absolute",
+                    width: "100%",
+                    top: 0,
+                }}
+            >
                 <LinearProgress />
             </div>
         );
