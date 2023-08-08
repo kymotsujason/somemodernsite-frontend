@@ -6,10 +6,10 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faBitbucket } from "@fortawesome/free-brands-svg-icons";
-import { faQuora } from "@fortawesome/free-brands-svg-icons";
+//import { faQuora } from "@fortawesome/free-brands-svg-icons";
 import { faSoundcloud } from "@fortawesome/free-brands-svg-icons";
 // import { faHackerrank } from "@fortawesome/free-brands-svg-icons";
-import { faSteam } from "@fortawesome/free-brands-svg-icons";
+//import { faSteam } from "@fortawesome/free-brands-svg-icons";
 import Panel from "../components/Panel";
 
 class Footer extends Component {
@@ -70,14 +70,14 @@ class Footer extends Component {
                                     size="2x"
                                 />
                             </a> */}
-                            <span> </span>
+                            {/* <span> </span>
                             <a
                                 style={{ color: "white" }}
                                 href="https://www.quora.com/profile/Jason-2082"
                                 onClick={(e) => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faQuora} size="2x" />
-                            </a>
+                            </a> */}
                             <span> </span>
                             <a
                                 style={{ color: "white" }}
@@ -97,14 +97,14 @@ class Footer extends Component {
                             >
                                 <FontAwesomeIcon icon={faYoutube} size="2x" />
                             </a>
-                            <span> </span>
+                            {/* <span> </span>
                             <a
                                 style={{ color: "white" }}
                                 href="https://steamcommunity.com/id/kymotsujason/"
                                 onClick={(e) => this.handleClick(e)}
                             >
                                 <FontAwesomeIcon icon={faSteam} size="2x" />
-                            </a>
+                            </a> */}
                         </div>
                         <div>
                             <FontAwesomeIcon icon={faCopyright} />

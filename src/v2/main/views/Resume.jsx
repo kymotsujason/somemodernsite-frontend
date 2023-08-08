@@ -129,13 +129,13 @@ class Resume extends Component {
                             <div className="p-col-9-auto description">
                                 <div className="work_exp">
                                     <p className="bold uppercase white">
-                                        Software Engineer
+                                        Software Developer
                                     </p>
                                     <p>
                                         <span className="bold white">
                                             Fortinet
                                         </span>
-                                        , Burnaby, BC, August 2021 - Present
+                                        , Burnaby, BC, August 2021 - August 2023
                                         <br />
                                         Design and develop new features for
                                         Fortinet mobile software (FortiExplorer)

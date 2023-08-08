@@ -1,6 +1,7 @@
 import React from "react";
 import Panel from "../components/Panel";
 import LinearProgress from "@mui/material/LinearProgress";
+import { PropTypes } from "prop-types";
 
 const PageLoader = ({ isLoading, error }) => {
     if (isLoading) {
@@ -34,6 +35,11 @@ const PageLoader = ({ isLoading, error }) => {
     } else {
         return null;
     }
+};
+
+PageLoader.propTypes = {
+    error: PropTypes.any,
+    isLoading: PropTypes.bool,
 };
 
 export default PageLoader;
